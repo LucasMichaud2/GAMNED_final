@@ -1,0 +1,10 @@
+/* Import the Poppins font */
+@font-face {
+    font-family: 'Poppins';
+    src: local('Poppins'), url('path/to/poppins.woff2') format('woff2'), url('path/to/poppins.woff') format('woff');
+}
+
+/* Apply the Poppins font to the body or specific elements */
+body {
+    font-family: 'Poppins', sans-serif;
+}
