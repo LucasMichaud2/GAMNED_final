@@ -6,11 +6,21 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 from streamlit_elements import elements, mui, html, nivo
 
+############################### Imports ###########################################
+
+gamned_logo_url = 'https://raw.github.com/LucasMichaud2/GAMNED_final/main/Logo_G_Gamned_red_baseline.jpg'
+
 ############################### Design Elements ###################################
 
 st.markdown('<link rel="stylesheet.css" type="text/css" href="styles.css">', unsafe_allow_html=True)
 
 ############################## Title Layer #######################################
+
+col1, col2 = st.columns(2)
+
+col1.header('Marketing Tool')
+
+col2.image(gamned_logo_url)
 
 with elements('Title Layer'):
 
