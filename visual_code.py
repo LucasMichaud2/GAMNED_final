@@ -9,7 +9,7 @@ from streamlit_elements import elements, mui, html, nivo
 st.write('Hello World')
 
 
-st.markdown('<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/LucasMichaud2/GAMNED_final/main/styles.css">', unsafe_allow_html=True)
+st.markdown('<link rel="stylesheet" type="text/css" href="styles.css">', unsafe_allow_html=True)
 
 st.write('Hello World')
 
