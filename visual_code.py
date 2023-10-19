@@ -54,7 +54,7 @@ def input_layer():
 
 selected_objective, selected_target, selected_region, excluded_channel, selected_age, input_budget, channel_number = input_layer()
 
-st.write(channel_number)
+################################################################################################################
 
 with elements('Title Layer'):
 
