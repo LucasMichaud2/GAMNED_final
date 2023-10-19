@@ -1,0 +1,13 @@
+/* Import the Poppins font */
+@font-face {
+    font-family: 'Poppins';
+    src: local('Poppins'), url('https://raw.githubusercontent.com/LucasMichaud2/GAMNED_final/main/Poppins-SemiBold.woff2') format('woff2'), url('https://raw.githubusercontent.com/LucasMichaud2/GAMNED_final/main/Poppins-SemiBold.woff') format('woff');
+    src: local('Poppins'), url('https://raw.githubusercontent.com/LucasMichaud2/GAMNED_final/main/Poppins-Regular.woff2') format('woff2'), url('https://raw.githubusercontent.com/LucasMichaud2/GAMNED_final/main/Poppins-Regular.woff') format('woff');
+    src: local('Poppins'), url('https://raw.githubusercontent.com/LucasMichaud2/GAMNED_final/main/Poppins-Medium.woff2') format('woff2'), url('https://raw.githubusercontent.com/LucasMichaud2/GAMNED_final/main/Poppins-Medium.woff') format('woff');
+    src: local('Poppins'), url('https://raw.githubusercontent.com/LucasMichaud2/GAMNED_final/main/Poppins-Bold.woff2') format('woff2'), url('https://raw.githubusercontent.com/LucasMichaud2/GAMNED_final/main/Poppins-Bold.woff') format('woff');
+}
+
+/* Apply the Poppins font to the body or specific elements */
+body {
+    font-family: 'Poppins', sans-serif;
+}
