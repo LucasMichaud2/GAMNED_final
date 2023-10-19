@@ -6,12 +6,15 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 from streamlit_elements import elements, mui, html, nivo
 
-st.write('Hello World')
-
+############################### Design Elements ###################################
 
 st.markdown('<link rel="stylesheet.css" type="text/css" href="styles.css">', unsafe_allow_html=True)
 
-st.write('Hello World')
+############################## Title Layer #######################################
+
+with elements('Title Layer'):
+
+ mui.Typography("Hello World")
 
  
  
