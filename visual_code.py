@@ -50,7 +50,9 @@ def input_layer():
   input_budget = box6.number_input('Budget', value=0)
   channel_number = box7.number_input('Number of Channels', value=0)
 
-hello = input_layer()
+  return selected_objective, selected_target, selected_region, excluded_channel, selected_age, input_budget, channel_number
+
+selected_objective, selected_target, selected_region, excluded_channel, selected_age, input_budget, channel_number = input_layer()
 
 st.write(channel_number)
 
