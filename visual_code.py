@@ -39,7 +39,7 @@ excluded_channel_list = ['youtube', 'instagram', 'display', 'facebook', 'linkedi
 
 box1, box2, box3, box4, box5, box6, box7 = st.columns(7)
 
-selected_objective = box1.selectbox('Select Objective', ojbective_df)
+selected_objective = box1.selectbox('Select Objective', objective_df)
 selected_target = box2.selectbox('Select target', target_df)
 selected_region = box3.selectbox('Select Region', country_df)
 excluded_channel = box4.multiselect('Channel to Exclude', excluded_channel_list)
