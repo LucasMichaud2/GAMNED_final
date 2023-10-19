@@ -20,7 +20,33 @@ col1, col2, col3, col4 = st.columns(4)
 
 col1.header('Marketing Tool')
 
+############################# Input Layer #######################################
 
+target_list = ['b2c', 'b2b']
+target_df = pd.DataFrame(target_list)
+
+objective_list = ['branding', 'consideration', 'conversion']
+objective_df = pd.DataFrame(objective_list)
+
+age_list = ['13-17', '18-24', '25-34', '35-44', '45-54', '55-64', '65+', 'all']
+age_df = pd.DataFrame(age_list)
+
+country_list = ['None', 'GCC', 'KSA', 'UAE', 'KUWAIT', 'BAHRAIN', 'QATAR', 'OMAN']
+country_df = pd.DataFrame(country_list)
+
+excluded_channel_list = ['youtube', 'instagram', 'display', 'facebook', 'linkedin', 'search', 'snapchat', 'tiktok', 'native ads', 'twitter', 'twitch',
+                    'in game advertising', 'amazon', 'audio', 'waze', 'dooh', 'connected tv']
+
+box1, box2, box3, box4, box5, box6, box7 = st.columns(7)
+
+selected_objective = box1.selectbox('Select Objective', ojbective_df)
+selected_target = box2.selectbox('Select target', target_df)
+selected_region = box3.selectbox('Select Region', country_df)
+excluded_channel = box4.multiselect('Channel to Exclude', excluded_channel_list)
+selected_age = box5.multiselect('Select an Age', age_df)
+selected_age = ', '.join(selected_age)
+input_budget = box6.number_input('Budget', value=0)
+channel_number = box7.number_input('Number of Channels', value=0)
 
 with elements('Title Layer'):
 
