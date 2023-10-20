@@ -237,26 +237,20 @@ class GAMNED_UAE:
 ################################ Applying Class ###################################################################################
 
 gamned_class = GAMNED_UAE(df_data, df_objective)
+df_age = gamned_class.get_age_data()
+df_freq = gamned_class.get_data_freq()
+df_rating = gamned_class.get_mean_rating()
+df_rating1 = gamned_class.get_channel_rating(selected_age, df_age, df_freq, df_rating)
+if selected_target == 'b2b':
+  df_b2b = gamned_class.get_target()
+  df_rating1 = gamned_class.add_target(df_b2b, df_rating1)
+  df_rating1 = df_rating1.reset_index()
+df_rating2 = gamned_class.get_format_rating(df_rating1)
+df_rating3 = gamned_class.get_objective(selected_objective, df_rating2)
+df_rating3 = df_rating3[~df_rating3['channel'].isin(excluded_channel)]
+df_rating3 = df_rating3.reset_index(drop=True)
 
-def apply_class():
-
-  df_age = gamned_class.get_age_data()
-  df_freq = gamned_class.get_data_freq()
-  df_rating = gamned_class.get_mean_rating()
-  df_rating1 = gamned_class.get_channel_rating(selected_age, df_age, df_freq, df_rating)
-  if selected_target == 'b2b':
-    df_b2b = gamned_class.get_target()
-    df_rating1 = gamned_class.add_target(df_b2b, df_rating1)
-    df_rating1 = df_rating1.reset_index()
-  df_rating2 = gamned_class.get_format_rating(df_rating1)
-  df_rating3 = gamned_class.get_objective(selected_objective, df_rating2)
-  df_rating3 = df_rating3[~df_rating3['channel'].isin(excluded_channel)]
-  df_rating3 = df_rating3.reset_index(drop=True)
-
-  return df_rating3
-
-df_rating3 = apply_class()
-
+ 
 st.dataframe(df_rating3)
 
 
