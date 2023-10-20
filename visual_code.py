@@ -299,7 +299,7 @@ df_rating3 = apply_class()
 
 ########################################## Country Ratings #######################################################################
 
-def country_rating():
+def country_rating(df_rating3):
 
   if selected_region != 'None':
 
@@ -313,7 +313,7 @@ def country_rating():
 
   return df_rating3
 
-df_rating3 = country_rating()
+df_rating3 = country_rating(df_rating3)
 
 st.dataframe(df_rating3)
 
