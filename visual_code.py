@@ -318,6 +318,32 @@ df_rating3 = country_rating(df_rating3)
 st.dataframe(df_rating3)
 
 
+################################################ Format Ratings #################################################################
+
+def format_rating(df_rating3):
+
+  full_format_rating = df_rating3.copy()
+  format_rating = df_rating3.copy()
+  format_rating['format'] = format_rating['channel'] + '\n' + format_rating['formats']
+  format_rating = format_rating[['channel', 'formats', 'format', selected_objective]]
+  min_format = full_format_rating[selected_objective].min()
+  max_format = full_format_rating[selected_objective].max()
+  format_rating['norm'] = (format_rating[selected_objective] - min_format) / (max_format - min_format)*100
+  format_rating['norm'] = format_rating['norm'].astype(float).round(2)
+  #format_rating2 = format_rating.copy()
+  #format_rating2['norm'] = format_rating2['norm'].apply(lambda x: x**2)
+  #format_rating2['norm'] = format_rating2['norm'].astype(float).round(2)
+  #format_rating['norm'] = format_rating['norm'].apply(round_5)
+  #format_rating['mapped_colors'] = format_rating['norm'].map(color_dictionary)
+  format_rating = format_rating.reset_index()
+  format_rating = format_rating.drop(['index'], axis=1)
+  
+  return format_rating
+
+format_rating = format_rating(df_rating3)
+
+st.dataframe(format_rating)
+
 
 
 
