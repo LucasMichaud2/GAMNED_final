@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 from streamlit_elements import elements, mui, html, nivo
 
+st.set_page_config(layout='wide')
+
 ############################### Imports ###########################################
 
 gamned_logo_url = 'https://raw.github.com/LucasMichaud2/GAMNED_final/main/Logo_G_Gamned_red_baseline.jpg'
