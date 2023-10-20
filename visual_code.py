@@ -295,6 +295,8 @@ def apply_class():
 
   return df_rating3
 
+df_rating3 = apply_class()
+
  
 st.dataframe(df_rating3)
 
