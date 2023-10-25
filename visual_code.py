@@ -388,7 +388,7 @@ top_channel = top_channel(agg_rating4)
 
 cost_rating = cost_rating.drop([selected_objective], axis=1)
 cost_rating = cost_rating.sort_values(by='average', ascending=False)
-cost_rating = cost_rating.reset_index()
+cost_rating = cost_rating.reset_index(drop=True)
 cost_rating_std = cost_rating['average'].std()
 cost_rating_mean = cost_rating['average'].mean()
 cost_rating['norm'] = (cost_rating['average'] - cost_rating_mean) / cost_rating_std
