@@ -394,7 +394,7 @@ with elements('dashboard'):
 
   with dashboard.Grid(layout):
 
-    mui.Paper("Top Format", key='top_channel', style={'background-color': 'lightblue'})
+    mui.Paper("Top Format", key='top_channel', style={'background-color': 'lightblue', 'padding': '10px'})
      
 
 ################################################################################################################
