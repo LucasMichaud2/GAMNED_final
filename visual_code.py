@@ -363,7 +363,7 @@ def agg_channel_rating(df_rating3):
   agg_rating3 = agg_rating2.sort_values(by='average', ascending=False)
   
   cost_rating = agg_rating3.copy()
-  agg_rating4 = agg_rating4.copy()
+  agg_rating4 = agg_rating3.copy()
   
   agg_rating_min = agg_rating3['average'].min()
   agg_rating_max = agg_rating3['average'].max()
