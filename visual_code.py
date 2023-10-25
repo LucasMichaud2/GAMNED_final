@@ -431,7 +431,7 @@ if channel_number == 0:
     df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
     df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
     df_budget['allowance'] = input_budget * df_budget['distribution']
-    columns_to_drop = ['average', 'index', 'norm', 'distribution']
+    columns_to_drop = ['average', 'norm', 'distribution']
     df_allowance = df_budget.drop(columns=columns_to_drop)
 
   elif input_budget < 15001 and input_budget > 10000:
@@ -444,7 +444,7 @@ if channel_number == 0:
     df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
     df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
     df_budget['allowance'] = input_budget * df_budget['distribution']
-    columns_to_drop = ['average', 'index', 'norm', 'distribution']
+    columns_to_drop = ['average', 'norm', 'distribution']
     df_allowance = df_budget.drop(columns=columns_to_drop)
 
 
@@ -458,7 +458,7 @@ if channel_number == 0:
     df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
     df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
     df_budget['allowance'] = input_budget * df_budget['distribution']
-    columns_to_drop = ['average', 'index', 'norm', 'distribution']
+    columns_to_drop = ['average', 'norm', 'distribution']
     df_allowance = df_budget.drop(columns=columns_to_drop)
 
   elif input_budget < 25001 and input_budget > 20000:
@@ -471,7 +471,7 @@ if channel_number == 0:
     df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
     df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
     df_budget['allowance'] = input_budget * df_budget['distribution']
-    columns_to_drop = ['average', 'index', 'norm', 'distribution']
+    columns_to_drop = ['average', 'norm', 'distribution']
     df_allowance = df_budget.drop(columns=columns_to_drop)
 
   else:
@@ -483,7 +483,7 @@ if channel_number == 0:
     df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
     df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
     df_budget['allowance'] = input_budget * df_budget['distribution']
-    columns_to_drop = ['average', 'index', 'norm', 'distribution']
+    columns_to_drop = ['average', 'norm', 'distribution']
     df_allowance = df_budget.drop(columns=columns_to_drop)
     
 else:
@@ -495,7 +495,7 @@ else:
   df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
   df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
   df_budget['allowance'] = input_budget * df_budget['distribution']
-  columns_to_drop = ['average', 'index', 'norm', 'distribution']
+  columns_to_drop = ['average', 'norm', 'distribution']
   df_allowance = df_budget.drop(columns=columns_to_drop)
 
 
