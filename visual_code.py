@@ -419,7 +419,7 @@ if channel_number == 0:
     df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
     df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
     df_budget['allowance'] = input_budget * df_budget['distribution']
-    columns_to_drop = ['average', 'index', 'norm', 'distribution']
+    columns_to_drop = ['average', 'norm', 'distribution']
     df_allowance = df_budget.drop(columns=columns_to_drop)
     
   elif input_budget < 10001 and input_budget > 5000:
