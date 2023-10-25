@@ -345,6 +345,42 @@ format_rating = format_rating(df_rating3)
 st.dataframe(format_rating)
 
 
+############################################## Getting the Channel rating by agg formats ########################################
+
+def agg_channel_rating(df_rating3):
+  
+  channel_count = pd.DataFrame(df_rating3.groupby('channel')['formats'].count())
+  channel_count = channel_count.reset_index()
+  col_names = ['channel', 'count']
+  channel_count.columns = col_names
+  
+  agg_rating = df_rating3.drop(['formats'], axis=1)
+  agg_rating1 = agg_rating.groupby('channel').sum()
+  agg_rating1 = agg_rating1.reset_index()
+  agg_rating2 = agg_rating1.sort_values(by='channel')
+  channel_count2 = channel_count.sort_values(by='channel')
+  agg_rating2['average'] = agg_rating2[selected_objective] / channel_count2['count']
+  agg_rating3 = agg_rating2.sort_values(by='average', ascending=False)
+  
+  cost_rating = agg_rating3.copy()
+  agg_rating4 = agg_rating4.copy()
+  
+  agg_rating_min = agg_rating3['average'].min()
+  agg_rating_max = agg_rating3['average'].max()
+  agg_rating3['average'] = ((agg_rating3['average'] - agg_rating_min) / (agg_rating_max - agg_rating_min))*100
+  output_rating = agg_rating3.copy()
+
+  return cost_rating, agg_rating4, output_rating
+
+cost_rating, agg_rating4, output_rating = agg_channel_rating(df_rating3)
+
+
+st.write('agg_rating')
+
+st.dataframe(cost_rating)
+
+st.dataframe(output_rating)
+
 
 
 ################################################################################################################
