@@ -391,6 +391,8 @@ def top_channel(agg_rating4):
   top_channel = top_channel.title()
   return top_channel
 
+top_channel = top_channel(agg_rating4)
+
 st.write(top_channel)
 
 
