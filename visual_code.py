@@ -499,7 +499,7 @@ else:
   df_allowance = df_budget.drop(columns=columns_to_drop)
 
 
-st.dataframe(df_allowance)
+st.table(df_allowance)
 
 ##########################################  Dashboard Content ########################################################################
 with open('styles.css') as f:
