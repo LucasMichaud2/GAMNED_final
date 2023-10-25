@@ -393,7 +393,9 @@ with elements('dashboard'):
   ]
 
   with dashboard.Grid(layout):
-    mui.Paper('Top Channel', key='top_channel')
+
+    with mui.Paper(key='top_channel', style={'padding': '20px'}):
+      mui.H3('Youtube', style={'color': 'blue'})
 
 ################################################################################################################
 
