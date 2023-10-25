@@ -388,17 +388,18 @@ top_channel = top_channel(agg_rating4)
 
 col1, col2, col3 = st.columns(3)
 
-col1.markdown(
-  """
-  <style>
-  div[data-baseweb="block"] {
-      background-color: lightgreen;
-  }
-  </style>
-  """,
-  unsafe_allow_html=True,
-)
-col1.metric('Top Channel', top_channel)
+with col1:
+    st.markdown(
+        """
+        <style>
+        .st-gcx {
+            background-color: lightgreen;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.metric('Top Channel', top_channel)
 
      
 
