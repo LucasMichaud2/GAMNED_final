@@ -381,6 +381,18 @@ st.dataframe(cost_rating)
 
 st.dataframe(output_rating)
 
+st.dataframe(agg_rating4)
+
+############################################# Gettign the top Channel ###################################################################
+
+def top_channel(agg_rating4):
+
+  top_channel = agg_rating4.at[0, 'channel']
+  top_channel = top_channel.title()
+  return top_channel
+
+st.write(top_channel)
+
 
 
 ################################################################################################################
