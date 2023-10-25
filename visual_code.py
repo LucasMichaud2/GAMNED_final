@@ -4,7 +4,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
-from streamlit_elements import elements, mui, html, nivo 
+from streamlit_elements import elements, mui, html, nivo, dashboard
 
 ############################### Design Elements ###########################################################################################
 
@@ -398,6 +398,16 @@ top_channel = top_channel(agg_rating4)
 st.write(top_channel)
 
 
+##########################################  Dashboard Content ########################################################################
+
+with elements('dashboard'):
+
+  layout = [
+    dashboard.Item('top_channel', 0, 0, 2, 2),
+  ]
+
+  with dashboard.Grid(layout):
+    mui.Paper('Top Channel', key='top_channel')
 
 ################################################################################################################
 
