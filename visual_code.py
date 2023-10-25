@@ -400,6 +400,107 @@ cost_rating, df_price_rating = cost_norm(cost_rating)
 
 st.dataframe(cost_rating)
 
+
+if channel_number == 0:
+  if input_budget < 5001 and selected_objective == 'consideration':
+    disp_allow = input_budget - 500
+    budget_lib1 = {
+      'channel': ['display', 'search'],
+      'allowance': [disp_allow, 500]
+    }
+    df_allowance = pd.DataFrame(budget_lib1)
+    
+  elif input_budget < 5001:
+    df_selection = cost_rating.head(1)
+    df_budget = df_selection.copy()
+    average_max = df_budget['average'].max()
+    average_min = df_budget['average'].min()
+    average_diff = average_max - average_min
+    df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
+    df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
+    df_budget['allowance'] = input_budget * df_budget['distribution']
+    columns_to_drop = ['average', 'index', 'norm', 'distribution']
+    df_allowance = df_budget.drop(columns=columns_to_drop)
+    
+  elif input_budget < 10001 and input_budget > 5000:
+    df_selection = cost_rating.head(2)
+    df_budget = df_selection.copy()
+    average_max = df_budget['average'].max()
+    average_min = df_budget['average'].min()
+    average_diff = average_max - average_min
+    df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
+    df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
+    df_budget['allowance'] = input_budget * df_budget['distribution']
+    columns_to_drop = ['average', 'index', 'norm', 'distribution']
+    df_allowance = df_budget.drop(columns=columns_to_drop)
+
+  elif input_budget < 15001 and input_budget > 10000:
+    #df_selection = cost_rating[cost_rating['norm'] > threshold]
+    df_selection = cost_rating.head(3)
+    df_budget = df_selection.copy()
+    average_max = df_budget['average'].max()
+    average_min = df_budget['average'].min()
+    average_diff = average_max - average_min
+    df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
+    df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
+    df_budget['allowance'] = input_budget * df_budget['distribution']
+    columns_to_drop = ['average', 'index', 'norm', 'distribution']
+    df_allowance = df_budget.drop(columns=columns_to_drop)
+
+
+  elif input_budget < 20001 and input_budget > 15000:
+    #df_selection = cost_rating[cost_rating['norm'] > threshold]
+    df_selection = cost_rating.head(4)
+    df_budget = df_selection.copy()
+    average_max = df_budget['average'].max()
+    average_min = df_budget['average'].min()
+    average_diff = average_max - average_min
+    df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
+    df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
+    df_budget['allowance'] = input_budget * df_budget['distribution']
+    columns_to_drop = ['average', 'index', 'norm', 'distribution']
+    df_allowance = df_budget.drop(columns=columns_to_drop)
+
+  elif input_budget < 25001 and input_budget > 20000:
+    #df_selection = cost_rating[cost_rating['norm'] > threshold]
+    df_selection = cost_rating.head(5)
+    df_budget = df_selection.copy()
+    average_max = df_budget['average'].max()
+    average_min = df_budget['average'].min()
+    average_diff = average_max - average_min
+    df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
+    df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
+    df_budget['allowance'] = input_budget * df_budget['distribution']
+    columns_to_drop = ['average', 'index', 'norm', 'distribution']
+    df_allowance = df_budget.drop(columns=columns_to_drop)
+
+  else:
+    df_selection = cost_rating.head(6)
+    df_budget = df_selection.copy()
+    average_max = df_budget['average'].max()
+    average_min = df_budget['average'].min()
+    average_diff = average_max - average_min
+    df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
+    df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
+    df_budget['allowance'] = input_budget * df_budget['distribution']
+    columns_to_drop = ['average', 'index', 'norm', 'distribution']
+    df_allowance = df_budget.drop(columns=columns_to_drop)
+    
+else:
+  df_selection = cost_rating.head(channel_number)
+  df_budget = df_selection.copy()
+  average_max = df_budget['average'].max()
+  average_min = df_budget['average'].min()
+  average_diff = average_max - average_min
+  df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
+  df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
+  df_budget['allowance'] = input_budget * df_budget['distribution']
+  columns_to_drop = ['average', 'index', 'norm', 'distribution']
+  df_allowance = df_budget.drop(columns=columns_to_drop)
+
+
+st.dataframe(df_allowance)
+
 ##########################################  Dashboard Content ########################################################################
 with open('styles.css') as f:
   st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
