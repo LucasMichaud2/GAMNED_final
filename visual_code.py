@@ -510,7 +510,29 @@ col1.metric('Top Channel', top_channel)
 
 ################################################################################################################
 
-with elements("nivo_charts"):
+
+
+
+with elements("properties"):
+
+    # You can add properties to elements with named parameters.
+    #
+    # To find all available parameters for a given element, you can
+    # refer to its related documentation on mui.com for MUI widgets,
+    # on https://microsoft.github.io/monaco-editor/ for Monaco editor,
+    # and so on.
+    #
+    # <Paper elevation={3} variant="outlined" square>
+    #   <TextField label="My text input" defaultValue="Type here" variant="outlined" />
+    # </Paper>
+
+    with mui.Paper(elevation=3, variant="outlined", square=True):
+        mui.TextField(
+            label="My text input",
+            defaultValue="Type here",
+            variant="outlined",
+        )
+      with elements("nivo_charts"):
 
     # Streamlit Elements includes 45 dataviz components powered by Nivo.
 
@@ -568,28 +590,6 @@ with elements("nivo_charts"):
                     }
                 }
             }
-        )
-
-
-
-with elements("properties"):
-
-    # You can add properties to elements with named parameters.
-    #
-    # To find all available parameters for a given element, you can
-    # refer to its related documentation on mui.com for MUI widgets,
-    # on https://microsoft.github.io/monaco-editor/ for Monaco editor,
-    # and so on.
-    #
-    # <Paper elevation={3} variant="outlined" square>
-    #   <TextField label="My text input" defaultValue="Type here" variant="outlined" />
-    # </Paper>
-
-    with mui.Paper(elevation=3, variant="outlined", square=True):
-        mui.TextField(
-            label="My text input",
-            defaultValue="Type here",
-            variant="outlined",
         )
 
     # If you must pass a parameter which is also a Python keyword, you can append an
