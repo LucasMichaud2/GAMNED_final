@@ -532,7 +532,7 @@ with elements("properties"):
             defaultValue="Type here",
             variant="outlined",
         )
-      with elements("nivo_charts"):
+
 
     # Streamlit Elements includes 45 dataviz components powered by Nivo.
 
