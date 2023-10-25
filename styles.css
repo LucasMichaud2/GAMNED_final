@@ -7,7 +7,7 @@
     src: local('Poppins'), url('https://raw.githubusercontent.com/LucasMichaud2/GAMNED_final/main/Poppins-Bold.woff2') format('woff2'), url('https://raw.githubusercontent.com/LucasMichaud2/GAMNED_final/main/Poppins-Bold.woff') format('woff');
 }
 
-/* Apply the Poppins font to the body or specific elements */
+/* Apply the Poppins font to the body or specific elements */ 
 body {
     font-family: 'Poppins', sans-serif;
 }
