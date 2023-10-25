@@ -509,7 +509,7 @@ col1, col2, col3 = st.columns(3)
 
 col1.metric('Top Channel', top_channel)
 
-col1.table(df_allowance)
+col2.table(df_allowance)
 
      
 
