@@ -315,8 +315,6 @@ def country_rating(df_rating3):
 
 df_rating3 = country_rating(df_rating3)
 
-st.dataframe(df_rating3)
-
 
 ################################################ Format Ratings #################################################################
 
@@ -341,8 +339,6 @@ def format_rating(df_rating3):
   return format_rating
 
 format_rating = format_rating(df_rating3)
-
-st.dataframe(format_rating)
 
 
 ############################################## Getting the Channel rating by agg formats ########################################
@@ -377,14 +373,6 @@ def agg_channel_rating(df_rating3):
 cost_rating, agg_rating4, output_rating = agg_channel_rating(df_rating3)
 
 
-st.write('agg_rating')
-
-st.dataframe(cost_rating)
-
-st.dataframe(output_rating)
-
-st.dataframe(agg_rating4)
-
 ############################################# Gettign the top Channel ###################################################################
 
 def top_channel(agg_rating4):
@@ -394,8 +382,6 @@ def top_channel(agg_rating4):
   return top_channel
 
 top_channel = top_channel(agg_rating4)
-
-st.write(top_channel)
 
 
 ##########################################  Dashboard Content ########################################################################
