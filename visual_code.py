@@ -392,7 +392,7 @@ col1.markdown(
   """
   <style>
   div[data-baseweb="block"] {
-    background-color: white;
+    background-color: lightgreen;
   }
   </style>
   """,
