@@ -4,7 +4,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
-from streamlit_elements import elements, mui, html, nivo
+from streamlit_elements import elements, mui, html, nivo 
 
 ############################### Design Elements ###########################################################################################
 
