@@ -387,6 +387,7 @@ st.dataframe(agg_rating4)
 
 def top_channel(agg_rating4):
 
+  agg_rating4 = agg_rating4.reset_index(drop=True)
   top_channel = agg_rating4.at[0, 'channel']
   top_channel = top_channel.title()
   return top_channel
