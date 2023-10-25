@@ -394,8 +394,10 @@ with elements('dashboard'):
 
   with dashboard.Grid(layout):
 
-    with mui.Paper("Top Format", key='top_channel', style={'background-color': 'lightblue', 'padding': '10px'}):
-      mui.H3('Title')
+    with mui.Paper(key='top_channel', style={'background-color': 'lightblue', 'padding': '10px'}):
+      with mui.Div(style={'textAlign': 'center'}):
+        mui.H3('Top Format', style={'color': 'black'})
+      
      
 
 ################################################################################################################
