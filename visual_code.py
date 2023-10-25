@@ -364,6 +364,8 @@ def agg_channel_rating(df_rating3):
   
   cost_rating = agg_rating3.copy()
   agg_rating4 = agg_rating3.copy()
+  agg_rating4 = agg_rating4.reset_index(drop=True)
+  cost_rating = cost_rating.reset_index(drop=True)
   
   agg_rating_min = agg_rating3['average'].min()
   agg_rating_max = agg_rating3['average'].max()
@@ -387,7 +389,6 @@ st.dataframe(agg_rating4)
 
 def top_channel(agg_rating4):
 
-  agg_rating4 = agg_rating4.reset_index(drop=True)
   top_channel = agg_rating4.at[0, 'channel']
   top_channel = top_channel.title()
   return top_channel
