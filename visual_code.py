@@ -532,9 +532,9 @@ with elements('pie_chart'):
         )
 
     with mui.Box(sx={"height": 500}):
-      nivo.Pie(
-        data=pie_chart_data
-      )
+        nivo.Pie(
+          data=pie_chart_data
+        )
 
     
 
