@@ -526,12 +526,8 @@ with elements("pie_chart"):
 
     st.write(pie_chart_data)
 
-    with mui.Paper(elevation=3, variant="outlined", square=True):
-        mui.TextField(
-            label="My text input",
-            defaultValue="Type here",
-            variant="outlined",
-        )
+    with mui.Paper(elevation=3, variant="outlined", style={'padding': "20px"}):
+        mui.Typography('Pie Chart')
 
         with mui.Box(sx={"height": 500}):
             nivo.Pie(
