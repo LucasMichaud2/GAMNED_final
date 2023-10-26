@@ -526,12 +526,13 @@ with elements("pie_chart"):
 
     st.write(pie_chart_data)
 
-    with mui.Paper(elevation=24, variant="outlined", style={'padding': "10px"}):
+    with mui.Paper(elevation=3, variant="outlined", style={'padding': "10px"}):
         mui.Typography('Pie Chart')
 
         with mui.Box(sx={"height": 600}):
             nivo.Pie(
-              data=pie_chart_data
+              data=pie_chart_data,
+              innerRadius=0.5
             )
 
     
