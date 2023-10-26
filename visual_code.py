@@ -532,7 +532,9 @@ with elements("pie_chart"):
         with mui.Box(sx={"height": 600}):
             nivo.Pie(
               data=pie_chart_data,
-              innerRadius=0.5
+              innerRadius=0.5,
+              cornerRadius=10,
+              
             )
 
     
@@ -556,6 +558,18 @@ with elements("properties"):
             label="My text input",
             defaultValue="Type here",
             variant="outlined",
+            legends=[
+              {
+                  "anchor": 'bottom',
+                  "direction": 'row',
+                  "justify": false,
+                  "translateX": 0,
+                  "translateY": 56,
+                  "symbolSize": 18,
+                  "symbolShape": 'circle'
+              }
+            ]
+              
         )
 
 
