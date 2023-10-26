@@ -512,9 +512,9 @@ col1.metric('Top Channel', top_channel)
 
 ################################################################################################################
 
-with elements('pie_chart'):
+#with elements('pie_chart'):
 
-  with mui.Paper('Pie Chart', variant='outlined'):
+  #with mui.Paper('Pie Chart', variant='outlined'):
 
     
 
