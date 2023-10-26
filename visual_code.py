@@ -525,6 +525,7 @@ with col3:
                   data=pie_chart_data,
                   innerRadius=0.5,
                   cornerRadius=10,
+                  margin={'top': 40, 'right': 80, 'bottom': 80, 'left': 80}
                   
                   
                   
