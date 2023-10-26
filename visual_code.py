@@ -505,6 +505,11 @@ col1, col2, col3 = st.columns(3)
 
 col1.metric('Top Channel', top_channel)
 
+with col3:
+
+  with elements("pie_chart"):
+
+    with mui.Paper('Pie Chart', variant='outilined', padding='20px')
 
 
      
