@@ -524,9 +524,14 @@ with elements('pie_chart'):
     }
     pie_chart_data.append(allowance)
 
-  with mui.Paper('Pie Chart', variant='outlined'):
+  with mui.Paper(elevation=3, variant="outlined", square=True):
+        mui.TextField(
+            label="My text input",
+            defaultValue="Type here",
+            variant="outlined",
+        )
 
-    with mui.Box():
+    with mui.Box(sx={"height": 500}):
       nivo.Pie(
         data=pie_chart_data
       )
