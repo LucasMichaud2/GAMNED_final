@@ -520,7 +520,7 @@ with col3:
         }
         pie_chart_data.append(allowance)
 
-      with mui.Box(sx={"height": 500}):
+      with mui.Box(sx={"height": 300}):
                 nivo.Pie(
                   data=pie_chart_data,
                   innerRadius=0.5,
@@ -540,42 +540,6 @@ with col3:
      
 
 ################################################################################################################
-
-with elements("pie_chart"):
-
-    pie_chart_data = []
-  
-    for _, row in df_allowance.iterrows():
-      allowance = {
-        'id': row['channel'],
-        'Label': row['channel'],
-        'value': row['allowance']
-      }
-      pie_chart_data.append(allowance)
-
-
-
-    with mui.Paper(elevation=3, variant="outlined", style={'padding': "10px"}):
-        mui.Typography('Pie Chart')
-
-        with mui.Box(sx={"height": 500}):
-            nivo.Pie(
-              data=pie_chart_data,
-              innerRadius=0.5,
-              cornerRadius=10,
-              legends=[
-                {
-                  "anchor": 'bottom',
-                  "direction": 'row',
-                  "symbolSize": 18,
-                  "symbilShape": 'circle',
-                }
-              ]
-              
-              
-            )
-
-    
 
 
 with elements("properties"):
