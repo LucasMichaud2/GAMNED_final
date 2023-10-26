@@ -567,17 +567,8 @@ with elements("properties"):
             label="My text input",
             defaultValue="Type here",
             variant="outlined",
-            legends=[
-              {
-                  "anchor": 'bottom',
-                  "direction": 'row',
-                  "justify": false,
-                  "translateX": 0,
-                  "translateY": 56,
-                  "symbolSize": 18,
-                  "symbolShape": 'circle'
-              }
-            ]
+           
+            
               
         )
 
