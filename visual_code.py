@@ -501,7 +501,7 @@ else:
 #with open('styles.css') as f:
   #st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3 = st.columns([1, 2, 3])
 
 col1.metric('Top Channel', top_channel)
 
