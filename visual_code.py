@@ -510,15 +510,15 @@ with col3:
 
   with elements("pie_chart"):
 
-    pie_chart_data = []
-  
-    for _, row in df_allowance.iterrows():
-      allowance = {
-        'id': row['channel'],
-        'Label': row['channel'],
-        'value': row['allowance']
-      }
-      pie_chart_data.append(allowance)
+      pie_chart_data = []
+    
+      for _, row in df_allowance.iterrows():
+        allowance = {
+          'id': row['channel'],
+          'Label': row['channel'],
+          'value': row['allowance']
+        }
+        pie_chart_data.append(allowance)
 
       with mui.Box(sx={"height": 500}):
                 nivo.Pie(
