@@ -520,19 +520,12 @@ with col3:
         }
         pie_chart_data.append(allowance)
 
-      with mui.Box(sx={"height": 800}):
+      with mui.Box(sx={"height": 500}):
                 nivo.Pie(
                   data=pie_chart_data,
                   innerRadius=0.5,
                   cornerRadius=10,
-                  legends=[
-                    {
-                        "anchor": 'bottom',
-                        "direction": 'row',
-                        "symbolSize": 18,
-                        "symbilShape": 'circle',
-                    }
-                  ]
+                  
                   
                   
                 )
