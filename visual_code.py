@@ -505,6 +505,12 @@ col1, col2, col3 = st.columns(3)
 
 col1.metric('Top Channel', top_channel)
 
+with col3:
+
+  with elements('pie_chart'):
+
+    with mui.Paper(
+
 
      
 
@@ -658,5 +664,22 @@ with elements("style_elements_css"):
             }
         }
     )
+
+
+with elements("nested_children"):
+
+    # You can nest children using multiple 'with' statements.
+    #
+    # <Paper>
+    #   <Typography>
+    #     <p>Hello world</p>
+    #     <p>Goodbye world</p>
+    #   </Typography>
+    # </Paper>
+
+    with mui.Paper:
+        with mui.Typography:
+            html.p("Hello world")
+            html.p("Goodbye world")
 
  
