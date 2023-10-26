@@ -505,18 +505,18 @@ col1, col2, col3 = st.columns(3)
 
 col1.metric('Top Channel', top_channel)
 
-with col3:
 
-  with elements("pie_chart"):
-
-    mui.Paper('Pie Chart', variant='outilined')
 
 
      
 
 ################################################################################################################
 
+with elements('pie_chart'):
 
+  with mui.Paper('Pie Chart', variant='outlined'):
+
+    
 
 
 with elements("properties"):
@@ -681,5 +681,9 @@ with elements("nested_children"):
         with mui.Typography:
             html.p("Hello world")
             html.p("Goodbye world")
+
+
+
+st.dataframe(df_allowance)
 
  
