@@ -524,6 +524,8 @@ with elements("pie_chart"):
       }
       pie_chart_data.append(allowance)
 
+    st.write(pie_chart_data)
+
     with mui.Paper(elevation=3, variant="outlined", square=True):
         mui.TextField(
             label="My text input",
