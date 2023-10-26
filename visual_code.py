@@ -498,15 +498,32 @@ else:
 
 
 ##########################################  Dashboard Content ########################################################################
-with open('styles.css') as f:
-  st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+#with open('styles.css') as f:
+  #st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns(3)
 
 col1.metric('Top Channel', top_channel)
 
 
+with col3:
 
+  with mui.Box(sx={"height": 500}):
+            nivo.Pie(
+              data=pie_chart_data,
+              innerRadius=0.5,
+              cornerRadius=10,
+              legends=[
+                {
+                  "anchor": 'bottom',
+                  "direction": 'row',
+                  "symbolSize": 18,
+                  "symbilShape": 'circle',
+                }
+              ]
+              
+              
+            )
 
      
 
