@@ -534,6 +534,15 @@ with elements("pie_chart"):
               data=pie_chart_data,
               innerRadius=0.5,
               cornerRadius=10,
+              legends=[
+                {
+                  "anchor": 'bottom',
+                  "direction": 'row',
+                  "symbolSize": 18,
+                  "symbilShape": 'circle',
+                }
+              ]
+              
               
             )
 
