@@ -527,10 +527,10 @@ with col3:
                   cornerRadius=10,
                   legends=[
                     {
-                      "anchor": 'bottom',
-                      "direction": 'row',
-                      "symbolSize": 18,
-                      "symbilShape": 'circle',
+                        "anchor": 'bottom',
+                        "direction": 'row',
+                        "symbolSize": 18,
+                        "symbilShape": 'circle',
                     }
                   ]
                   
