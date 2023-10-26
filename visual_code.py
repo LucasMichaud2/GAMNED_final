@@ -495,7 +495,7 @@ else:
   df_budget['allowance'] = input_budget * df_budget['distribution']
   columns_to_drop = ['average', 'norm', 'distribution']
   df_allowance = df_budget.drop(columns=columns_to_drop)
-
+ 
 
 ##########################################  Dashboard Content ########################################################################
 #with open('styles.css') as f:
