@@ -512,9 +512,23 @@ col1.metric('Top Channel', top_channel)
 
 ################################################################################################################
 
-#with elements('pie_chart'):
+with elements('pie_chart'):
 
-  #with mui.Paper('Pie Chart', variant='outlined'):
+  pie_chart_data = []
+
+  for _, row in df_allowance.iterrows():
+    allowance = {
+      'id': row['channel'],
+      'Label': row['channel'],
+      'value': row['allowance']
+    }
+    pie_chart_data.append(allowance)
+
+  with mui.Paper('Pie Chart', variant='outlined'):
+
+    with mui.Box():
+      nivo.Pie(
+        data=pie_chart_data
 
     
 
