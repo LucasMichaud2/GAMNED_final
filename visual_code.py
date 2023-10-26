@@ -509,7 +509,7 @@ with col3:
 
   with elements("pie_chart"):
 
-    with mui.Paper('Pie Chart', variant='outilined')
+    mui.Paper('Pie Chart', variant='outilined')
 
 
      
