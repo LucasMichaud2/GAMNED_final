@@ -497,9 +497,9 @@ else:
   df_allowance = df_budget.drop(columns=columns_to_drop)
  
 
-##########################################  Dashboard Content ########################################################################
-#with open('styles.css') as f:
-  #st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+##########################################  Dashboard Content #######################################################################
+with open('styles.css') as f:
+  st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 
 col1, col2, col3 = st.columns([1, 2, 3])
