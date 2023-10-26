@@ -501,35 +501,48 @@ else:
 #with open('styles.css') as f:
   #st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
+col3_style = """
+    <style>
+        .col3 {
+            background-color: #FFFFFF; /* Blue background color */
+            padding: 10px;
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow effect */
+        }
+    </style>
+"""
+
+st.write(col3_style, unsafe_allow_html=True)
+
 col1, col2, col3 = st.columns([1, 2, 3])
 
 col1.metric('Top Channel', top_channel)
 
-
-with col3:
-
-  with elements("pie_chart"):
-
-      pie_chart_data = []
-    
-      for _, row in df_allowance.iterrows():
-        allowance = {
-          'id': row['channel'],
-          'Label': row['channel'],
-          'value': row['allowance']
-        }
-        pie_chart_data.append(allowance)
-
-      with mui.Box(sx={"height": 400}):
-                nivo.Pie(
-                  data=pie_chart_data,
-                  innerRadius=0.5,
-                  cornerRadius=10,
-                  margin={'top': 40, 'right': 80, 'bottom': 80, 'left': 80}
-                  
-                  
-                  
-                )
+with st.container() as col3:
+  with col3:
+  
+    with elements("pie_chart"):
+  
+        pie_chart_data = []
+      
+        for _, row in df_allowance.iterrows():
+          allowance = {
+            'id': row['channel'],
+            'Label': row['channel'],
+            'value': row['allowance']
+          }
+          pie_chart_data.append(allowance)
+  
+        with mui.Box(sx={"height": 400}):
+                  nivo.Pie(
+                    data=pie_chart_data,
+                    innerRadius=0.5,
+                    cornerRadius=10,
+                    margin={'top': 40, 'right': 80, 'bottom': 80, 'left': 80}
+                    
+                    
+                    
+                  )
 
      
 
