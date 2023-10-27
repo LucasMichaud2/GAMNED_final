@@ -575,8 +575,8 @@ with col3:
                           data=pie_chart_data,
                           innerRadius=0.5,
                           cornerRadius=0,
-                          padAngle=1  
-                          margin={'top': 20, 'right': 100, 'bottom': 20, 'left': 100},
+                          padAngle=1,  
+                          margin={'top': 30, 'right': 100, 'bottom': 30, 'left': 100},
                           theme={
                             "background": "#FFFFFF",
                             "textColor": "#31333F",
