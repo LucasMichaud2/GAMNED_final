@@ -505,7 +505,7 @@ def pie_data(df_allowance):
 
   df_pie_chart = df_allowance.copy()
   df_pie_chart['channel'] = df_pie_chart['channel'].str.title()
-  df_pie_chart['channel'] = df_pie_chart['channel'].str.replace(r'(In Game Advertising)', r'In Game<br>Advertising', case=False)
+  df_pie_chart['channel'] = df_pie_chart['channel'].str.replace('In Game Advertising', 'In Game\nAdvertising')
   return df_pie_chart
   
 df_pie_chart = pie_data(df_allowance)
