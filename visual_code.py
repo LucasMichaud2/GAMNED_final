@@ -512,6 +512,9 @@ else:
 #with open('styles.css') as f:
   #st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
+if df_allowance.shape[1] == 3:
+    df_allowance = df_allowance.drop(selected_region, axis=1)
+
 st.dataframe(df_allowance)
 
 def pie_data(df_allowance):
