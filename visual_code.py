@@ -522,6 +522,7 @@ st.dataframe(df_allowance)
 def pie_data(df_allowance):
 
   df_pie_chart = df_allowance.copy()
+  df_pie_chart['allowance'] = df_pie_chart['allowance'].astype(int)
   df_pie_chart['channel'] = df_pie_chart['channel'].str.title()
   #df_pie_chart['channel'] = df_pie_chart['channel'].str.replace('In Game Advertising', 'In Game Advertising')
   return df_pie_chart
