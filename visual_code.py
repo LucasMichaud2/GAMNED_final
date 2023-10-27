@@ -540,9 +540,10 @@ col1, col2, col3 = st.columns([1, 2, 3])
 with elements('metric'):
 
     with mui.Paper(elevation=15, variant='outlined', square=True):
-        
 
-        col1.metric('Top Channel', top_channel)
+        with mui.Box(sx={"height": 400}):
+
+            col1.metric('Top Channel', top_channel)
 
 col2.dataframe(df_allow_table)
 
