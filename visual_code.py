@@ -8,6 +8,16 @@ from streamlit_elements import elements, mui, html, nivo, dashboard
 
 ############################### Design Elements ###########################################################################################
 
+custom_css = """
+<style>
+    body {
+        background-color: #F0E68C; /* Replace with your desired background color */
+    }
+</style>
+"""
+
+st.markdown(custom_css, unsafe_allow_html=True)
+
 st.set_page_config(layout='wide')
 st.markdown('<link rel="stylesheet.css" type="text/css" href="styles.css">', unsafe_allow_html=True)
 
