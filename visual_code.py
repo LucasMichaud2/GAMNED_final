@@ -546,7 +546,7 @@ with col2:
     with elements("table"):
         with mui.Paper(eleveation=3, variant='outlined'):
             with mui.Box(sx={"height": 300}):
-                mui.Typograhpy('Annoying')
+                st.write('Annoying')
         
 
 
