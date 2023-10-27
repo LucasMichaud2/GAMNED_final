@@ -8,7 +8,7 @@ from streamlit_elements import elements, mui, html, nivo, dashboard
 
 ############################### Design Elements ###########################################################################################
 
-st.set_page_config(layout='wide', page_bg_color='#F0F2F6')
+st.set_page_config(layout='wide', page_title='Marketing Tool')
 st.markdown('<link rel="stylesheet.css" type="text/css" href="styles.css">', unsafe_allow_html=True)
 
 ############################### Imports ###################################################################################################
