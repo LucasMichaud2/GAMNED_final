@@ -510,8 +510,6 @@ def pie_data(df_allowance):
   
 df_pie_chart = pie_data(df_allowance)
 
-st.dataframe(df_pie_chart)
-
 
 col1, col2, col3 = st.columns([1, 2, 3])
 
