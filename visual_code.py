@@ -544,34 +544,36 @@ col2.dataframe(df_allow_table)
 with col3:
   
   with elements("pie_chart"):
+
+      with mui.Paper(elevation=3, variant="outlined", square=True):
   
-      pie_chart_data = []
+          pie_chart_data = []
+          
+          for _, row in df_pie_chart.iterrows():
+            allowance = {
+              'id': row['channel'],
+              'Label': row['channel'],
+              'value': row['allowance']
+            }
+            pie_chart_data.append(allowance)
       
-      for _, row in df_pie_chart.iterrows():
-        allowance = {
-          'id': row['channel'],
-          'Label': row['channel'],
-          'value': row['allowance']
-        }
-        pie_chart_data.append(allowance)
-  
-      with mui.Box(sx={"height": 400}):
-                nivo.Pie(
-                  data=pie_chart_data,
-                  innerRadius=0.5,
-                  cornerRadius=10,
-                  margin={'top': 40, 'right': 80, 'bottom': 80, 'left': 80},
-                  theme={
-                    "background": "#FFFFFF",
-                    "textColor": "#31333F",
-                    "tooltip": {
-                        "container": {
-                            "background": "#FFFFFF",
-                            "color": "#31333F",
+          with mui.Box(sx={"height": 400}):
+                    nivo.Pie(
+                      data=pie_chart_data,
+                      innerRadius=0.5,
+                      cornerRadius=10,
+                      margin={'top': 40, 'right': 80, 'bottom': 80, 'left': 80},
+                      theme={
+                        "background": "#FFFFFF",
+                        "textColor": "#31333F",
+                        "tooltip": {
+                            "container": {
+                                "background": "#FFFFFF",
+                                "color": "#31333F",
+                                }
                             }
                         }
-                    }
-                )
+                    )
 
      
 
