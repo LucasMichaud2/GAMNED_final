@@ -547,6 +547,7 @@ with col3:
   with elements("pie_chart"):
 
       with mui.Paper(elevation=24, variant='outlined'):
+          mui.Typography('Pie Chart')
 
   
           pie_chart_data = []
