@@ -409,8 +409,6 @@ def cost_norm(cost_rating):
 
 cost_rating, df_price_rating = cost_norm(cost_rating)
 
-st.dataframe(cost_rating)
-
 
 if channel_number == 0:
   if input_budget < 5001 and selected_objective == 'consideration':
@@ -517,7 +515,6 @@ else:
 if df_allowance.shape[1] == 3:
     df_allowance = df_allowance.drop(selected_region, axis=1)
 
-st.dataframe(df_allowance)
 
 def pie_data(df_allowance):
 
