@@ -510,6 +510,14 @@ def pie_data(df_allowance):
   
 df_pie_chart = pie_data(df_allowance)
 
+df_allow_table = df_pie_chart.copy()
+
+new_cols = ['Channel', 'Budget']
+
+df_allow_table.columns = new_cols
+
+st.dataframe(df_allow_table)
+
 
 col1, col2, col3 = st.columns([1, 2, 3])
 
