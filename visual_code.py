@@ -501,6 +501,15 @@ else:
 with open('styles.css') as f:
   st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
+def pie_data(df_allowance):
+
+  df_pie_chart = df_allowance.copy()
+  df_pie_chart['channel'] = df_pie_chart['channel'].str.title()
+  df_pie_chart['channel'] = df_pie_chart['channel'].str.replace(r'(In Game Advertising)', r'In Game\nAdvertising', case=False)
+  return df_pie_chart
+
+df_pie_chart = pie_data(df_allowance)
+
 
 col1, col2, col3 = st.columns([1, 2, 3])
 
@@ -512,7 +521,7 @@ with col3:
   
       pie_chart_data = []
       
-      for _, row in df_allowance.iterrows():
+      for _, row in df_pie_chart.iterrows():
         allowance = {
           'id': row['channel'],
           'Label': row['channel'],
