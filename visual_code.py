@@ -542,7 +542,12 @@ with col1:
 
     st.metric('Budget', 'Youtube')
 
-col2.dataframe(df_allow_table)
+with col2:
+    with elements("table"):
+        with mui.Paper(eleveation=3, variant='outlined'):
+            st.dataframe(df_allow_table)
+        
+
 
 with col3:
   
