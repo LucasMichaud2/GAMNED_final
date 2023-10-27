@@ -516,28 +516,14 @@ new_cols = ['Channel', 'Budget']
 
 df_allow_table.columns = new_cols
 
-st.dataframe(df_allow_table)
 
-table_style = """
-<style>
-  table {
-    width: 50%;
-    border-collapse: collapse;
-  }
-  th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: left;
-  }
-</style>
-"""
-st.markdown(table_style, unsafe_allow_html=True)
 
-st.dataframe(df_allow_table)
 
 col1, col2, col3 = st.columns([1, 2, 3])
 
 col1.metric('Top Channel', top_channel)
+
+col2.dataframe(df_allow_table)
 
 with col3:
   
