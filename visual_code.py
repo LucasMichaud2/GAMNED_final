@@ -498,14 +498,14 @@ else:
  
 
 ##########################################  Dashboard Content #######################################################################
-with open('styles.css') as f:
-  st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+#with open('styles.css') as f:
+  #st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 def pie_data(df_allowance):
 
   df_pie_chart = df_allowance.copy()
   df_pie_chart['channel'] = df_pie_chart['channel'].str.title()
-  df_pie_chart['channel'] = df_pie_chart['channel'].str.replace('In Game Advertising', 'In Game \n Advertising')
+  #df_pie_chart['channel'] = df_pie_chart['channel'].str.replace('In Game Advertising', 'In Game Advertising')
   return df_pie_chart
   
 df_pie_chart = pie_data(df_allowance)
