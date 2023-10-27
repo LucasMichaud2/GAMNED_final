@@ -545,7 +545,7 @@ with col1:
 with col2:
     with elements("table"):
         with mui.Paper(eleveation=3, variant='outlined'):
-            with mui.Box(sx={"height": 300}):
+            with mui.Box(sx={"height": 200}):
                 st.write('Annoying')
         
 
@@ -570,7 +570,7 @@ with col3:
                 }
                 pie_chart_data.append(allowance)
           
-              with mui.Box(sx={"height": 300}):
+              with mui.Box(sx={"height": 200}):
                         nivo.Pie(
                           data=pie_chart_data,
                           innerRadius=0.5,
