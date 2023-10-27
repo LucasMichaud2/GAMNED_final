@@ -519,7 +519,7 @@ df_allow_table.columns = new_cols
 st.dataframe(df_allow_table)
 
 st.write("<style>table {border-collapse: collapse; width: 100%;} th, td {border: 1px solid black; padding: 8px; text-align: left;}</style>", unsafe_allow_html=True)
-
+st.write("<style>table {border-collapse: collapse; width: 100%;} th, td {border: 1px solid black; padding: 8px; text-align: left;} tr:nth-child(even) {background-color: #f2f2f2;}</style>", unsafe_allow_html=True)
 st.write(df_allow_table)
 
 col1, col2, col3 = st.columns([1, 2, 3])
