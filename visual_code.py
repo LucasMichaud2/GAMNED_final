@@ -512,6 +512,8 @@ else:
 #with open('styles.css') as f:
   #st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
+st.dataframe(df_allowance)
+
 def pie_data(df_allowance):
 
   df_pie_chart = df_allowance.copy()
