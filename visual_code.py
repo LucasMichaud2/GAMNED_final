@@ -545,7 +545,8 @@ with col1:
 with col2:
     with elements("table"):
         with mui.Paper(eleveation=3, variant='outlined'):
-            st.dataframe(df_allow_table)
+            with mui.Box(sx={"height": 300}):
+                st.dataframe(df_allow_table)
         
 
 
