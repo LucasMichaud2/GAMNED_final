@@ -8,6 +8,9 @@ from streamlit_elements import elements, mui, html, nivo, dashboard
 
 ############################### Design Elements ###########################################################################################
 
+
+st.set_page_config(layout='wide')
+
 custom_css = """
 <style>
     body {
@@ -17,8 +20,6 @@ custom_css = """
 """
 
 st.markdown(custom_css, unsafe_allow_html=True)
-
-st.set_page_config(layout='wide')
 st.markdown('<link rel="stylesheet.css" type="text/css" href="styles.css">', unsafe_allow_html=True)
 
 ############################### Imports ###################################################################################################
