@@ -574,7 +574,7 @@ with col3:
                         nivo.Pie(
                           data=pie_chart_data,
                           innerRadius=0.5,
-                          cornerRadius=10,
+                          cornerRadius=0,
                           margin={'top': 20, 'right': 100, 'bottom': 20, 'left': 100},
                           theme={
                             "background": "#FFFFFF",
