@@ -540,6 +540,8 @@ col1, col2, col3 = st.columns([1, 2, 2])
 with col1:
     st.metric('Top Channel', top_channel)
 
+    st.metric('Budget', 'Youtube')
+
 col2.dataframe(df_allow_table)
 
 with col3:
