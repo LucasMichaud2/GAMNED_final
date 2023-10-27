@@ -409,6 +409,8 @@ def cost_norm(cost_rating):
 
 cost_rating, df_price_rating = cost_norm(cost_rating)
 
+st.dataframe(cost_rating)
+
 
 if channel_number == 0:
   if input_budget < 5001 and selected_objective == 'consideration':
