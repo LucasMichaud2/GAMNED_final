@@ -542,9 +542,6 @@ with col1:
     with elements('metric'):
     
         with mui.Paper(elevation=15, variant='outlined', square=True):
-    
-            
-    
             st.metric('Top Channel', top_channel)
 
 col2.dataframe(df_allow_table)
