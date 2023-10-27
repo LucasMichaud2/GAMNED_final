@@ -549,7 +549,7 @@ with col3:
       with mui.Paper(elevation=24, variant='outlined'):
           mui.Typography('Pie Chart', padding='10px')
 
-          with mui.Paper(elevation=24, variant='outlined'):
+          with mui.Paper(elevation=24, variant='outlined', squared=True):
 
   
               pie_chart_data = []
