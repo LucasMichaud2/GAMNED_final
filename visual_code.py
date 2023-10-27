@@ -561,6 +561,16 @@ with col3:
                   innerRadius=0.5,
                   cornerRadius=10,
                   margin={'top': 40, 'right': 80, 'bottom': 80, 'left': 80}
+                  theme={
+                    "background": "#FFFFFF",
+                    "textColor": "#31333F",
+                    "tooltip": {
+                        "container": {
+                            "background": "#FFFFFF",
+                            "color": "#31333F",
+                            }
+                        }
+                    }
                 )
 
      
