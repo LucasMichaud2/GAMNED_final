@@ -537,7 +537,12 @@ df_allow_table.columns = new_cols
 
 col1, col2, col3 = st.columns([1, 2, 3])
 
-col1.metric('Top Channel', top_channel)
+with elements('metric'):
+
+    with mui.Paper(elevation=15, variant='outlined', square=True):
+        
+
+        col1.metric('Top Channel', top_channel)
 
 col2.dataframe(df_allow_table)
 
