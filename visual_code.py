@@ -535,7 +535,7 @@ df_allow_table.columns = new_cols
 
 
 
-col1, col2, col3 = st.columns([1, 2, 3])
+col1, col2, col3 = st.columns([1, 2, 2])
 
 with col1:
     st.metric('Top Channel', top_channel)
