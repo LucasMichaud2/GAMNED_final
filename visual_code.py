@@ -386,6 +386,7 @@ format_pricing[selected_objective] = format_pricing[selected_objective] + format
 
 dropout = ['format', 'norm', 'price']
 format_pricing = format_pricing.drop(columns=dropout)
+format_pricing = format_pricing.sort_values(by=selected_objective, ascending=False)
 
 
 st.dataframe(format_pricing)
