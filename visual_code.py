@@ -373,13 +373,14 @@ format_rating = format_rating(df_rating3)
 st.dataframe(format_rating)
 st.dataframe(df_objective)
 
-df_price = df_objective[['channel', 'formats', 'price']]
+df_price = df_objective[['formats', 'price']]
 df_price['price'] = df_price['price'] * 3
 
 st.dataframe(df_price)
 
 format_pricing = format_rating.copy()
 format_pricing = pd.merge(format_pricing, df_price, on='formats')
+
 
 st.dataframe(format_pricing)
 
