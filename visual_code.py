@@ -366,8 +366,16 @@ def format_rating(df_rating3):
 
 format_rating = format_rating(df_rating3)
 
+
+############################################## Adding Price Rating ##############################################################
+
 st.dataframe(format_rating)
 st.dataframe(df_objective)
+
+df_price = df_objective[['channel', 'formats', 'price']]
+df_price['price'] = df_price['price'] * 3
+
+st.dataframe(df_price)
 
 
 ############################################## Getting the Channel rating by agg formats ########################################
@@ -401,7 +409,6 @@ def agg_channel_rating(df_rating3):
 
 cost_rating, agg_rating4, output_rating = agg_channel_rating(df_rating3)
 
-st.dataframe(cost_rating)
 
 
 ############################################# Gettign the top Channel ###################################################################
