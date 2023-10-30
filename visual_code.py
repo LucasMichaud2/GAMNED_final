@@ -58,7 +58,7 @@ def input_layer():
   target_list = ['b2c', 'b2b']
   target_df = pd.DataFrame(target_list)
   
-  objective_list = ['branding', 'consideration', 'conversion']
+  objective_list = ['branding display', 'branding video', 'consideration', 'conversion']
   objective_df = pd.DataFrame(objective_list)
   
   age_list = ['13-17', '18-24', '25-34', '35-44', '45-54', '55-64', '65+', 'all']
