@@ -259,8 +259,20 @@ class GAMNED_UAE:
 
   def get_objective(self, input_obj, df_rating):
 
-    df_heatmap = df_rating[['channel', 'formats', input_obj]]
-    df_heatmap = df_heatmap.sort_values(by=input_obj, ascending=False)
+      
+    if input_obj == 'branding display':
+        df_rating.loc[df_rating['branding video'] == 0, 'branding'] += 10
+        df_heatmap = df_rating[['channel', 'formats', 'branding']]
+        df_heatmap = df_heatmap.sort_values(by='branding', ascending=False)
+
+    elif input_obj == 'branding video':
+        df_rating.loc[df_rating['branding videp'] == 1, 'branding'] += 10
+        df_heatmap = df_rating[['channel', 'formats', 'branding']]
+        df_heatmap = df_heatmap.sort_values(by='branding', ascending=False)
+
+    else:
+        df_heatmap = df_rating[['channel', 'formats', input_obj]]
+        df_heatmap = df_heatmap.sort_values(by=input_obj, ascending=False)
     return df_heatmap
 
 
@@ -307,6 +319,9 @@ def apply_class():
   return df_rating3
 
 df_rating3 = apply_class()
+
+if selected_objective == 'branding display' or selected_objective == 'branding video':
+    selected_objective = 'branding'
 
 ########################################## Country Ratings #######################################################################
 
