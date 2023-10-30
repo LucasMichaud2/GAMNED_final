@@ -367,6 +367,7 @@ def format_rating(df_rating3):
 format_rating = format_rating(df_rating3)
 
 st.dataframe(format_rating)
+st.dataframe(df_objective)
 
 
 ############################################## Getting the Channel rating by agg formats ########################################
