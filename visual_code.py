@@ -28,7 +28,7 @@ def import_url():
   
   gamned_logo_url = 'https://raw.github.com/LucasMichaud2/GAMNED_final/main/Logo_G_Gamned_red_baseline.jpg'
   
-  objective_url = 'https://raw.github.com/LucasMichaud2/GAMNED_final/main/Objectives_updated-Table%201.csv'
+  objective_url = 'https://raw.github.com/LucasMichaud2/GAMNED_final/main/format_table_last.csv'
   df_objective = pd.read_csv(objective_url)
 
   data_url = 'https://raw.github.com/LucasMichaud2/GAMNED_final/main/GAMNED_dataset_V2.2.csv'
