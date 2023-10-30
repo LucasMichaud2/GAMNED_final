@@ -1,0 +1,81 @@
+channel,formats,branding,consideration,conversion,price,branding video
+facebook,Static Image,8,8,7,7,0
+facebook,Static Carousel,7,6,5,6,0
+facebook,Video Carousel,7,5,4,6,1
+facebook,Collection,6,4,5,4,0
+facebook,Instant Experience,6,6,3,5,0
+facebook,Instream video,9,7,6,5,1
+facebook,Marketplace,3,4,5,5,0
+facebook,Messenger,2,2,2,5,0
+facebook,Story,7,4,2,6,0
+instagram,Collection,8,5,4,4,0
+instagram,Explorer,7,4,2,5,0
+instagram,Static Carousel,6,6,3,6,0
+instagram,Instream video,7,6,3,6,1
+instagram,Story,8,4,2,6,0
+instagram,Video Carousel,7,5,3,5,1
+snapchat,Image,5,6,3,7,0
+snapchat,Story,7,5,3,6,0
+snapchat,Video,8,7,5,6,1
+snapchat,Collection,8,8,7,5,0
+tiktok,InFeed,10,7,6,6,1
+tiktok,Takeover,8,4,4,3,1
+tiktok,TopView,9,4,2,5,1
+twitter,Text Ads,5,3,2,6,0
+twitter,Image Ads with app button,3,3,2,6,0
+twitter,Image Ads with conversation button,3,3,2,6,0
+twitter,Image Ads with polls,3,3,2,6,0
+twitter,Standalone image ads,5,3,2,6,0
+twitter,Standalone video ads,5,3,2,5,1
+twitter,Video ads with website button,6,3,2,5,1
+twitter,Video ads with app button,6,3,2,5,1
+twitter,Video ads with conversation button,6,3,2,5,1
+twitter,Video Ads with polls,6,3,2,5,1
+twitter,Carousel ads website,4,3,2,5,0
+twitter,Carousel ads in app,4,3,2,5,0
+linkedin,Conversation ads,3,5,3,1,0
+linkedin,Message ads,3,5,2,1,0
+linkedin,Video ads,6,4,2,1,1
+linkedin,Spotlight ads,3,3,2,1,0
+linkedin,Follower Ads,3,5,6,1,0
+linkedin,Carousel Ads,4,3,2,1,0
+linkedin,Text ads,5,4,2,1,0
+linkedin,Single Image ads,6,5,2,1,0
+linkedin,Event ads,4,4,3,1,0
+linkedin,Lead Gen Forms,1,4,8,1,0
+youtube,Trueview InStream,10,2,1,5,1
+youtube,TrueView In Search,9,2,1,5,1
+youtube,Trueview in Display,9,2,1,5,1
+youtube,Masthead Ad,9,1,0,5,1
+display,IAB Banners Targeting,8,7,2,9,0
+display,IAB Banners Retargeting,4,9,8,5,0
+display,Wallpaper,9,4,1,1,0
+display,Video,7,7,1,5,1
+amazon,IAB Banners Targeting,7,6,2,5,0
+amazon,IAB Banners Retargeting,2,8,7,5,0
+amazon,Video Amazon,8,2,1,5,1
+amazon,Sponsored Ads,3,8,9,5,0
+amazon,E-Commerce Ads,3,8,9,5,0
+twitch,Premium Video,9,2,0,5,1
+twitch,First Impression Takeover,7,1,0,5,1
+twitch,Homepage Headliner,5,1,0,5,0
+twitch,Super leaderboard,7,2,0,5,0
+twitch,Medium rectangle,2,2,0,5,0
+native ads,Banners,5,7,5,6,0
+native ads,Video,8,5,1,5,1
+native ads,In App,5,4,1,5,0
+native ads,In Mail,2,2,0,5,0
+search,Text Ads,4,9,10,5,0
+search,Shopping ads,4,9,10,5,0
+waze,Pin Ads,3,2,0,5,0
+waze,Search Ads,3,2,0,5,0
+waze,Takeover ads,3,2,0,5,0
+waze,Arrow ads,3,2,0,5,0
+connected tv,video,9,1,0,5,1
+dooh,dooh,8,0,0,5,0
+audio,Audio ad + companion banner,8,3,1,5,0
+audio,Video Takeover,7,1,0,5,1
+audio,Sponsored spots,7,1,0,5,0
+in game advertising,Native In Game,9,0,0,5,0
+in game advertising,Rewarded In App Video,8,0,0,5,1
+in game advertising,Video,9,0,0,5,1
