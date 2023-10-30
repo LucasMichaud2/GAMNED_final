@@ -366,6 +366,7 @@ def format_rating(df_rating3):
 
 format_rating = format_rating(df_rating3)
 
+# Format rating is the component for the heatmap
 
 ############################################## Adding Price Rating ##############################################################
 
@@ -376,6 +377,13 @@ df_price = df_objective[['channel', 'formats', 'price']]
 df_price['price'] = df_price['price'] * 3
 
 st.dataframe(df_price)
+
+format_pricing = format_rating.copy()
+format_pricing = pd.merge(format_pricing, df_price, on='formats')
+
+st.dataframe(format_pricing)
+
+
 
 
 ############################################## Getting the Channel rating by agg formats ########################################
