@@ -617,12 +617,12 @@ fig.add_trace(go.Heatmap(
     hovertemplate='%{z:.2f}<extra></extra>',  # Customize hover tooltip
 ))
 
-text_color = 'darkgrey'
+
 # Add labels as annotations in the heatmap squares
 for i, label in enumerate(labels):
     row = i // 6
     col = i % 6
-    bold_label = f"<b style='color:{text_color}'>{label}</b>"
+    bold_label = f"<b>{label}</b>"
     fig.add_annotation(
         text=bold_label,
         x=col,
