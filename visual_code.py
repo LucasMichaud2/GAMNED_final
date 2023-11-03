@@ -900,23 +900,25 @@ with elements("nested_children"):
 st.dataframe(df_allowance)
 
 import streamlit as st
-import plotly.express as px
+import plotly.graph_objs as go
 
 # Create a Plotly heatmap
 data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-fig = px.imshow(data)
+fig = go.Figure(data=go.Heatmap(z=data))
 
-# Define the Streamlit container with white background
+# Define the Streamlit container with a white background
 st.markdown(
     """
     <div style='background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);'>
         <h3>This is a container with a white background.</h3>
-        <!-- Embed the Plotly heatmap using an iframe -->
-        <iframe srcdoc="{plotly_figure}" width="100%" height="400px" frameborder="0"></iframe>
+        <!-- Add more content inside the container if needed -->
     </div>
-    """.format(plotly_figure=fig.to_html(full_html=False)),
+    """,
     unsafe_allow_html=True
 )
+
+# Display the Plotly heatmap inside the container
+st.plotly_chart(fig)
 
 
 
