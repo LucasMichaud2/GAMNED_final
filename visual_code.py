@@ -632,7 +632,7 @@ fig.update_yaxes(showline=False, showticklabels=False)
 
 fig.update_layout(
     width=800,  # Adjust the width as needed
-    height=500,  # Adjust the height for 6 rows
+    height=700,  # Adjust the height for 6 rows
     
     hovermode='closest',
 )
