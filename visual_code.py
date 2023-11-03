@@ -557,6 +557,20 @@ else:
 
 st.dataframe(format_rating)
 
+def formatting_heatmap(format_rating, selected_objective):
+
+    top_format = format_rating.head(48)
+    min_top_format = top_format['norm'].min()
+    max_top_format = top_format['norm'].max()
+    top_format = top_format.drop(selected_objective, axis=1)
+    top_format['norm'] = (((top_format['norm'] - min_top_format) / (max_top_format - min_top_format)) * 100).round(0)
+    return top_format
+
+top_format = formatting_heatmap(format_rating, selected_objective)
+
+st.dataframe(top_format)
+    
+
 # Sample data
 labels = [f"Label {i+1}" for i in range(48)]  # 8 columns x 6 rows = 48 labels
 scores = np.random.randint(0, 101, size=48)  # Generate random scores from 0 to 100
