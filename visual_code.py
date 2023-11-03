@@ -371,13 +371,11 @@ format_rating = format_rating(df_rating3)
 
 ############################################## Adding Price Rating ##############################################################
 
-st.dataframe(format_rating)
-st.dataframe(df_objective)
 
 df_price = df_objective[['formats', 'price']]
 df_price['price'] = df_price['price'] * 3
 
-st.dataframe(df_price)
+
 
 format_pricing = format_rating.copy()
 format_pricing = pd.merge(format_pricing, df_price, on='formats')
@@ -388,9 +386,6 @@ format_pricing[selected_objective] = format_pricing[selected_objective] + format
 dropout = ['format', 'norm', 'price']
 format_pricing = format_pricing.drop(columns=dropout)
 format_pricing = format_pricing.sort_values(by=selected_objective, ascending=False)
-
-
-st.dataframe(format_pricing)
 
 
 
@@ -557,6 +552,69 @@ else:
 ##########################################  Dashboard Content #######################################################################
 #with open('styles.css') as f:
   #st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+######################################### heatmap ###################################################################################
+
+st.dataframe(format_rating)
+
+# Sample data
+labels = [f"Label {i+1}" for i in range(48)]  # 8 columns x 6 rows = 48 labels
+scores = np.random.rand(48)
+
+# Reshape scores into a 6x8 grid for the heatmap
+scores_matrix = scores.reshape(6, 8)
+
+# Define a custom color scale with more shades of red and yellow
+custom_color_scale = [
+    [0, 'rgb(255, 255, 102)'],  # Light yellow
+    [0.2, 'rgb(255, 255, 0)'],  # Yellow
+    [0.4, 'rgb(255, 204, 0)'],  # Darker yellow
+    [0.6, 'rgb(255, 102, 0)'],  # Light red
+    [0.8, 'rgb(255, 51, 0)'],   # Red
+    [1, 'rgb(204, 0, 0)']       # Dark red
+]
+
+# Create a custom heatmap using Plotly with 8 columns and 6 rows
+fig = go.Figure()
+
+# Add the heatmap trace with the custom color scale
+fig.add_trace(go.Heatmap(
+    z=scores_matrix,
+    colorscale=custom_color_scale,  # Use the custom color scale
+    hoverongaps=False,
+    showscale=False,  # Hide the color scale
+    hovertemplate='%{z:.2f}<extra></extra>',  # Customize hover tooltip
+))
+
+# Add labels as annotations in the heatmap squares
+for i, label in enumerate(labels):
+    row = i // 8
+    col = i % 8
+    fig.add_annotation(
+        text=label,
+        x=col,
+        y=row,
+        xref='x',
+        yref='y',
+        showarrow=False,
+        font=dict(size=10)
+    )
+
+fig.update_xaxes(side="top")
+fig.update_layout(
+    width=800,  # Adjust the width as needed
+    height=600,  # Adjust the height for 6 rows
+    title='Custom Heatmap with Hover Effect (Shades of Red and Yellow)',
+    xaxis_title='X-axis',
+    yaxis_title='Y-axis',
+    hovermode='closest',
+)
+
+# Streamlit app
+st.title('Custom Heatmap with Hover Effect in Streamlit')
+
+# Display the Plotly figure in Streamlit with full width
+st.plotly_chart(fig, use_container_width=True)  # Use container width to expand the figure to the full width
 
 if df_allowance.shape[1] == 3:
     df_allowance = df_allowance.drop(selected_region, axis=1)
@@ -811,66 +869,5 @@ with elements("nested_children"):
 st.dataframe(df_allowance)
 
 
-import streamlit as st
-import plotly.graph_objects as go
-import numpy as np
 
-# Sample data
-labels = [f"Label {i+1}" for i in range(48)]  # 8 columns x 6 rows = 48 labels
-scores = np.random.rand(48)
-
-# Reshape scores into a 6x8 grid for the heatmap
-scores_matrix = scores.reshape(6, 8)
-
-# Define a custom color scale with more shades of red and yellow
-custom_color_scale = [
-    [0, 'rgb(255, 255, 102)'],  # Light yellow
-    [0.2, 'rgb(255, 255, 0)'],  # Yellow
-    [0.4, 'rgb(255, 204, 0)'],  # Darker yellow
-    [0.6, 'rgb(255, 102, 0)'],  # Light red
-    [0.8, 'rgb(255, 51, 0)'],   # Red
-    [1, 'rgb(204, 0, 0)']       # Dark red
-]
-
-# Create a custom heatmap using Plotly with 8 columns and 6 rows
-fig = go.Figure()
-
-# Add the heatmap trace with the custom color scale
-fig.add_trace(go.Heatmap(
-    z=scores_matrix,
-    colorscale=custom_color_scale,  # Use the custom color scale
-    hoverongaps=False,
-    showscale=False,  # Hide the color scale
-    hovertemplate='%{z:.2f}<extra></extra>',  # Customize hover tooltip
-))
-
-# Add labels as annotations in the heatmap squares
-for i, label in enumerate(labels):
-    row = i // 8
-    col = i % 8
-    fig.add_annotation(
-        text=label,
-        x=col,
-        y=row,
-        xref='x',
-        yref='y',
-        showarrow=False,
-        font=dict(size=10)
-    )
-
-fig.update_xaxes(side="top")
-fig.update_layout(
-    width=800,  # Adjust the width as needed
-    height=600,  # Adjust the height for 6 rows
-    title='Custom Heatmap with Hover Effect (Shades of Red and Yellow)',
-    xaxis_title='X-axis',
-    yaxis_title='Y-axis',
-    hovermode='closest',
-)
-
-# Streamlit app
-st.title('Custom Heatmap with Hover Effect in Streamlit')
-
-# Display the Plotly figure in Streamlit with full width
-st.plotly_chart(fig, use_container_width=True)  # Use container width to expand the figure to the full width
 
