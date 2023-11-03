@@ -559,7 +559,7 @@ st.dataframe(format_rating)
 
 def formatting_heatmap(format_rating, selected_objective):
 
-    top_format = format_rating.head(48)
+    top_format = format_rating.head(36)
     min_top_format = top_format['norm'].min()
     max_top_format = top_format['norm'].max()
     top_format = top_format.drop(selected_objective, axis=1)
@@ -573,7 +573,7 @@ def heatmap_data(top_format):
 
     labels = top_format['format'].tolist()
     scores = top_format['norm'].to_numpy()
-    scores_matrix = scores.reshape(6, 8)
+    scores_matrix = scores.reshape(6, 6)
     return labels, scores_matrix
 
 labels, scores_matrix = heatmap_data(top_format)
@@ -616,8 +616,8 @@ fig.add_trace(go.Heatmap(
 
 # Add labels as annotations in the heatmap squares
 for i, label in enumerate(labels):
-    row = i // 8
-    col = i % 8
+    row = i // 6
+    col = i % 6
     fig.add_annotation(
         text=label,
         x=col,
