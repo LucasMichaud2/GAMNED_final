@@ -569,15 +569,24 @@ def formatting_heatmap(format_rating, selected_objective):
 
 top_format = formatting_heatmap(format_rating, selected_objective)
 
+def heatmap_data(top_format):
+
+    labels = top_format['format'].tolist()
+    scores = top_format['norm'].to_numpy()
+    scores_matrix = scores.reshape(6, 8)
+    return labels, scores_matrix
+
+labels, scores_matrix = heatmap_data(top_format)
+
 st.dataframe(top_format)
     
 
 # Sample data
-labels = [f"Label {i+1}" for i in range(48)]  # 8 columns x 6 rows = 48 labels
-scores = np.random.randint(0, 101, size=48)  # Generate random scores from 0 to 100
+#labels = [f"Label {i+1}" for i in range(48)]  # 8 columns x 6 rows = 48 labels
+#scores = np.random.randint(0, 101, size=48)  # Generate random scores from 0 to 100
 
 # Reshape scores into a 6x8 grid for the heatmap
-scores_matrix = scores.reshape(6, 8)
+#scores_matrix = scores.reshape(6, 8)
 
 # Define a custom color scale with more shades of red and yellow
 custom_color_scale = [
