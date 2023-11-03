@@ -811,6 +811,10 @@ with elements("nested_children"):
 st.dataframe(df_allowance)
 
 
+import streamlit as st
+import plotly.graph_objects as go
+import numpy as np
+
 # Sample data
 labels = [f"Label {i+1}" for i in range(48)]  # 8 columns x 6 rows = 48 labels
 scores = np.random.rand(48)
@@ -852,7 +856,7 @@ for i, label in enumerate(labels):
 
 fig.update_xaxes(side="top")
 fig.update_layout(
-    width=800,
+    width=800,  # Adjust the width as needed
     height=600,  # Adjust the height for 6 rows
     title='Custom Heatmap with Hover Effect (Yellow to Red)',
     xaxis_title='X-axis',
@@ -863,5 +867,6 @@ fig.update_layout(
 # Streamlit app
 st.title('Custom Heatmap with Hover Effect in Streamlit')
 
-# Display the Plotly figure in Streamlit
-st.plotly_chart(fig)
+# Display the Plotly figure in Streamlit with full width
+st.plotly_chart(fig, use_container_width=True)  # Use container width to expand the figure to the full width
+
