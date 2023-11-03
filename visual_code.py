@@ -604,7 +604,7 @@ for i, label in enumerate(labels):
         xref='x',
         yref='y',
         showarrow=False,
-        font=dict(size=10)
+        font=dict(size=10, color='black')
     )
 
 # Remove the axis labels and lines
