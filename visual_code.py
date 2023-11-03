@@ -906,19 +906,18 @@ import plotly.express as px
 data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 fig = px.imshow(data)
 
-# Define the Streamlit container with white background and embed the Plotly figure
+# Define the Streamlit container with white background
 st.markdown(
     """
     <div style='background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);'>
         <h3>This is a container with a white background.</h3>
-        <!-- Embed the Plotly heatmap -->
-        <div>
-            {plotly_figure}
-        </div>
+        <!-- Embed the Plotly heatmap using an iframe -->
+        <iframe srcdoc="{plotly_figure}" width="100%" height="400px" frameborder="0"></iframe>
     </div>
     """.format(plotly_figure=fig.to_html(full_html=False)),
     unsafe_allow_html=True
 )
+
 
 
 
