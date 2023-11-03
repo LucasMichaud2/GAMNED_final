@@ -555,7 +555,7 @@ else:
   #st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 ######################################### heatmap ###################################################################################
-
+st.dataframe(format_rating)
 
 def formatting_heatmap(format_rating, selected_objective):
 
