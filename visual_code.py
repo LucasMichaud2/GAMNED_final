@@ -349,7 +349,7 @@ def format_rating(df_rating3):
 
   full_format_rating = df_rating3.copy()
   format_rating = df_rating3.copy()
-  format_rating['format'] = format_rating['channel'] + '\n' + format_rating['formats']
+  format_rating['format'] = format_rating['channel'] + '\n - ' + format_rating['formats']
   format_rating = format_rating[['channel', 'formats', 'format', selected_objective]]
   min_format = full_format_rating[selected_objective].min()
   max_format = full_format_rating[selected_objective].max()
@@ -569,7 +569,8 @@ def formatting_heatmap(format_rating, selected_objective):
 top_format = formatting_heatmap(format_rating, selected_objective)
 
 def heatmap_data(top_format):
-
+    
+    top_format['format'] = top_format['format'].str.title()
     labels = top_format['format'].tolist()
     scores = top_format['norm'].to_numpy()
     scores_matrix = scores.reshape(6, 6)
