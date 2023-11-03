@@ -899,17 +899,24 @@ with elements("nested_children"):
 
 st.dataframe(df_allowance)
 
+import streamlit as st
+import plotly.express as px
 
+# Create a Plotly heatmap
+data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+fig = px.imshow(data)
 
-
-# Add a container with a white background using st.markdown
+# Define the Streamlit container with white background and embed the Plotly figure
 st.markdown(
     """
     <div style='background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);'>
         <h3>This is a container with a white background.</h3>
-        <!-- Add more content as needed -->
+        <!-- Embed the Plotly heatmap -->
+        <div>
+            {plotly_figure}
+        </div>
     </div>
-    """,
+    """.format(plotly_figure=fig.to_html()),
     unsafe_allow_html=True
 )
 
