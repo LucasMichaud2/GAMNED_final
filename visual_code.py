@@ -901,6 +901,171 @@ with elements("nested_children"):
 
 st.dataframe(df_allowance)
 
+import streamlit as st
+import plotly.graph_objects as go
+import numpy as np
+
+# Sample data
+labels = [
+    "Long Label 1",
+    "Line 2",
+    "Very Long Label 2",
+    "Line 2",
+    "Another Long Label 3",
+    "Line 2",
+    "Label 4",
+    "Line 2",
+    "A Very Long Label 5",
+    "Line 2",
+    "Label 6",
+    "Line 2",
+    "Long Label 7",
+    "Line 2",
+    "Very Long Label 8",
+    "Line 2",
+    "Another Long Label 9",
+    "Line 2",
+    "Label 10",
+    "Line 2",
+    "A Very Long Label 11",
+    "Line 2",
+    "Label 12",
+    "Line 2",
+    "Long Label 13",
+    "Line 2",
+    "Very Long Label 14",
+    "Line 2",
+    "Another Long Label 15",
+    "Line 2",
+    "Label 16",
+    "Line 2",
+    "A Very Long Label 17",
+    "Line 2",
+    "Label 18",
+    "Line 2",
+    "Long Label 19",
+    "Line 2",
+    "Very Long Label 20",
+    "Line 2",
+    "Another Long Label 21",
+    "Line 2",
+    "Label 22",
+    "Line 2",
+    "A Very Long Label 23",
+    "Line 2",
+    "Label 24",
+    "Line 2",
+    "Long Label 25",
+    "Line 2",
+    "Very Long Label 26",
+    "Line 2",
+    "Another Long Label 27",
+    "Line 2",
+    "Label 28",
+    "Line 2",
+    "A Very Long Label 29",
+    "Line 2",
+    "Label 30",
+    "Line 2",
+    "Long Label 31",
+    "Line 2",
+    "Very Long Label 32",
+    "Line 2",
+    "Another Long Label 33",
+    "Line 2",
+    "Label 34",
+    "Line 2",
+    "A Very Long Label 35",
+    "Line 2",
+    "Label 36",
+    "Line 2",
+    "Long Label 37",
+    "Line 2",
+    "Very Long Label 38",
+    "Line 2",
+    "Another Long Label 39",
+    "Line 2",
+    "Label 40",
+    "Line 2",
+    "A Very Long Label 41",
+    "Line 2",
+    "Label 42",
+    "Line 2",
+    "Long Label 43",
+    "Line 2",
+    "Very Long Label 44",
+    "Line 2",
+    "Another Long Label 45",
+    "Line 2",
+    "Label 46",
+    "Line 2",
+    "A Very Long Label 47",
+    "Line 2",
+    "Label 48",
+    "Line 2"
+]  # 8 columns x 6 rows = 48 labels
+
+scores = np.random.randint(0, 101, size=48)  # Generate random scores from 0 to 100
+
+# Reshape scores into a 6x8 grid for the heatmap
+scores_matrix = scores.reshape(6, 8)
+
+# Define a custom color scale with more shades of red and yellow
+custom_color_scale = [
+    [0, 'rgb(255, 255, 102)'],    # Light yellow
+    [0.1, 'rgb(255, 255, 0)'],    # Yellow
+    [0.2, 'rgb(255, 220, 0)'],    # Yellow with a hint of orange
+    [0.4, 'rgb(255, 190, 0)'],    # Darker yellow
+    [0.6, 'rgb(255, 140, 0)'],    # Light red-orange
+    [0.7, 'rgb(255, 85, 0)'],     # Red-orange
+    [0.8, 'rgb(255, 51, 0)'],     # Red
+    [1, 'rgb(204, 0, 0)']         # Dark red
+]
+
+# Create a custom heatmap using Plotly with 8 columns and 6 rows
+fig = go.Figure()
+
+# Add the heatmap trace with the custom color scale
+fig.add_trace(go.Heatmap(
+    z=scores_matrix,
+    colorscale=custom_color_scale,  # Use the custom color scale
+    hoverongaps=False,
+    showscale=False,  # Hide the color scale
+    hovertemplate='%{z:.2f}<extra></extra>',  # Customize hover tooltip
+))
+
+# Add labels as annotations in the heatmap squares with black text color
+for i, label in enumerate(labels):
+    row = i // 8
+    col = i % 8
+    fig.add_annotation(
+        text=label,
+        x=col,
+        y=row,
+        xref='x',
+        yref='y',
+        showarrow=False,
+        font=dict(size=10, color='black')  # Set text color to black
+    )
+
+# Remove the axis labels and lines
+fig.update_xaxes(showline=False, showticklabels=False)
+fig.update_yaxes(showline=False, showticklabels=False)
+
+fig.update_layout(
+    width=800,  # Adjust the width as needed
+    height=600,  # Adjust the height for 6 rows
+    title='Custom Heatmap with Hover Effect (Shades of Red and Yellow)',
+    hovermode='closest',
+)
+
+# Streamlit app
+st.title('Custom Heatmap with Hover Effect in Streamlit')
+
+# Display the Plotly figure in Streamlit with full width
+st.plotly_chart(fig, use_container_width=True)
+
+
 
 
 
