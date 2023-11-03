@@ -628,7 +628,7 @@ for i, label in enumerate(labels):
         xref='x',
         yref='y',
         showarrow=False,
-        font=dict(size=10, color='black'),
+        font=dict(size=10, color='black', weight='bold'),
         align='center'
     )
 
