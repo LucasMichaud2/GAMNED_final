@@ -563,7 +563,7 @@ def formatting_heatmap(format_rating, selected_objective):
     format_rating['channel'] = format_rating['channel'].str.upper()
     format_rating['formats'] = format_rating['formats'].str.title()
     format_rating['format'] = format_rating['channel'] + '\n - ' + format_rating['formats']
-    top_format = format_rating.head(36)
+    top_format = format_rating.head(42)
     min_top_format = top_format['norm'].min()
     max_top_format = top_format['norm'].max()
     top_format = top_format.drop(selected_objective, axis=1)
@@ -579,7 +579,7 @@ def heatmap_data(top_format):
     top_format['format'] = top_format['format'].str.title()
     labels = top_format['format'].tolist()
     scores = top_format['norm'].to_numpy()
-    scores_matrix = scores.reshape(6, 6)
+    scores_matrix = scores.reshape(7, 6)
     return labels, scores_matrix
 
 labels, scores_matrix = heatmap_data(top_format)
@@ -620,8 +620,8 @@ fig.add_trace(go.Heatmap(
 
 # Add labels as annotations in the heatmap squares
 for i, label in enumerate(labels):
-    row = i // 6
-    col = i % 6
+    row = i // 7
+    col = i % 7
     bold_label = f"<b>{label}</b>"
     fig.add_annotation(
         text=bold_label,
@@ -630,7 +630,7 @@ for i, label in enumerate(labels):
         xref='x',
         yref='y',
         showarrow=False,
-        font=dict(size=12, color='black'),
+        font=dict(size=10, color='black'),
         align='center'
     )
 
