@@ -901,21 +901,17 @@ st.dataframe(df_allowance)
 
 
 
-# Add a container with a custom CSS style
-st.markdown("""
-    <style>
-    .stContainer {
-        background-color: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    </style>
-""", unsafe_allow_html=True)
 
-# Add content inside the container
-with st.container():
-    st.write("This is a container with a white background.")
-    # Add more content as needed
+# Add a container with a white background using st.markdown
+st.markdown(
+    """
+    <div style='background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);'>
+        <h3>This is a container with a white background.</h3>
+        <!-- Add more content as needed -->
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
 
 
