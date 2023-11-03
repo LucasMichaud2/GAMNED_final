@@ -578,7 +578,6 @@ def heatmap_data(top_format):
 
 labels, scores_matrix = heatmap_data(top_format)
 
-st.write(labels)
 
 st.dataframe(top_format)
     
