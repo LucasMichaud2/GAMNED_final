@@ -621,7 +621,7 @@ fig.add_trace(go.Heatmap(
 # Add labels as annotations in the heatmap squares
 for i, label in enumerate(labels):
     row = i // 7
-    col = i % 6
+    col = i % 7
     bold_label = f"<b>{label}</b>"
     fig.add_annotation(
         text=bold_label,
