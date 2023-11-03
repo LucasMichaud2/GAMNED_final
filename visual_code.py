@@ -557,22 +557,29 @@ else:
 
 st.dataframe(format_rating)
 
+import streamlit as st
+import plotly.graph_objects as go
+import numpy as np
+
 # Sample data
 labels = [f"Label {i+1}" for i in range(48)]  # 8 columns x 6 rows = 48 labels
-scores = np.random.rand(48)
+scores = np.random.randint(0, 101, size=48)  # Generate random scores from 0 to 100
 
 # Reshape scores into a 6x8 grid for the heatmap
 scores_matrix = scores.reshape(6, 8)
 
-# Define a custom color scale with more shades of red and yellow
+# Define a custom color scale with more shades of colors (e.g., from blue to red)
 custom_color_scale = [
-    [0, 'rgb(255, 255, 102)'],  # Light yellow
-    [0.2, 'rgb(255, 255, 0)'],  # Yellow
-    [0.4, 'rgb(255, 204, 0)'],  # Darker yellow
-    [0.6, 'rgb(255, 102, 0)'],  # Light red
-    [0.8, 'rgb(255, 51, 0)'],   # Red
-    [1, 'rgb(204, 0, 0)']       # Dark red
+    [0, 'rgb(0, 0, 255)'],    # Blue
+    [0.2, 'rgb(100, 100, 255)'],  # Light blue
+    [0.4, 'rgb(200, 200, 200)'],  # Gray
+    [0.6, 'rgb(255, 100, 100)'],  # Light red
+    [0.8, 'rgb(255, 0, 0)'],      # Red
+    [1, 'rgb(100, 0, 0)']         # Dark red
 ]
+
+# Map scores to the [0, 1] range to fit the color scale
+normalized_scores = scores / 100.0
 
 # Create a custom heatmap using Plotly with 8 columns and 6 rows
 fig = go.Figure()
@@ -600,13 +607,25 @@ for i, label in enumerate(labels):
         font=dict(size=10)
     )
 
-fig.update_xaxes(side="top")
+# Remove the axis labels and lines
+fig.update_xaxes(showline=False, showticklabels=False)
+fig.update_yaxes(showline=False, showticklabels=False)
+
+# Add a larger white frame around the heatmap
 fig.update_layout(
+    shapes=[
+        dict(
+            type='rect',
+            x0=-1,   # Adjust the x0 and y0 coordinates to make the frame larger
+            y0=-1,   # Adjust the x1 and y1 coordinates accordingly
+            x1=8,
+            y1=6,
+            line=dict(color='white', width=4),  # Increase the width for a thicker frame
+        )
+    ],
     width=800,  # Adjust the width as needed
     height=600,  # Adjust the height for 6 rows
-    title='Custom Heatmap with Hover Effect (Shades of Red and Yellow)',
-    xaxis_title='X-axis',
-    yaxis_title='Y-axis',
+    title='Custom Heatmap with Hover Effect (Shades of Colors)',
     hovermode='closest',
 )
 
@@ -614,7 +633,9 @@ fig.update_layout(
 st.title('Custom Heatmap with Hover Effect in Streamlit')
 
 # Display the Plotly figure in Streamlit with full width
-st.plotly_chart(fig, use_container_width=True)  # Use container width to expand the figure to the full width
+st.plotly_chart(fig, use_container_width=True)
+
+#################################################################################################################################
 
 if df_allowance.shape[1] == 3:
     df_allowance = df_allowance.drop(selected_region, axis=1)
