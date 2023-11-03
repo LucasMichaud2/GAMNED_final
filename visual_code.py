@@ -354,7 +354,7 @@ def format_rating(df_rating3):
   min_format = full_format_rating[selected_objective].min()
   max_format = full_format_rating[selected_objective].max()
   format_rating['norm'] = (format_rating[selected_objective] - min_format) / (max_format - min_format)*100
-  format_rating['norm'] = format_rating['norm'].astype(float).round(2)
+  format_rating['norm'] = format_rating['norm'].astype(float).round(0)
   #format_rating2 = format_rating.copy()
   #format_rating2['norm'] = format_rating2['norm'].apply(lambda x: x**2)
   #format_rating2['norm'] = format_rating2['norm'].astype(float).round(2)
@@ -556,11 +556,6 @@ else:
 ######################################### heatmap ###################################################################################
 
 st.dataframe(format_rating)
-
-
-import streamlit as st
-import plotly.graph_objects as go
-import numpy as np
 
 # Sample data
 labels = [f"Label {i+1}" for i in range(48)]  # 8 columns x 6 rows = 48 labels
