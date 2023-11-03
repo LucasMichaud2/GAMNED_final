@@ -621,14 +621,15 @@ fig.add_trace(go.Heatmap(
 for i, label in enumerate(labels):
     row = i // 6
     col = i % 6
+    bold_label = f"<b>{label}</b>"
     fig.add_annotation(
-        text=label,
+        text=bold_label,
         x=col,
         y=row,
         xref='x',
         yref='y',
         showarrow=False,
-        font=dict(size=10, color='black', weight='bold'),
+        font=dict(size=10, color='black'),
         align='center'
     )
 
