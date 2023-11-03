@@ -555,7 +555,6 @@ else:
 
 ######################################### heatmap ###################################################################################
 
-st.dataframe(format_rating)
 
 def formatting_heatmap(format_rating, selected_objective):
 
@@ -578,8 +577,6 @@ def heatmap_data(top_format):
 
 labels, scores_matrix = heatmap_data(top_format)
 
-
-st.dataframe(top_format)
     
 
 # Sample data
