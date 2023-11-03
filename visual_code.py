@@ -862,16 +862,16 @@ for i, label in enumerate(labels):
 fig.update_xaxes(showline=False, showticklabels=False)
 fig.update_yaxes(showline=False, showticklabels=False)
 
-# Add a white frame around the heatmap
+# Add a larger white frame around the heatmap
 fig.update_layout(
     shapes=[
         dict(
             type='rect',
-            x0=-0.5,
-            y0=-0.5,
-            x1=7.5,
-            y1=5.5,
-            line=dict(color='white', width=2),
+            x0=-1,   # Adjust the x0 and y0 coordinates to make the frame larger
+            y0=-1,   # Adjust the x1 and y1 coordinates accordingly
+            x1=8,
+            y1=6,
+            line=dict(color='white', width=4),  # Increase the width for a thicker frame
         )
     ],
     width=800,  # Adjust the width as needed
@@ -885,4 +885,3 @@ st.title('Custom Heatmap with Hover Effect in Streamlit')
 
 # Display the Plotly figure in Streamlit with full width
 st.plotly_chart(fig, use_container_width=True)  # Use container width to expand the figure to the full width
-
