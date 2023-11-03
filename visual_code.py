@@ -557,9 +557,6 @@ else:
 
 st.dataframe(format_rating)
 
-import streamlit as st
-import plotly.graph_objects as go
-import numpy as np
 
 # Sample data
 labels = [f"Label {i+1}" for i in range(48)]  # 8 columns x 6 rows = 48 labels
@@ -568,18 +565,17 @@ scores = np.random.randint(0, 101, size=48)  # Generate random scores from 0 to 
 # Reshape scores into a 6x8 grid for the heatmap
 scores_matrix = scores.reshape(6, 8)
 
-# Define a custom color scale with more shades of colors (e.g., from blue to red)
+# Define a custom color scale with more shades of red and yellow
 custom_color_scale = [
-    [0, 'rgb(0, 0, 255)'],    # Blue
-    [0.2, 'rgb(100, 100, 255)'],  # Light blue
-    [0.4, 'rgb(200, 200, 200)'],  # Gray
-    [0.6, 'rgb(255, 100, 100)'],  # Light red
-    [0.8, 'rgb(255, 0, 0)'],      # Red
-    [1, 'rgb(100, 0, 0)']         # Dark red
+    [0, 'rgb(255, 255, 102)'],    # Light yellow
+    [0.1, 'rgb(255, 255, 0)'],    # Yellow
+    [0.2, 'rgb(255, 220, 0)'],    # Yellow with a hint of orange
+    [0.4, 'rgb(255, 190, 0)'],    # Darker yellow
+    [0.6, 'rgb(255, 140, 0)'],    # Light red-orange
+    [0.7, 'rgb(255, 85, 0)'],     # Red-orange
+    [0.8, 'rgb(255, 51, 0)'],     # Red
+    [1, 'rgb(204, 0, 0)']         # Dark red
 ]
-
-# Map scores to the [0, 1] range to fit the color scale
-normalized_scores = scores / 100.0
 
 # Create a custom heatmap using Plotly with 8 columns and 6 rows
 fig = go.Figure()
@@ -625,7 +621,7 @@ fig.update_layout(
     ],
     width=800,  # Adjust the width as needed
     height=600,  # Adjust the height for 6 rows
-    title='Custom Heatmap with Hover Effect (Shades of Colors)',
+    title='Custom Heatmap with Hover Effect (Shades of Red and Yellow)',
     hovermode='closest',
 )
 
@@ -634,6 +630,7 @@ st.title('Custom Heatmap with Hover Effect in Streamlit')
 
 # Display the Plotly figure in Streamlit with full width
 st.plotly_chart(fig, use_container_width=True)
+
 
 #################################################################################################################################
 
