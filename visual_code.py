@@ -629,7 +629,7 @@ for i, label in enumerate(labels):
         xref='x',
         yref='y',
         showarrow=False,
-        font=dict(size=10, color='black'),
+        font=dict(size=12, color='black'),
         align='center'
     )
 
