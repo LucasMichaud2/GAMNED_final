@@ -349,7 +349,7 @@ def format_rating(df_rating3):
 
   full_format_rating = df_rating3.copy()
   format_rating = df_rating3.copy()
-  format_rating['channel'] = format_rating['channel'].replace('In Game Advertising', 'IGA')
+  format_rating['channel'] = format_rating['channel'].replace('in game advertising', 'IGA')
   format_rating['format'] = format_rating['channel'] + '\n - ' + format_rating['formats']
   format_rating = format_rating[['channel', 'formats', 'format', selected_objective]]
   min_format = full_format_rating[selected_objective].min()
