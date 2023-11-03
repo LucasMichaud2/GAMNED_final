@@ -558,6 +558,10 @@ else:
 st.dataframe(format_rating)
 
 
+import streamlit as st
+import plotly.graph_objects as go
+import numpy as np
+
 # Sample data
 labels = [f"Label {i+1}" for i in range(48)]  # 8 columns x 6 rows = 48 labels
 scores = np.random.randint(0, 101, size=48)  # Generate random scores from 0 to 100
@@ -607,18 +611,7 @@ for i, label in enumerate(labels):
 fig.update_xaxes(showline=False, showticklabels=False)
 fig.update_yaxes(showline=False, showticklabels=False)
 
-# Add a larger white frame around the heatmap
 fig.update_layout(
-    shapes=[
-        dict(
-            type='rect',
-            x0=-1,   # Adjust the x0 and y0 coordinates to make the frame larger
-            y0=-1,   # Adjust the x1 and y1 coordinates accordingly
-            x1=8,
-            y1=6,
-            line=dict(color='white', width=4),  # Increase the width for a thicker frame
-        )
-    ],
     width=800,  # Adjust the width as needed
     height=600,  # Adjust the height for 6 rows
     title='Custom Heatmap with Hover Effect (Shades of Red and Yellow)',
@@ -630,6 +623,7 @@ st.title('Custom Heatmap with Hover Effect in Streamlit')
 
 # Display the Plotly figure in Streamlit with full width
 st.plotly_chart(fig, use_container_width=True)
+
 
 
 #################################################################################################################################
