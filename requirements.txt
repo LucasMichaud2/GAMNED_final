@@ -1,3 +1,4 @@
 seaborn
 matplotlib
 streamlit-elements==0.1.*
+plotly.graph_objects
