@@ -822,10 +822,14 @@ scores = np.random.rand(48)
 # Reshape scores into a 6x8 grid for the heatmap
 scores_matrix = scores.reshape(6, 8)
 
-# Define a custom color scale from yellow to red
+# Define a custom color scale with more shades of red and yellow
 custom_color_scale = [
-    [0, 'yellow'],
-    [1, 'red']
+    [0, 'rgb(255, 255, 102)'],  # Light yellow
+    [0.2, 'rgb(255, 255, 0)'],  # Yellow
+    [0.4, 'rgb(255, 204, 0)'],  # Darker yellow
+    [0.6, 'rgb(255, 102, 0)'],  # Light red
+    [0.8, 'rgb(255, 51, 0)'],   # Red
+    [1, 'rgb(204, 0, 0)']       # Dark red
 ]
 
 # Create a custom heatmap using Plotly with 8 columns and 6 rows
@@ -858,7 +862,7 @@ fig.update_xaxes(side="top")
 fig.update_layout(
     width=800,  # Adjust the width as needed
     height=600,  # Adjust the height for 6 rows
-    title='Custom Heatmap with Hover Effect (Yellow to Red)',
+    title='Custom Heatmap with Hover Effect (Shades of Red and Yellow)',
     xaxis_title='X-axis',
     yaxis_title='Y-axis',
     hovermode='closest',
@@ -869,4 +873,3 @@ st.title('Custom Heatmap with Hover Effect in Streamlit')
 
 # Display the Plotly figure in Streamlit with full width
 st.plotly_chart(fig, use_container_width=True)  # Use container width to expand the figure to the full width
-
