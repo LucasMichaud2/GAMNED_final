@@ -635,7 +635,7 @@ fig.update_yaxes(showline=False, showticklabels=False)
 
 fig.update_layout(
     width=800,  # Adjust the width as needed
-    height=800,  # Adjust the height for 6 rows
+    height=700,  # Adjust the height for 6 rows
     title='Custom Heatmap with Hover Effect (Shades of Red and Yellow)',
     hovermode='closest',
 )
