@@ -419,7 +419,8 @@ if channel_number == 0:
 
         n_format = input_budget // 4000 + 1
         selected_format = format_pricing.head(n_format)
-        unique_channel = selected_format['channel'].unique() 
+        unique_channel = selected_format['channel'].unique()
+        unique_channel.columns = ['channel']
         st.dataframe(unique_channel)
         min_selection = unique_channel.merge(min_price, on='channel', how='inner')
         st.dataframe(min_selection) 
