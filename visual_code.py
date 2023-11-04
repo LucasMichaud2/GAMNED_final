@@ -383,6 +383,8 @@ df_price['price'] = df_price['price'] * 3
 format_pricing = format_rating.copy()
 format_pricing = pd.merge(format_pricing, df_price, on='formats')
 
+st.dataframe(format_pricing)
+
 
 format_pricing[selected_objective] = format_pricing[selected_objective] + format_pricing['price']
 
