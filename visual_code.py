@@ -423,7 +423,14 @@ if channel_number == 0:
         unique_channel = pd.DataFrame({'channel': unique_channel}) 
         st.dataframe(unique_channel)
         min_selection = unique_channel.merge(min_price, on='channel', how='inner')
-        st.dataframe(min_selection) 
+        st.dataframe(min_selection)
+        min_sum = min_selection['minimum'].sum()
+
+
+        selected_format['budget'] = input_budget * selected_format[selected_objective] / (selected_format[selected_objective].sum())
+        st.dataframe(selected_format)
+            
+            
         
 
 
