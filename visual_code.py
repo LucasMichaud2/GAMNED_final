@@ -399,6 +399,18 @@ format_pricing = price_rating(df_objective, format_rating)
 
 st.dataframe(format_pricing)
 
+############################################# Building Budget ##################################################################
+
+if channel_number == 0:
+
+    if input_budget >= 10000:
+
+        n_format = input_budget // 4000 + 1
+        selected_format = format_pricing.head(n_format)
+        unique_channel = selected_format['channel'].unique()
+        st.dataframe(unique_channel)
+        
+
 
 
 
