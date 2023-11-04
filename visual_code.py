@@ -422,7 +422,7 @@ if channel_number == 0:
         unique_channel = selected_format['channel'].unique() 
         st.dataframe(unique_channel)
         min_selection = pd.merge(unique_channel, min_price, on='channel')
-        st.dataframe(min_selection)
+        st.dataframe(min_selection) 
         
 
 
