@@ -649,6 +649,8 @@ fig.update_layout(
     margin=dict(l=25, r=25, t=50, b=25),
     paper_bgcolor='white',
     plot_bgcolor='white'# Set margin to 0 on all sides
+    xaxis_showgrid=False,  # Remove x-axis gridlines
+    yaxis_showgrid=False
 )
 
 
