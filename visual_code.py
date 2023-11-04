@@ -616,7 +616,9 @@ fig.add_trace(go.Heatmap(
     colorscale=custom_color_scale,  # Use the custom color scale
     hoverongaps=False,
     showscale=False,  # Hide the color scale
-    hovertemplate='%{z:.2f}<extra></extra>',  # Customize hover tooltip
+    hovertemplate='%{z:.2f}<extra></extra>',
+    xgap=1,
+    ygap=1# Customize hover tooltip
 ))
 
 
