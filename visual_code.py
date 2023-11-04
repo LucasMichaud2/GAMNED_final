@@ -649,6 +649,14 @@ fig.update_layout(
     hovermode='closest',
 )
 
+custom_css = """
+<style>
+.stPlotlyChart {
+    padding: 10px;  /* Adjust the padding to control the frame size */
+}
+</style>
+"""
+st.markdown(custom_css, unsafe_allow_html=True)
 
 # Display the Plotly figure in Streamlit with full width
 st.plotly_chart(fig, use_container_width=True)
