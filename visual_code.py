@@ -419,6 +419,7 @@ if channel_number == 0:
 
         n_format = input_budget // 4000 + 1
         selected_format = format_pricing.head(n_format)
+        selected_format[selected_objective] = selected_format[selected_objective].round(0)
         unique_channel = selected_format['channel'].unique()
         unique_channel = pd.DataFrame({'channel': unique_channel}) 
         st.dataframe(unique_channel)
