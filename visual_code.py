@@ -626,7 +626,7 @@ for i, label in enumerate(labels):
     col = i % 7
     
     fig.add_annotation(
-        text=bold_label,
+        text=label,
         x=col,
         y=row,
         xref='x',
