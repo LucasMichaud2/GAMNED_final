@@ -297,6 +297,18 @@ class GAMNED_UAE:
 
       return total_rating
 
+##################################################### min price ##################################################################
+
+min_price = {
+    'channel': ['youtube', 'instagram', 'display', 'facebook', 'linkedin', 'search', 'snapchat', 'tiktok', 'native ads', 'twitter', 'twitch',
+                      'in game advertising', 'amazon', 'audio', 'waze', 'dooh', 'connected tv'],
+    'minimum': ['4000', '3000', '5000', '4000', '3000', '3000', '3000', '3000', '3000', '3000', '3000', '3000', '3000', '3000', '3000',
+                 '3000', '3000']
+}
+
+min_price = pd.DataFrame(min_price)
+st.dataframe(min_price)
+
 
 ################################ Applying Class ###################################################################################
 
