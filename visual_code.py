@@ -374,24 +374,28 @@ st.dataframe(format_rating)
 
 ############################################## Adding Price Rating ##############################################################
 
+def price_rating(df_objective, format_rating):
 
-df_price = df_objective[['formats', 'price']]
-df_price['price'] = df_price['price'] * 3
+    df_price = df_objective[['formats', 'price']]
+    df_price['price'] = df_price['price'] * 3
+    
+    
+    
+    format_pricing = format_rating.copy()
+    format_pricing = pd.merge(format_pricing, df_price, on='formats')
+    format_pricing = format_pricing.drop_duplicates()
+    
+    st.dataframe(format_pricing)
+     
+    
+    format_pricing[selected_objective] = format_pricing[selected_objective] + format_pricing['price']
+    
+    dropout = ['format', 'norm', 'price']
+    format_pricing = format_pricing.drop(columns=dropout)
+    format_pricing = format_pricing.sort_values(by=selected_objective, ascending=False)
+    return format_pricing
 
-
-
-format_pricing = format_rating.copy()
-format_pricing = pd.merge(format_pricing, df_price, on='formats')
-format_pricing = format_pricing.drop_duplicates()
-
-st.dataframe(format_pricing)
- 
-
-format_pricing[selected_objective] = format_pricing[selected_objective] + format_pricing['price']
-
-dropout = ['format', 'norm', 'price']
-format_pricing = format_pricing.drop(columns=dropout)
-format_pricing = format_pricing.sort_values(by=selected_objective, ascending=False)
+format_pricing = price_rating(df_objective, format_rating)
 
 st.dataframe(format_pricing)
 
