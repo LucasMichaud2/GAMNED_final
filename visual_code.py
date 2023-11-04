@@ -645,18 +645,11 @@ fig.update_yaxes(showline=False, showticklabels=False)
 fig.update_layout(
     width=800,  # Adjust the width as needed
     height=700,  # Adjust the height for 6 rows
-    
     hovermode='closest',
+    margin=dict(l=0, r=0, t=0, b=0)  # Set margin to 0 on all sides
 )
 
-custom_css = """
-<style>
-.stPlotlyChart {
-    padding: 10px;  /* Adjust the padding to control the frame size */
-}
-</style>
-"""
-st.markdown(custom_css, unsafe_allow_html=True)
+
 
 # Display the Plotly figure in Streamlit with full width
 st.plotly_chart(fig, use_container_width=True)
