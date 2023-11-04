@@ -643,10 +643,11 @@ fig.update_xaxes(showline=False, showticklabels=False)
 fig.update_yaxes(showline=False, showticklabels=False)
 
 fig.update_layout(
-    width=800,  # Adjust the width as needed
+    width=750,  # Adjust the width as needed
     height=500,  # Adjust the height for 6 rows
     hovermode='closest',
-    margin=dict(l=0, r=0, t=0, b=0)  # Set margin to 0 on all sides
+    margin=dict(l=25, r=25, t=50, b=25),
+    paper_bgcolor='rgba(255, 255, 255, 0)'# Set margin to 0 on all sides
 )
 
 
