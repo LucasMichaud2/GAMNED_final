@@ -413,7 +413,7 @@ st.dataframe(format_pricing)
 
 ############################################# Building Budget ##################################################################
 
-format_rating[selected_objective] = format_rating[selected_objective].round(2)
+format_rating[selected_objective] = format_rating[selected_objective].astype(int)
 
 if channel_number == 0:
 
