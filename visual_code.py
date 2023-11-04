@@ -368,7 +368,7 @@ def format_rating(df_rating3):
 
 format_rating = format_rating(df_rating3)
 
-st.dataframe(format_rating)
+st.dataframe(format_rating) 
 
 # Format rating is the component for the heatmap
 
