@@ -73,14 +73,14 @@ def input_layer():
   
   box1, box2, box3, box4, box5, box6, box7, box8 = st.columns(8)
   
-  selected_objective = box1.selectbox('Select Objective', objective_df)
-  selected_target = box2.selectbox('Select target', target_df)
-  selected_region = box3.selectbox('Select Region', country_df)
+  selected_objective = box1.selectbox('Objective', objective_df)
+  selected_target = box2.selectbox('Target', target_df)
+  selected_region = box3.selectbox('Region', country_df)
   excluded_channel = box4.multiselect('Channel to Exclude', excluded_channel_list)
-  selected_age = box5.multiselect('Select an Age', age_df)
+  selected_age = box5.multiselect('Age', age_df)
   selected_age = ', '.join(selected_age)
   input_budget = box6.number_input('Budget $', value=0)
-  channel_number = box7.number_input('Number of Channels', value=0)
+  channel_number = box7.number_input('Channel Number', value=0)
   search = box8.checkbox('Include Search')
 
   return selected_objective, selected_target, selected_region, excluded_channel, selected_age, input_budget, channel_number
