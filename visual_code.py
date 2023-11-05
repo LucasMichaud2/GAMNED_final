@@ -71,7 +71,7 @@ def input_layer():
   excluded_channel_list = ['youtube', 'instagram', 'display', 'facebook', 'linkedin', 'search', 'snapchat', 'tiktok', 'native ads', 'twitter', 'twitch',
                       'in game advertising', 'amazon', 'audio', 'waze', 'dooh', 'connected tv']
   
-  box1, box2, box3, box4, box5, box6, box7 = st.columns(7)
+  box1, box2, box3, box4, box5, box6, box7, box8 = st.columns([2, 1, 1, 2, 1, 1, 1, 1])
   
   selected_objective = box1.selectbox('Select Objective', objective_df)
   selected_target = box2.selectbox('Select target', target_df)
@@ -81,6 +81,7 @@ def input_layer():
   selected_age = ', '.join(selected_age)
   input_budget = box6.number_input('Budget $', value=0)
   channel_number = box7.number_input('Number of Channels', value=0)
+  search = box8.checkbox('Include Search')
 
   return selected_objective, selected_target, selected_region, excluded_channel, selected_age, input_budget, channel_number
 
