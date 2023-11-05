@@ -718,8 +718,10 @@ col_drop1 = ['channel', 'branding', 'consideration', 'conversion', 'branding vid
 col_drop3 = ['format', 'norm']
 
 format1 = format1.drop(columns=col_drop1)
+format3 = format3.drop(columns=col_drop3)
 
 st.dataframe(format1)
+st.dataframe(format3)
 
 
 ######################################### heatmap ###################################################################################
