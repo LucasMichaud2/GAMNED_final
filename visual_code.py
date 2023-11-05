@@ -752,6 +752,7 @@ df_bubble.reset_index(drop=True, inplace=True)
 df_bubble = df_bubble.drop_duplicates(subset=['unique'])
 drop_col = ['unique']
 df_bubble = df_bubble.drop(columns=drop_col)
+df_bubble[selected_objective] = df_bubble[selected_objective].round(0)
 
 
 
