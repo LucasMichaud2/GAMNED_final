@@ -455,7 +455,7 @@ if channel_number == 0:
 
         else:
 
-            n_format = budget // 4000 + 1
+            n_format = input_budget // 4000 + 1
             format_pricing = format_pricing[format_pricing['channel'] != 'search']
             selected_format = format_pricing.head(n_format)
             unique_channel = selected_format['channel'].unique()
@@ -464,7 +464,7 @@ if channel_number == 0:
             min_selection = unique_channel.merge(min_price, on='channel', how='inner')
             
             min_sum = min_selection['minimum'].sum()
-            selected_format['budget'] = budget * selected_format['rating'] / (selected_format['rating'].sum())
+            selected_format['budget'] = input_budget * selected_format['rating'] / (selected_format['rating'].sum())
             selected_format['budget'] = selected_format['budget'].round(0)
             
     
@@ -501,7 +501,7 @@ if channel_number == 0:
 
         else:
 
-            n_format = budget // 4000 + 1
+            n_format = input_budget // 4000 + 1
             format_pricing = format_pricing[format_pricing['channel'] != 'search']
             selected_format = format_pricing.head(n_format)
             unique_channel = selected_format['channel'].unique()
@@ -510,7 +510,7 @@ if channel_number == 0:
             min_selection = unique_channel.merge(min_price, on='channel', how='inner')
             
             min_sum = min_selection['minimum'].sum()
-            selected_format['budget'] = budget * selected_format['rating'] / (selected_format['rating'].sum())
+            selected_format['budget'] = input_budget * selected_format['rating'] / (selected_format['rating'].sum())
             selected_format['budget'] = selected_format['budget'].round(0)
             
     
