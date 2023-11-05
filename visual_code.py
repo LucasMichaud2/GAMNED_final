@@ -726,6 +726,7 @@ col_drop3 = ['format', 'norm']
 
 format1 = format1.drop(columns=col_drop1)
 format2 = format2.drop(columns=col_drop2)
+st.dataframe(format2)
 format3 = format3.drop(columns=col_drop3)
 format3 = format3.head(3)
 
@@ -741,7 +742,7 @@ col_drop2 = ['unique', 'channel_y', 'formats_y', 'format']
 #top_budget = top_budget.drop(columns=col_drop2)
 
 
-st.dataframe(format1)
+
 st.dataframe(format3)
 st.dataframe(top_rating)
 st.dataframe(top_budget)
