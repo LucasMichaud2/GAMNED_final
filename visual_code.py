@@ -436,11 +436,12 @@ if channel_number == 0:
         min_selection = unique_channel.merge(min_price, on='channel', how='inner')
         st.dataframe(min_selection)
         min_sum = min_selection['minimum'].sum()
-
-
         selected_format['budget'] = input_budget * selected_format['rating'] / (selected_format['rating'].sum())
         selected_format['budget'] = selected_format['budget'].round(0)
         st.dataframe(selected_format)
+
+        budget_channel = selected_format.groupby('channel')['rating'].sum().reset_index()
+        st.dataframe(budget_channel)
             
         
 
