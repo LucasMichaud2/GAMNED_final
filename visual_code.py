@@ -913,8 +913,13 @@ with col2:
 
  
 
-              fig2 = px.scatter(df_bubble, x=selected_objective, y='price', size='budget',
-                               log_x=True)
+              fig2 = px.scatter(df_bubble,
+                                x=selected_objective,
+                                y='price',
+                                size='budget',
+                                color='peice',
+                                text='channel',
+                               )
              
              # Set chart title and axis labels
               fig2.update_layout(
