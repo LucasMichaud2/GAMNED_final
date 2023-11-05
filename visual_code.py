@@ -421,6 +421,8 @@ def round_up_with_infinity(x):
 
 format_pricing['rating'] = format_pricing['rating'].apply(round_up_with_infinity)
 
+st.dataframe(format_pricing)
+
 st.dataframe(df_objective)
 
 ############################################# Building Budget ##################################################################
