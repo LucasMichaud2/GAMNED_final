@@ -883,66 +883,69 @@ col1, col2 = st.columns(2)
 
 
 with col1:
+ with st.beta_expander("pie"):
  
   
   
-  with elements("pie_chart"):
-
-      
-
-          with mui.Paper(elevation=0, variant='outlined', square=True):
-
-  
-              pie_chart_data = []
-              
-              for _, row in df_pie_chart.iterrows():
-                allowance = {
-                  'id': row['channel'],
-                  'Label': row['channel'],
-                  'value': row['budget']
-                }
-                pie_chart_data.append(allowance)
-          
-              with mui.Box(sx={"height": 400}):
-                        nivo.Pie(
-                          data=pie_chart_data,
-                          innerRadius=0.5,
-                          cornerRadius=0,
-                          padAngle=1,  
-                          margin={'top': 30, 'right': 100, 'bottom': 30, 'left': 100},
-                          theme={
-                            "background": "#FFFFFF",
-                            "textColor": "#31333F",
-                            "tooltip": {
-                                "container": {
-                                    "background": "#FFFFFF",
-                                    "color": "#31333F",
-                                    }
-                                }
-                            }
-                        )
+   with elements("pie_chart"):
+ 
+       
+ 
+           with mui.Paper(elevation=0, variant='outlined', square=True):
+ 
+   
+               pie_chart_data = []
+               
+               for _, row in df_pie_chart.iterrows():
+                 allowance = {
+                   'id': row['channel'],
+                   'Label': row['channel'],
+                   'value': row['budget']
+                 }
+                 pie_chart_data.append(allowance)
+           
+               with mui.Box(sx={"height": 400}):
+                         nivo.Pie(
+                           data=pie_chart_data,
+                           innerRadius=0.5,
+                           cornerRadius=0,
+                           padAngle=1,  
+                           margin={'top': 30, 'right': 100, 'bottom': 30, 'left': 100},
+                           theme={
+                             "background": "#FFFFFF",
+                             "textColor": "#31333F",
+                             "tooltip": {
+                                 "container": {
+                                     "background": "#FFFFFF",
+                                     "color": "#31333F",
+                                     }
+                                 }
+                             }
+                         )
 
 
 with col2:
 
+ with st.beta_expander("plot"):
+
  
 
- fig2 = px.scatter(df_bubble, x=selected_objective, y='price', size='budget',
-                  log_x=True)
-
-# Set chart title and axis labels
- fig2.update_layout(
-     title='Bubble Chart Example',
-     showlegend=False,
-     width=530,
-     height=450,
-     margin=dict(l=25, r=25, t=50, b=25),
-     paper_bgcolor='white',
-     plot_bgcolor='white'# Set margin to 0 on all sides
- )
+  fig2 = px.scatter(df_bubble, x=selected_objective, y='price', size='budget',
+                   log_x=True)
  
- # Display the Plotly figure in Streamlit
- st.plotly_chart(fig2)
+ # Set chart title and axis labels
+  fig2.update_layout(
+      title='Bubble Chart Example',
+      showlegend=False,
+      width=530,
+      height=450,
+      margin=dict(l=25, r=25, t=50, b=25),
+      paper_bgcolor='white',
+      plot_bgcolor='white'# Set margin to 0 on all sides
+  )
+  
+  # Display the Plotly figure in Streamlit
+  st.plotly_chart(fig2)
 
      
 
