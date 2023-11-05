@@ -439,8 +439,8 @@ if channel_number == 0:
 
 
         selected_format['budget'] = input_budget * selected_format['rating'] / (selected_format['rating'].sum())
+        selected_format['budget'] = selected_format['budget'].round(0)
         st.dataframe(selected_format)
-            
             
         
 
