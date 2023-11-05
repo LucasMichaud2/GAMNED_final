@@ -660,6 +660,9 @@ else:
             budget_channel = budget_channel.sort_values(by='budget', ascending=False)
         
             st.dataframe(budget_channel)
+
+
+st.dataframe(selected_format)
         
 
 ############################################## Getting the Channel rating by agg formats ########################################
