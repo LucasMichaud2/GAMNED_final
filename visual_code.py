@@ -399,6 +399,7 @@ def price_rating(df_objective, format_rating):
     
     
     format_pricing = format_rating.copy()
+    st.dataframe(format_pricing)
     format_pricing = format_pricing.merge(df_price, on='format', how='inner')
     format_pricing = format_pricing.drop_duplicates()
     
