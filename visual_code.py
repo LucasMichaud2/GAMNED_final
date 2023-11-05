@@ -451,6 +451,7 @@ if channel_number == 0:
         if input_budget < min_sum:
             deficit = min_sum - total_budget
             insufficient_channels = min_selection[min_selection['minimum'] > budget_channel['budget']]
+            st.dataframe(insufficient_channels)
             total_insufficient_budget = insufficient_channels['budget'].sum()
             allocation_ratio = (total_budget + deficit) / total_budget
             budget_channel.loc[~budget_channel['channel'].isin(insufficient_channels['channel']), 'budget'] *= allocation_ratio
