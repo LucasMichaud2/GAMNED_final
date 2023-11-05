@@ -471,7 +471,7 @@ else:
     for index, row in format_pricing.iterrows():
         chan = row['channel']
         if chan not in uni_channels:
-            uni_channels.add(channel)
+            uni_channels.add(chan)
             consecutive_rows.append(row.to_dict())
         if len(uni_channels) == channel_number:
             break
