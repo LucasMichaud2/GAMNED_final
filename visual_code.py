@@ -523,7 +523,7 @@ if channel_number == 0:
 
         if search == True:
             
-            budget = input_budget - 2000
+            budget = input_budget - 1000
             format_pricing = format_pricing[format_pricing['channel'] != 'search']
             n_format = 2
             selected_format = format_pricing.head(n_format)
@@ -538,7 +538,7 @@ if channel_number == 0:
             
     
             budget_channel = selected_format.groupby('channel')['budget'].sum().reset_index()
-            budget_channel.loc[len(budget_channel.index)] = ['search', 2000]
+            budget_channel.loc[len(budget_channel.index)] = ['search', 1000]
             budget_channel = budget_channel.sort_values(by='budget', ascending=False)
     
             st.dataframe(budget_channel)
