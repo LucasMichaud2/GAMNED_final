@@ -393,7 +393,7 @@ def price_rating(df_objective, format_rating):
 
     df_objective['channel'] = df_objective['channel'].replace('in game advertising', 'IGA')
     df_objective['format'] = df_objective['channel'] + ' - ' + df_objective['formats']
-    df_price = df_objective[['format', 'formats', 'price']]
+    df_price = df_objective[['format', 'price']]
     df_price['price'] = df_price['price'] * 3
     
     
