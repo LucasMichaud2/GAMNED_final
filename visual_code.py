@@ -411,6 +411,14 @@ def price_rating(df_objective, format_rating):
 
 format_pricing = price_rating(df_objective, format_rating)
 
+def round_up_with_infinity(x):
+    if np.isinf(x):
+        return x  # Leave infinite values unchanged
+    else:
+        return np.ceil(x)
+
+format_pricing['rating'] = format_pricing['rating'].apply(round_up_with_infinity)
+
 st.dataframe(format_pricing)
 
 ############################################# Building Budget ##################################################################
