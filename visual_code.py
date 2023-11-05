@@ -448,7 +448,7 @@ if channel_number == 0:
             budget_channel = selected_format.groupby('channel')['budget'].sum().reset_index()
             
             search_row = {'channel': 'search', 'budget': 1000}
-            budget_channel = budget_channel.append(search_row, ignore_index=True)
+            budget_channel.loc[len(budget_channel.index)] = ['search', 1000]
             budget_channel = budget_channel.sort_values(by='budget', ascending=False)
 
             st.dataframe(budget_channel)
