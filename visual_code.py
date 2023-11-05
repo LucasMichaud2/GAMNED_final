@@ -405,7 +405,7 @@ def price_rating(df_objective, format_rating):
     dropout = ['format', 'norm', 'price']
     new_col = ['channel', 'formats', 'rating']
     format_pricing = format_pricing.drop(columns=dropout)
-    format_pricing = format_pricing.columns(new_col)
+    format_pricing = format_pricing.rename(columns=dict(zip(format_pricing.columns, new_col)))
     format_pricing = format_pricing.sort_values(by=selected_objective, ascending=False)
     return format_pricing
 
