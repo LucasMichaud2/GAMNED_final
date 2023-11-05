@@ -58,8 +58,7 @@ col2.write(' ')
 col2.write(' ')
 col2.write(' ')
 col2.write(' ')
-col2.write(' ')
-col2.subheader('Marketing Tool')
+col2.subheader('Marketing Tool', divider='grey')
 
 ############################# Input Layer #######################################
 
