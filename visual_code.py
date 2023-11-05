@@ -761,6 +761,7 @@ def formatting_heatmap(format_rating, selected_objective):
     top_format = top_format.drop(selected_objective, axis=1)
     top_format['norm'] = (((top_format['norm'] - min_top_format) / (max_top_format - min_top_format)) * 100).round(0)
     #top_format = top_format.sample(frac=1)
+    top_format = top_format.sort_values(by='norm', ascending=False)
     return top_format
 
 top_format = formatting_heatmap(format_rating, selected_objective)
