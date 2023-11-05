@@ -925,7 +925,7 @@ with col1:
 with col2:
  
 
- fig2 = px.scatter(df_bubble, x='price', y=selected_objective, size='budget',
+ fig2 = px.scatter(df_bubble, x=selected_objective, y='price', size='budget',
                   log_x=True, size_max=60)
 
 # Set chart title and axis labels
@@ -933,7 +933,12 @@ with col2:
      title='Bubble Chart Example',
      xaxis_title='GDP (Trillion USD)',
      yaxis_title='Life Expectancy (years)',
-     showlegend=True
+     showlegend=True,
+     width=400,
+     height=400,
+     margin=dict(l=25, r=25, t=25, b=25),
+     paper_bgcolor='white',
+     plot_bgcolor='white'# Set margin to 0 on all sides
  )
  
  # Display the Plotly figure in Streamlit
