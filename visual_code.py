@@ -923,13 +923,16 @@ with col1:
 with col2:
  
 
+ fig2 = px.scatter(df_bubble, x=selected_objective, y='price', size='budget', color='Country',
+                 hover_name='Country', log_x=True, size_max=60)
 
-# Create a Plotly figure
- fig2 = go.Figure(data=[go.Scatter(
-     x=[1, 2, 3, 4], y=[10, 11, 12, 13],
-     mode='markers',
-     marker_size=[40, 60, 80, 100])
- ])
+# Set chart title and axis labels
+ fig2.update_layout(
+     title='Bubble Chart Example',
+     xaxis_title='GDP (Trillion USD)',
+     yaxis_title='Life Expectancy (years)',
+     showlegend=True
+ )
  
  # Display the Plotly figure in Streamlit
  st.plotly_chart(fig2)
