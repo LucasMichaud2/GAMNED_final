@@ -474,7 +474,7 @@ if channel_number == 0:
             st.dataframe(budget_channel)
             
 
-    if input_budget >= 15000:
+    elif input_budget >= 15000:
         
         if search == True:
             budget = input_budget - 2000
