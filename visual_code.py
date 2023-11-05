@@ -443,8 +443,11 @@ if channel_number == 0:
         budget_channel = selected_format.groupby('channel')['budget'].sum().reset_index()
         budget_channel = budget_channel.sort_values(by='budget', ascending=False)
         st.dataframe(budget_channel)
+        st.write(min_sum)
+        
 
         total_budget = budget_channel['budget'].sum()
+        st.write(total_budget)
         if total_budget < min_sum:
             deficit = min_sum - total_budget
             insufficient_channels = min_selection[min_selection['minimum'] > budget_channel['budget']]
