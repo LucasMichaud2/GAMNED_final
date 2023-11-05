@@ -917,8 +917,8 @@ with col2:
  
 
               fig2 = px.scatter(df_bubble,
-                                x=selected_objective,
-                                y='price',
+                                x='Rating',
+                                y='Price',
                                 size='budget',
                                 color='channel_x',
                                 size_max=60,  # Increase the maximum bubble size
@@ -933,7 +933,7 @@ with col2:
              
              # Set chart title and axis labels
               fig2.update_layout(
-                  title='Bubble Chart Example',
+                  title='Rating VS Price VS Budget',
                   showlegend=False,
                   width=600,
                   height=450,
