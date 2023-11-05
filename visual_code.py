@@ -937,7 +937,7 @@ with col2:
      showlegend=True,
      width=550,
      height=400,
-     margin=dict(l=25, r=25, t=50, b=25),
+     margin=dict(l=25, r=25, t=70, b=25),
      paper_bgcolor='white',
      plot_bgcolor='white'# Set margin to 0 on all sides
  )
