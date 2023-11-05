@@ -850,7 +850,7 @@ with col1:
                 }
                 pie_chart_data.append(allowance)
           
-              with mui.Box(sx={"height": 200}):
+              with mui.Box(sx={"height": 400}):
                         nivo.Pie(
                           data=pie_chart_data,
                           innerRadius=0.5,
