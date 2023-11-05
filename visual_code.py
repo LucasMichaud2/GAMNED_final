@@ -917,7 +917,7 @@ with col2:
                                 x=selected_objective,
                                 y='price',
                                 size='budget',
-                                color='peice',
+                                color='price',
                                 text='channel_x',
                                )
              
