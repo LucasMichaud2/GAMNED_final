@@ -925,6 +925,8 @@ with col2:
                                 
                                 
                                )
+
+              fig2.update_traces(textfont_color='black')
              
              # Set chart title and axis labels
               fig2.update_layout(
