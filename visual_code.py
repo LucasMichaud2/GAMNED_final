@@ -917,8 +917,12 @@ with col2:
                                 x=selected_objective,
                                 y='price',
                                 size='budget',
-                                color='price',
+                                color=np.random.rand(len(df_bubble)),
+                                size_max=60,  # Increase the maximum bubble size
+                                log_x=True,
                                 text='channel_x',
+                                labels={'budget': 'Bubble Size'},  # Rename the legend label
+                                color_continuous_scale='Viridis',
                                )
              
              # Set chart title and axis labels
