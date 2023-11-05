@@ -879,11 +879,11 @@ df_allow_table.columns = new_cols
 
 
 
-col1, col2 = st.beta_columns([1, 1])
+col1, col2 = st.columns(2)
 
 
 with col1:
- with st.beta_expander("pie"):
+ 
  
   
   
