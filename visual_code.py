@@ -719,9 +719,13 @@ col_drop3 = ['format', 'norm']
 
 format1 = format1.drop(columns=col_drop1)
 format3 = format3.drop(columns=col_drop3)
+format3 = format3.head(3)
+
+final_table = format3.merge(format1, on='formats', how='inner')
 
 st.dataframe(format1)
 st.dataframe(format3)
+st.dataframe(final_table)
 
 
 ######################################### heatmap ###################################################################################
