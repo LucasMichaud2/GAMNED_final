@@ -886,8 +886,7 @@ with col1:
   
   with elements("pie_chart"):
 
-      with mui.Paper(elevation=0, variant='outlined', square=True):
-          mui.Typography('Budget Analysis', variant='body2', padding='10px')
+      
 
           with mui.Paper(elevation=0, variant='outlined', square=True):
 
