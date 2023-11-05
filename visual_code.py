@@ -934,7 +934,7 @@ with col2:
      title='Bubble Chart Example',
      xaxis_title='GDP (Trillion USD)',
      yaxis_title='Life Expectancy (years)',
-     showlegend=True,
+     showlegend=False,
      width=525,
      height=450,
      margin=dict(l=25, r=25, t=50, b=25),
