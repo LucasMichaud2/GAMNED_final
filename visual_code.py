@@ -441,6 +441,7 @@ if channel_number == 0:
         st.dataframe(selected_format)
 
         budget_channel = selected_format.groupby('channel')['budget'].sum()
+        budget_channel = budget_channel.sort_values(by='budget', ascending=False)
         st.dataframe(budget_channel)
             
         
