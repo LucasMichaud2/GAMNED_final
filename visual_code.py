@@ -476,7 +476,11 @@ else:
         if len(uni_channels) == channel_number:
             break
 
-    budget_channel = pd.DataFrame(consecutive_rows)
+    selected_format = pd.DataFrame(consecutive_rows)
+    selected_format['budget'] = input_budget * selected_format['rating'] / (selected_format['rating'].sum())
+    selected_format['budget'] = selected_format['budget'].round(0)
+    budget_channel = selected_format.groupby('channel')['budget'].sum().reset_index()
+    budget_channel = budget_channel.sort_values(by='budget', ascending=False)
 
     st.dataframe(budget_channel)
         
