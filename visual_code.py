@@ -739,17 +739,17 @@ top_rating = format3.merge(format1, on='unique', how='inner')
 top_rating = top_rating.drop_duplicates()
 top_budget = format2.merge(format1, on='unique', how='inner')
 top_budget = top_budget.drop_duplicates()
-top_bugget1 = top_budget.merge(format4, on='unique', how='inner')
+top_bugdet = top_budget.merge(format4, on='unique', how='inner')
 col_drop1 = ['unique', 'channel_y', 'formats_y', 'format']
 col_drop2 = ['channel_y', 'formats_y', 'format']
 top_rating = top_rating.drop(columns=col_drop1)
-#top_budget1 = top_budget1.drop(columns=col_drop2)
+top_budget = top_budget.drop(columns=col_drop2)
 
 
 
 st.dataframe(format3)
 st.dataframe(top_rating)
-st.dataframe(top_budget1)
+st.dataframe(top_budget)
 
 
 ######################################### heatmap ###################################################################################
