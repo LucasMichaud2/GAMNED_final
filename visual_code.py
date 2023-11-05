@@ -725,7 +725,6 @@ col_drop2 = ['rating']
 col_drop3 = ['format', 'norm']
 
 format1 = format1.drop(columns=col_drop1)
-st.dataframe(format1)
 format2 = format2.drop(columns=col_drop2)
 format3 = format3.drop(columns=col_drop3)
 format3 = format3.head(3)
@@ -735,7 +734,7 @@ top_rating = format3.merge(format1, on='unique', how='inner')
 top_rating = top_rating.drop_duplicates()
 top_budget = format2.merge(format1, on='unique', how='inner')
 top_budget = top_budget.drop_duplicates()
-top_bugget = top_budget.merge(format1, on='unique', how='inner')
+top_bugget = top_budget.merge(format2, on='unique', how='inner')
 col_drop1 = ['unique', 'channel_y', 'formats_y', 'format']
 col_drop2 = ['unique', 'channel_y', 'formats_y', 'format']
 #top_rating = top_rating.drop(columns=col_drop1)
