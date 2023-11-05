@@ -933,7 +933,7 @@ with col2:
  fig2.update_layout(
      title='Bubble Chart Example',
      showlegend=False,
-     width=525,
+     width=530,
      height=450,
      margin=dict(l=25, r=25, t=50, b=25),
      paper_bgcolor='white',
