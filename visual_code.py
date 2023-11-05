@@ -428,7 +428,7 @@ st.dataframe(format_pricing)
 
 if channel_number == 0:
 
-    if input_budget >= 10000 and < 15000:
+    if input_budget >= 10000 and input_budget < 15000:
         
         if search == True:
             budget = input_budget - 1000
