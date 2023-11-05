@@ -715,17 +715,22 @@ format2 = selected_format.copy()
 format3 = format_rating.copy()
 
 col_drop1 = ['channel', 'branding', 'consideration', 'conversion', 'branding video']
+col_drop2 = ['rating']
 col_drop3 = ['format', 'norm']
 
 format1 = format1.drop(columns=col_drop1)
+format2 = format2.drop(columns=col_drop2)
 format3 = format3.drop(columns=col_drop3)
 format3 = format3.head(3)
 
-final_table = format3.merge(format1, on='formats', how='inner')
+top_rating = format3.merge(format1, on='formats', how='inner')
+top_budget = format2.merge(format1, on='formats', how='inner')
+
 
 st.dataframe(format1)
 st.dataframe(format3)
-st.dataframe(final_table)
+st.dataframe(top_rating)
+st.dataframe(top_budget)
 
 
 ######################################### heatmap ###################################################################################
