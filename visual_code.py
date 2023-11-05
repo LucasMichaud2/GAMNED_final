@@ -884,7 +884,7 @@ col1, col2 = st.columns(2)
 
 with col1:
  
-  st.write(' ')
+  
   
   with elements("pie_chart"):
 
@@ -925,7 +925,7 @@ with col1:
 
 with col2:
 
- st.write(' ')
+ 
 
  fig2 = px.scatter(df_bubble, x=selected_objective, y='price', size='budget',
                   log_x=True)
