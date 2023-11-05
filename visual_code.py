@@ -693,6 +693,7 @@ def agg_channel_rating(df_rating3):
 
 cost_rating, agg_rating4, output_rating = agg_channel_rating(df_rating3)
 
+st.dataframe(agg_rating4)
 
 
 ############################################# Gettign the top Channel ###################################################################
