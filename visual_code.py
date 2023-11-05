@@ -926,7 +926,7 @@ with col2:
   
   # Sample data
   data = {
-      'Country': ['USA', 'Canada', 'UK', 'Germany', 'France'],
+      'Country': ['USA', 'Canada', 'UK', 'Germany', 'France'], 
       'Population': [327, 37, 66, 83, 67],
       'GDP': [21.43, 1.65, 2.83, 3.94, 2.73],
       'Life Expectancy': [78.93, 81.71, 81.25, 80.99, 82.37]
