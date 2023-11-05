@@ -395,7 +395,7 @@ def price_rating(df_objective, format_rating):
     df_objective['format'] = df_objective['channel'] + ' - ' + df_objective['formats']
     df_price = df_objective[['format', 'price']]
     df_price['price'] = df_price['price'] * 3
-    
+    st.dataframe(df_price)
     
     
     format_pricing = format_rating.copy()
