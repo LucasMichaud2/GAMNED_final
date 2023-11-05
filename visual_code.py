@@ -815,17 +815,6 @@ st.plotly_chart(fig, use_container_width=True)
 
 #################################################################################################################################
 
-if df_allowance.shape[1] == 3:
-    df_allowance = df_allowance.drop(selected_region, axis=1)
-
-
-def pie_data(df_allowance):
-
-  df_pie_chart = df_allowance.copy()
-  df_pie_chart['allowance'] = df_pie_chart['allowance'].astype(int)
-  df_pie_chart['channel'] = df_pie_chart['channel'].str.title()
-  #df_pie_chart['channel'] = df_pie_chart['channel'].str.replace('In Game Advertising', 'In Game Advertising')
-  return df_pie_chart
   
 df_pie_chart = (budget_channel)
 
