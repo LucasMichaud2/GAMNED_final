@@ -859,6 +859,9 @@ new_cols = ['Channel', 'Budget']
 
 df_allow_table.columns = new_cols
 
+df_bubble.rename(columns={selected_objective: 'Rating'}, inplace=True)
+df_bubble.rename(columns={'price': 'Price'}, inplace=True)
+
 
 
 
