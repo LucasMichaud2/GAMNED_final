@@ -932,8 +932,6 @@ with col2:
 # Set chart title and axis labels
  fig2.update_layout(
      title='Bubble Chart Example',
-     xaxis_title='GDP (Trillion USD)',
-     yaxis_title='Life Expectancy (years)',
      showlegend=False,
      width=525,
      height=450,
