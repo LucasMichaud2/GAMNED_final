@@ -982,7 +982,7 @@ with col3:
                 allowance = {
                   'id': row['channel'],
                   'Label': row['channel'],
-                  'value': row['allowance']
+                  'value': row['budget']
                 }
                 pie_chart_data.append(allowance)
           
