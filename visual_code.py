@@ -428,22 +428,28 @@ st.dataframe(format_pricing)
 
 if channel_number == 0:
 
-    if input_budget >= 10000:
+    if input_budget >= 10000 and < 15000:
+        
+        if search == True:
+            budget = input_budget - 1000
+            n_format = budget // 4000 + 1
+            format_pricing = format_pricing[format_pricing['channel'] != 'search']
+            selected_format = format_pricing.head(n_format)
+            unique_channel = selected_format['channel'].unique()
+            unique_channel = pd.DataFrame({'channel': unique_channel}) 
+            
+            min_selection = unique_channel.merge(min_price, on='channel', how='inner')
+            
+            min_sum = min_selection['minimum'].sum()
+            selected_format['budget'] = budget * selected_format['rating'] / (selected_format['rating'].sum())
+            selected_format['budget'] = selected_format['budget'].round(0)
+            
+    
+            budget_channel = selected_format.groupby('channel')['budget'].sum().reset_index()
+            
+            budget_channel = budget_channel.sort_values(by='budget', ascending=False)
 
-        n_format = input_budget // 4000 + 1 
-        selected_format = format_pricing.head(n_format)
-        unique_channel = selected_format['channel'].unique()
-        unique_channel = pd.DataFrame({'channel': unique_channel}) 
-        
-        min_selection = unique_channel.merge(min_price, on='channel', how='inner')
-        
-        min_sum = min_selection['minimum'].sum()
-        selected_format['budget'] = input_budget * selected_format['rating'] / (selected_format['rating'].sum())
-        selected_format['budget'] = selected_format['budget'].round(0)
-        
-
-        budget_channel = selected_format.groupby('channel')['budget'].sum().reset_index()
-        budget_channel = budget_channel.sort_values(by='budget', ascending=False)
+            st.dataframe(budget_channel)
         
 
     else:
