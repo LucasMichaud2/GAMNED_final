@@ -720,6 +720,7 @@ format4 = format_rating.copy()
 format1['unique'] = format1['channel'] + ' ' + format1['formats']
 format2['unique'] = format2['channel'] + ' ' + format2['formats']
 format3['unique'] = format3['channel'] + ' ' + format3['formats']
+format4['unique'] = format4['channel'] + ' ' + format4['formats']
 
 col_drop1 = ['branding', 'consideration', 'conversion', 'branding video']
 col_drop2 = ['rating']
