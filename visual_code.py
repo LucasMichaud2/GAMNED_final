@@ -922,7 +922,7 @@ with col1:
 
 fig2 = go.Figure()
 
-fig.add_trace(go.Scatter(
+fig2.add_trace(go.Scatter(
       x=[1, 2, 3, 4], y=[10, 11, 12, 13],
       mode='markers',
       marker_size=[40, 60, 80, 100])
