@@ -728,7 +728,7 @@ col_drop3 = ['format', 'norm']
 
 format1 = format1.drop(columns=col_drop1)
 format2 = format2.drop(columns=col_drop2)
-st.dataframe(format2)
+st.dataframe(format4)
 format3 = format3.drop(columns=col_drop3)
 format3 = format3.head(3)
 
