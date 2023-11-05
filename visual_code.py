@@ -912,11 +912,11 @@ with col1:
                            padAngle=1,  
                            margin={'top': 30, 'right': 100, 'bottom': 30, 'left': 100},
                            theme={
-                             "background": "#FFFFFF",
+                             
                              "textColor": "#31333F",
                              "tooltip": {
                                  "container": {
-                                     "background": "#FFFFFF",
+                                     
                                      "color": "#31333F",
                                      }
                                  }
