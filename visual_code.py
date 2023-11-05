@@ -399,7 +399,7 @@ def price_rating(df_objective, format_rating):
     format_pricing = pd.merge(format_pricing, df_price, on='formats')
     format_pricing = format_pricing.drop_duplicates()
     
-    st.dataframe(format_pricing)
+    
      
     
     format_pricing[selected_objective] = format_pricing[selected_objective] + format_pricing['price']
@@ -421,7 +421,7 @@ def round_up_with_infinity(x):
 
 format_pricing['rating'] = format_pricing['rating'].apply(round_up_with_infinity)
 
-st.dataframe(format_pricing)
+st.dataframe(df_objective)
 
 ############################################# Building Budget ##################################################################
 
