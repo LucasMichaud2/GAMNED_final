@@ -58,7 +58,9 @@ col2.write(' ')
 col2.write(' ')
 col2.write(' ')
 col2.write(' ')
-col2.caption('Marketing Tool')
+col2.write(' ')
+col2.write(' ')
+col2.write('Marketing Tool')
 
 ############################# Input Layer #######################################
 
