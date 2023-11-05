@@ -53,6 +53,8 @@ col1, col2 = st.columns(2)
 
 col1.image(gamned_logo_url, use_column_width=True)
 
+col2.subheader('Marketing Tool')
+
 ############################# Input Layer #######################################
 
 def input_layer():
