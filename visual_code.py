@@ -462,6 +462,23 @@ if channel_number == 0:
         budget_channel = budget_channel.sort_values(by='budget', ascending=False)
 
 st.dataframe(budget_channel)    
+
+else: 
+
+    uni_channels = set()
+    consecutive_rows = []
+
+    for index, row in format_pricing.iterrows():
+        chan = row['channel']
+        if chan not in uni_channels:
+            uni_channels.add(channel)
+            consecutive_rows.append(row.to_dict())
+        if len(uni_channels) == channel_number:
+            break
+
+    budget_channel = pd.DataFrame(consecutive_rows)
+
+    st.dataframe(budget_channel)
         
         
 
