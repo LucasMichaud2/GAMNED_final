@@ -28,7 +28,7 @@ st.markdown('<link rel="stylesheet.css" type="text/css" href="styles.css">', uns
 
 def import_url():
   
-  gamned_logo_url = 'https://raw.github.com/LucasMichaud2/GAMNED_final/main/Logo_G_Gamned_red_baseline.jpg'
+  gamned_logo_url = 'https://raw.github.com/LucasMichaud2/GAMNED_final/main/Logo_Gamned_word_red.png'
   
   objective_url = 'https://raw.github.com/LucasMichaud2/GAMNED_final/main/format_table_last.csv'
   df_objective = pd.read_csv(objective_url)
@@ -49,9 +49,9 @@ gamned_logo_url, df_objective, df_data, age_date, weighted_country = import_url(
 
 ############################## Title Layer #######################################
 
-col1, col2, col3, col4 = st.columns(4)
+col1, col2 = st.columns(2)
 
-col1.header('Marketing Tool')
+col1.image(gamned_logo_url, use_column_width=True)
 
 ############################# Input Layer #######################################
 
