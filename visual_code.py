@@ -724,7 +724,9 @@ format3 = format3.drop(columns=col_drop3)
 format3 = format3.head(3)
 
 top_rating = format3.merge(format1, on='formats', how='inner')
+top_rating = top_rating.drop_duplicates()
 top_budget = format2.merge(format1, on='formats', how='inner')
+top_budget = top_budget.drop_duplicates()
 
 
 st.dataframe(format1)
