@@ -71,7 +71,7 @@ def input_layer():
   excluded_channel_list = ['youtube', 'instagram', 'display', 'facebook', 'linkedin', 'search', 'snapchat', 'tiktok', 'native ads', 'twitter', 'twitch',
                       'in game advertising', 'amazon', 'audio', 'waze', 'dooh', 'connected tv']
   
-  box1, box2, box3, box4, box5, box6, box7, box8 = st.columns([2, 1, 1, 2, 1, 1, 1, 1])
+  box1, box2, box3, box4, box5, box6, box7, box8 = st.columns(8)
   
   selected_objective = box1.selectbox('Select Objective', objective_df)
   selected_target = box2.selectbox('Select target', target_df)
