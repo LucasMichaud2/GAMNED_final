@@ -960,6 +960,18 @@ with col2:
 ################################################################################################################
 
 
+st.subheader(' ', divider='grey')
+
+details = st.checkbox('Show Details')
+
+if details == True:
+
+ st.dataframe(selected_formats)
+
+
+
+
+
 
 
 
