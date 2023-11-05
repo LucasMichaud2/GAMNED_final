@@ -920,29 +920,35 @@ with col1:
                         )
 
 with col2: 
- data = {
-    'Country': ['USA', 'Canada', 'UK', 'Germany', 'France'],
-    'Population': [327, 37, 66, 83, 67],
-    'GDP': [21.43, 1.65, 2.83, 3.94, 2.73],
-    'Life Expectancy': [78.93, 81.71, 81.25, 80.99, 82.37]
- }
- 
- df = pd.DataFrame(data)
- 
- # Create a bubble chart using plotly.express
- fig = px.scatter(df, x='GDP', y='Life Expectancy', size='Population', color='Country',
-                  hover_name='Country', log_x=True, size_max=60)
- 
- # Customize the layout (optional)
- fig.update_layout(
-     title='Bubble Chart Example',
-     xaxis_title='GDP (Trillion USD)',
-     yaxis_title='Life Expectancy (years)',
-     showlegend=True
- )
- 
- # Show the plot
- fig.show()
+  import plotly.graph_objs as go
+  import plotly.express as px
+  import pandas as pd
+  
+  # Sample data
+  data = {
+      'Country': ['USA', 'Canada', 'UK', 'Germany', 'France'],
+      'Population': [327, 37, 66, 83, 67],
+      'GDP': [21.43, 1.65, 2.83, 3.94, 2.73],
+      'Life Expectancy': [78.93, 81.71, 81.25, 80.99, 82.37]
+  }
+  
+  df = pd.DataFrame(data)
+  
+  # Create a bubble chart using plotly.express
+  fig = px.scatter(df, x='GDP', y='Life Expectancy', size='Population', color='Country',
+                   hover_name='Country', log_x=True, size_max=60)
+  
+  # Customize the layout (optional)
+  fig.update_layout(
+      title='Bubble Chart Example',
+      xaxis_title='GDP (Trillion USD)',
+      yaxis_title='Life Expectancy (years)',
+      showlegend=True
+  )
+  
+  # Show the plot
+  fig.show()
+
      
 
 ################################################################################################################
