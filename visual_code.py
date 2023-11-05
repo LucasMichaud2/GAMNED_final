@@ -307,7 +307,7 @@ min_price = {
 }
 
 min_price = pd.DataFrame(min_price)
-st.dataframe(min_price)
+min_price['minimum'] = min_price['minimum'].astype(int)
 
 
 ################################ Applying Class ###################################################################################
@@ -448,7 +448,7 @@ if channel_number == 0:
 
         total_budget = budget_channel['budget'].sum()
         st.write(total_budget)
-        if total_budget < min_sum:
+        if input_budget < min_sum:
             deficit = min_sum - total_budget
             insufficient_channels = min_selection[min_selection['minimum'] > budget_channel['budget']]
             total_insufficient_budget = insufficient_channels['budget'].sum()
