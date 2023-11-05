@@ -740,18 +740,24 @@ top_rating = top_rating.drop_duplicates()
 top_budget = format2.merge(format1, on='unique', how='inner')
 top_budget = top_budget.drop_duplicates()
 top_budget = top_budget.merge(format4, on='unique', how='inner')
-col_drop1 = ['unique', 'channel_y', 'formats_y', 'format']
-col_drop2 = ['unique', 'channel_y', 'formats_y', 'format']
+col_drop1 = ['channel_y', 'formats_y', 'format']
+col_drop2 = ['channel_y', 'formats_y', 'format']
 top_rating = top_rating.drop(columns=col_drop1)
 top_budget = top_budget.drop(columns=col_drop2)
 new_val = [1000] * len(top_rating)
 top_rating['budget'] = new_val
+df_bubble = pd.concat([top_rating, top_budget])
+df_bubble.reset_index(drop=True, inplace=True)
+df_bubble = df_bubble.drop_duplicates(subset=['unique'])
+drop_col = ['unique']
+df_bubble = df_bubble.drop(columns=drop_col)
 
 
 
 st.dataframe(format3)
 st.dataframe(top_rating)
 st.dataframe(top_budget)
+st.dataframe(df_bubble)
 
 
 ######################################### heatmap ###################################################################################
