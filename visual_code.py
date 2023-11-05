@@ -937,7 +937,7 @@ with col2:
               )
               
               # Display the Plotly figure in Streamlit
-              fig2.update_coloraxes(show_colorbar=False)
+              
               st.plotly_chart(fig2)
 
      
