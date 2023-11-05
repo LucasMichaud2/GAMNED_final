@@ -715,6 +715,7 @@ format1 = df_objective.copy()
 format1['channel'] = format1['channel'].replace('in game advertising', 'IGA')
 format2 = selected_format.copy()
 format3 = format_rating.copy()
+format4 = format_rating.copy()
 
 format1['unique'] = format1['channel'] + ' ' + format1['formats']
 format2['unique'] = format2['channel'] + ' ' + format2['formats']
@@ -735,7 +736,7 @@ top_rating = format3.merge(format1, on='unique', how='inner')
 top_rating = top_rating.drop_duplicates()
 top_budget = format2.merge(format1, on='unique', how='inner')
 top_budget = top_budget.drop_duplicates()
-top_bugget = top_budget.merge(format2, on='unique', how='inner')
+top_bugget = top_budget.merge(format4, on='unique', how='inner')
 col_drop1 = ['unique', 'channel_y', 'formats_y', 'format']
 col_drop2 = ['unique', 'channel_y', 'formats_y', 'format']
 #top_rating = top_rating.drop(columns=col_drop1)
