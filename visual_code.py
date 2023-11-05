@@ -966,7 +966,7 @@ details = st.checkbox('Show Details')
 
 if details == True:
 
- st.dataframe(selected_formats)
+ st.dataframe(selected_format)
 
 
 
