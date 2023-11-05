@@ -923,7 +923,8 @@ with col1:
 
 
 with col2:
- 
+
+ st.write(' ')
 
  fig2 = px.scatter(df_bubble, x=selected_objective, y='price', size='budget',
                   log_x=True, size_max=60)
