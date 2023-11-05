@@ -432,38 +432,38 @@ if channel_number == 0:
         selected_format = format_pricing.head(n_format)
         unique_channel = selected_format['channel'].unique()
         unique_channel = pd.DataFrame({'channel': unique_channel}) 
-        st.dataframe(unique_channel)
+        
         min_selection = unique_channel.merge(min_price, on='channel', how='inner')
-        st.dataframe(min_selection)
+        
         min_sum = min_selection['minimum'].sum()
         selected_format['budget'] = input_budget * selected_format['rating'] / (selected_format['rating'].sum())
         selected_format['budget'] = selected_format['budget'].round(0)
-        st.dataframe(selected_format)
+        
 
         budget_channel = selected_format.groupby('channel')['budget'].sum().reset_index()
         budget_channel = budget_channel.sort_values(by='budget', ascending=False)
-        st.dataframe(budget_channel)
-        st.write(min_sum)
         
 
-        total_budget = budget_channel['budget'].sum()
-        st.write(total_budget)
-        if input_budget < min_sum:
-            deficit = min_sum - total_budget
-            insufficient_channels = min_selection[min_selection['minimum'] > budget_channel['budget']]
-            st.dataframe(insufficient_channels)
-            total_insufficient_budget = insufficient_channels['minimum'].sum()
-            allocation_ratio = (total_budget + deficit) / total_budget
-            budget_channel.loc[~budget_channel['channel'].isin(insufficient_channels['channel']), 'budget'] *= allocation_ratio
-            budget_channel.loc[budget_channel['channel'].isin(insufficient_channels['channel']), 'budget'] = insufficient_channels['minimum']
-            st.dataframe(budget_channel)
-            
+    else:
+
+        n_format = 2
+        selected_format = format_pricing.head(n_format)
+        unique_channel = selected_format['channel'].unique()
+        unique_channel = pd.DataFrame({'channel': unique_channel}) 
+        
+        min_selection = unique_channel.merge(min_price, on='channel', how='inner')
+        
+        min_sum = min_selection['minimum'].sum()
+        selected_format['budget'] = input_budget * selected_format['rating'] / (selected_format['rating'].sum())
+        selected_format['budget'] = selected_format['budget'].round(0)
         
 
+        budget_channel = selected_format.groupby('channel')['budget'].sum().reset_index()
+        budget_channel = budget_channel.sort_values(by='budget', ascending=False)
 
-
-
-
+st.dataframe(budget_channel)    
+        
+        
 
 ############################################## Getting the Channel rating by agg formats ########################################
 
