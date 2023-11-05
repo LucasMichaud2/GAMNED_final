@@ -725,12 +725,14 @@ format4['unique'] = format4['channel'] + ' ' + format4['formats']
 col_drop1 = ['branding', 'consideration', 'conversion', 'branding video']
 col_drop2 = ['rating']
 col_drop3 = ['format', 'norm']
+col_drop4 = ['channel', 'formats', 'format', 'norm']
 
 format1 = format1.drop(columns=col_drop1)
 format2 = format2.drop(columns=col_drop2)
-st.dataframe(format4)
 format3 = format3.drop(columns=col_drop3)
 format3 = format3.head(3)
+format4 = format4.drop(columns=col_drop4)
+st.dataframe(format4)
 
 top_rating = format3.merge(format1, on='unique', how='inner')
 
