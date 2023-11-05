@@ -926,26 +926,30 @@ with col1:
 
 with col2:
 
- with st.beta_expander("plot"):
+ with elements("pie_chart"):
+ 
+       
+ 
+           with mui.Paper(elevation=0, variant='outlined', square=True):
 
  
 
-  fig2 = px.scatter(df_bubble, x=selected_objective, y='price', size='budget',
-                   log_x=True)
- 
- # Set chart title and axis labels
-  fig2.update_layout(
-      title='Bubble Chart Example',
-      showlegend=False,
-      width=530,
-      height=450,
-      margin=dict(l=25, r=25, t=50, b=25),
-      paper_bgcolor='white',
-      plot_bgcolor='white'# Set margin to 0 on all sides
-  )
-  
-  # Display the Plotly figure in Streamlit
-  st.plotly_chart(fig2)
+              fig2 = px.scatter(df_bubble, x=selected_objective, y='price', size='budget',
+                               log_x=True)
+             
+             # Set chart title and axis labels
+              fig2.update_layout(
+                  title='Bubble Chart Example',
+                  showlegend=False,
+                  width=530,
+                  height=450,
+                  margin=dict(l=25, r=25, t=50, b=25),
+                  paper_bgcolor='white',
+                  plot_bgcolor='white'# Set margin to 0 on all sides
+              )
+              
+              # Display the Plotly figure in Streamlit
+              st.plotly_chart(fig2)
 
      
 
