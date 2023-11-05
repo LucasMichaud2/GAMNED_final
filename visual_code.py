@@ -886,10 +886,10 @@ with col1:
   
   with elements("pie_chart"):
 
-      with mui.Paper(elevation=3, variant='outlined'):
+      with mui.Paper(elevation=0, variant='outlined', square=True):
           mui.Typography('Budget Analysis', variant='body2', padding='10px')
 
-          with mui.Paper(elevation=3, variant='outlined', square=True):
+          with mui.Paper(elevation=0, variant='outlined', square=True):
 
   
               pie_chart_data = []
@@ -927,7 +927,7 @@ with col2:
  st.write(' ')
 
  fig2 = px.scatter(df_bubble, x=selected_objective, y='price', size='budget',
-                  log_x=True, size_max=60)
+                  log_x=True)
 
 # Set chart title and axis labels
  fig2.update_layout(
@@ -936,8 +936,8 @@ with col2:
      yaxis_title='Life Expectancy (years)',
      showlegend=True,
      width=550,
-     height=400,
-     margin=dict(l=25, r=25, t=70, b=25),
+     height=450,
+     margin=dict(l=25, r=25, t=50, b=25),
      paper_bgcolor='white',
      plot_bgcolor='white'# Set margin to 0 on all sides
  )
