@@ -381,9 +381,7 @@ def format_rating(df_rating3):
   
   return format_rating
 
-format_rating = format_rating(df_rating3)
-
-st.dataframe(format_rating) 
+format_rating = format_rating(df_rating3) 
 
 
 # Format rating is the component for the heatmap
@@ -401,9 +399,6 @@ def price_rating(df_objective, format_rating):
     format_pricing = format_rating.copy()
     format_pricing = format_pricing.merge(df_price, on='format', how='inner')
     format_pricing = format_pricing.drop_duplicates()
-    
-    
-     
     
     format_pricing[selected_objective] = format_pricing[selected_objective] + format_pricing['price']
     
@@ -453,7 +448,7 @@ if channel_number == 0:
             budget_channel.loc[len(budget_channel.index)] = ['search', 1000]
             budget_channel = budget_channel.sort_values(by='budget', ascending=False)
 
-            st.dataframe(budget_channel)
+            
 
         else:
 
@@ -473,7 +468,7 @@ if channel_number == 0:
             budget_channel = selected_format.groupby('channel')['budget'].sum().reset_index()
             budget_channel = budget_channel.sort_values(by='budget', ascending=False)
 
-            st.dataframe(budget_channel)
+            
             
 
     elif input_budget >= 15000:
@@ -499,7 +494,7 @@ if channel_number == 0:
             budget_channel.loc[len(budget_channel.index)] = ['search', 2000]
             budget_channel = budget_channel.sort_values(by='budget', ascending=False)
 
-            st.dataframe(budget_channel)
+            
 
         else:
 
@@ -519,7 +514,7 @@ if channel_number == 0:
             budget_channel = selected_format.groupby('channel')['budget'].sum().reset_index()
             budget_channel = budget_channel.sort_values(by='budget', ascending=False)
 
-            st.dataframe(budget_channel)
+            
 
     else:
 
@@ -543,7 +538,7 @@ if channel_number == 0:
             budget_channel.loc[len(budget_channel.index)] = ['search', 1000]
             budget_channel = budget_channel.sort_values(by='budget', ascending=False)
     
-            st.dataframe(budget_channel)
+            
 
         else:
 
@@ -563,7 +558,7 @@ if channel_number == 0:
             budget_channel = selected_format.groupby('channel')['budget'].sum().reset_index()
             budget_channel = budget_channel.sort_values(by='budget', ascending=False)
     
-            st.dataframe(budget_channel)
+            
 
 else:
 
@@ -591,7 +586,7 @@ else:
             budget_channel.loc[len(budget_channel.index)] = ['search', 1000]
             budget_channel = budget_channel.sort_values(by='budget', ascending=False)
         
-            st.dataframe(budget_channel)
+            
 
         else:
             
@@ -613,7 +608,7 @@ else:
             budget_channel = selected_format.groupby('channel')['budget'].sum().reset_index()
             budget_channel = budget_channel.sort_values(by='budget', ascending=False)
         
-            st.dataframe(budget_channel)
+            
 
     else:
 
@@ -639,7 +634,7 @@ else:
             budget_channel.loc[len(budget_channel.index)] = ['search', 2000]
             budget_channel = budget_channel.sort_values(by='budget', ascending=False)
         
-            st.dataframe(budget_channel)
+            
 
         else:
             
@@ -661,10 +656,6 @@ else:
             budget_channel = selected_format.groupby('channel')['budget'].sum().reset_index()
             budget_channel = budget_channel.sort_values(by='budget', ascending=False)
         
-            st.dataframe(budget_channel)
-
-
-st.dataframe(selected_format)
         
 
 ############################################## Getting the Channel rating by agg formats ########################################
@@ -733,7 +724,7 @@ format2 = format2.drop(columns=col_drop2)
 format3 = format3.drop(columns=col_drop3)
 format3 = format3.head(3)
 format4 = format4.drop(columns=col_drop4)
-st.dataframe(format4)
+
 
 top_rating = format3.merge(format1, on='unique', how='inner')
 
@@ -753,13 +744,6 @@ df_bubble = df_bubble.drop_duplicates(subset=['unique'])
 drop_col = ['unique']
 df_bubble = df_bubble.drop(columns=drop_col)
 df_bubble[selected_objective] = df_bubble[selected_objective].apply(round_up_with_infinity)
-
-
-
-st.dataframe(format3)
-st.dataframe(top_rating)
-st.dataframe(top_budget)
-st.dataframe(df_bubble)
 
 
 ######################################### heatmap ###################################################################################
