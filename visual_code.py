@@ -711,6 +711,7 @@ top_channel = top_channel(agg_rating4)
 ##########################################  Bubble graph Data #######################################################################
 
 format1 = df_objective.copy()
+format1['channel'] = format1['channel'].replace('in game advertising', 'IGA')
 format2 = selected_format.copy()
 format3 = format_rating.copy()
 
