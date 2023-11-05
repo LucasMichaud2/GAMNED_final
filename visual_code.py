@@ -918,7 +918,7 @@ with col2:
                                 y='price',
                                 size='budget',
                                 color='peice',
-                                text='channel',
+                                text='channel_x',
                                )
              
              # Set chart title and axis labels
