@@ -737,8 +737,8 @@ top_budget = top_budget.drop_duplicates()
 top_bugget = top_budget.merge(format1, on='format', how='inner')
 col_drop1 = ['unique', 'channel_y', 'formats_y', 'format']
 col_drop2 = ['unique', 'channel_y', 'formats_y', 'format']
-top_rating = top_rating.drop(columns=col_drop1)
-top_budget = top_budget.drop(columns=col_drop2)
+#top_rating = top_rating.drop(columns=col_drop1)
+#top_budget = top_budget.drop(columns=col_drop2)
 
 
 st.dataframe(format1)
