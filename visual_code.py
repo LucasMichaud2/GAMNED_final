@@ -891,7 +891,7 @@ with col1:
  
        
  
-           with mui.Paper(elevation=0, variant='outlined', square=True):
+          
  
    
                pie_chart_data = []
@@ -926,11 +926,7 @@ with col1:
 
 with col2:
 
- with elements("pie_chart"):
  
-       
- 
-           with mui.Paper(elevation=0, variant='outlined', square=True):
 
  
 
@@ -944,8 +940,7 @@ with col2:
                   width=530,
                   height=450,
                   margin=dict(l=25, r=25, t=50, b=25),
-                  paper_bgcolor='white',
-                  plot_bgcolor='white'# Set margin to 0 on all sides
+                  
               )
               
               # Display the Plotly figure in Streamlit
