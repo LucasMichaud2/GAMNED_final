@@ -934,9 +934,9 @@ with col2:
      xaxis_title='GDP (Trillion USD)',
      yaxis_title='Life Expectancy (years)',
      showlegend=True,
-     width=400,
-     height=400,
-     margin=dict(l=25, r=25, t=25, b=25),
+     width=600,
+     height=500,
+     margin=dict(l=25, r=25, t=50, b=25),
      paper_bgcolor='white',
      plot_bgcolor='white'# Set margin to 0 on all sides
  )
