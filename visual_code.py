@@ -934,7 +934,7 @@ with col2:
      xaxis_title='GDP (Trillion USD)',
      yaxis_title='Life Expectancy (years)',
      showlegend=True,
-     width=500,
+     width=550,
      height=400,
      margin=dict(l=25, r=25, t=50, b=25),
      paper_bgcolor='white',
