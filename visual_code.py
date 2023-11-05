@@ -706,119 +706,6 @@ def top_channel(agg_rating4):
 top_channel = top_channel(agg_rating4)
 
 
-##########################################  Budget Creation #############################################################################
-
-def cost_norm(cost_rating):
-  cost_rating = cost_rating.drop([selected_objective], axis=1)
-  cost_rating = cost_rating.sort_values(by='average', ascending=False)
-  cost_rating = cost_rating.reset_index(drop=True)
-  cost_rating_std = cost_rating['average'].std()
-  cost_rating_mean = cost_rating['average'].mean()
-  cost_rating['norm'] = (cost_rating['average'] - cost_rating_mean) / cost_rating_std
-  df_price_rating = cost_rating.copy()
-  return cost_rating, df_price_rating
-
-cost_rating, df_price_rating = cost_norm(cost_rating)
-
-
-if channel_number == 0:
-  if input_budget < 5001 and selected_objective == 'consideration':
-    disp_allow = input_budget - 500
-    budget_lib1 = {
-      'channel': ['display', 'search'],
-      'allowance': [disp_allow, 500]
-    }
-    df_allowance = pd.DataFrame(budget_lib1)
-    
-  elif input_budget < 5001:
-    df_selection = cost_rating.head(1)
-    df_budget = df_selection.copy()
-    average_max = df_budget['average'].max()
-    average_min = df_budget['average'].min()
-    average_diff = average_max - average_min
-    df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
-    df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
-    df_budget['allowance'] = input_budget * df_budget['distribution']
-    columns_to_drop = ['average', 'norm', 'distribution']
-    df_allowance = df_budget.drop(columns=columns_to_drop)
-    
-  elif input_budget < 10001 and input_budget > 5000:
-    df_selection = cost_rating.head(2)
-    df_budget = df_selection.copy()
-    average_max = df_budget['average'].max()
-    average_min = df_budget['average'].min()
-    average_diff = average_max - average_min
-    df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
-    df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
-    df_budget['allowance'] = input_budget * df_budget['distribution']
-    columns_to_drop = ['average', 'norm', 'distribution']
-    df_allowance = df_budget.drop(columns=columns_to_drop)
-
-  elif input_budget < 15001 and input_budget > 10000:
-    #df_selection = cost_rating[cost_rating['norm'] > threshold]
-    df_selection = cost_rating.head(3)
-    df_budget = df_selection.copy()
-    average_max = df_budget['average'].max()
-    average_min = df_budget['average'].min()
-    average_diff = average_max - average_min
-    df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
-    df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
-    df_budget['allowance'] = input_budget * df_budget['distribution']
-    columns_to_drop = ['average', 'norm', 'distribution']
-    df_allowance = df_budget.drop(columns=columns_to_drop)
-
-
-  elif input_budget < 20001 and input_budget > 15000:
-    #df_selection = cost_rating[cost_rating['norm'] > threshold]
-    df_selection = cost_rating.head(4)
-    df_budget = df_selection.copy()
-    average_max = df_budget['average'].max()
-    average_min = df_budget['average'].min()
-    average_diff = average_max - average_min
-    df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
-    df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
-    df_budget['allowance'] = input_budget * df_budget['distribution']
-    columns_to_drop = ['average', 'norm', 'distribution']
-    df_allowance = df_budget.drop(columns=columns_to_drop)
-
-  elif input_budget < 25001 and input_budget > 20000:
-    #df_selection = cost_rating[cost_rating['norm'] > threshold]
-    df_selection = cost_rating.head(5)
-    df_budget = df_selection.copy()
-    average_max = df_budget['average'].max()
-    average_min = df_budget['average'].min()
-    average_diff = average_max - average_min
-    df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
-    df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
-    df_budget['allowance'] = input_budget * df_budget['distribution']
-    columns_to_drop = ['average', 'norm', 'distribution']
-    df_allowance = df_budget.drop(columns=columns_to_drop)
-
-  else:
-    df_selection = cost_rating.head(6)
-    df_budget = df_selection.copy()
-    average_max = df_budget['average'].max()
-    average_min = df_budget['average'].min()
-    average_diff = average_max - average_min
-    df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
-    df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
-    df_budget['allowance'] = input_budget * df_budget['distribution']
-    columns_to_drop = ['average', 'norm', 'distribution']
-    df_allowance = df_budget.drop(columns=columns_to_drop)
-    
-else:
-  df_selection = cost_rating.head(channel_number)
-  df_budget = df_selection.copy()
-  average_max = df_budget['average'].max()
-  average_min = df_budget['average'].min()
-  average_diff = average_max - average_min
-  df_budget['distribution'] = df_budget['average'] / df_budget['average'].sum()
-  df_budget['distribution'] = df_budget['distribution'].apply(lambda x: round(x, 2))
-  df_budget['allowance'] = input_budget * df_budget['distribution']
-  columns_to_drop = ['average', 'norm', 'distribution']
-  df_allowance = df_budget.drop(columns=columns_to_drop)
- 
-
 ##########################################  Dashboard Content #######################################################################
 #with open('styles.css') as f:
   #st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
@@ -951,22 +838,10 @@ df_allow_table.columns = new_cols
 
 
 
-col1, col2, col3 = st.columns([1, 2, 2])
+col1, col2 = st.columns(2)
+
 
 with col1:
-    st.metric('Top Channel', top_channel)
-
-    st.metric('Budget', 'Youtube')
-
-with col2:
-    with elements("table"):
-        with mui.Paper(eleveation=3, variant='outlined'):
-            with mui.Box(sx={"height": 200}):
-                st.write('Annoying')
-        
-
-
-with col3:
   
   with elements("pie_chart"):
 
