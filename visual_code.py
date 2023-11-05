@@ -81,7 +81,7 @@ def input_layer():
   selected_age = ', '.join(selected_age)
   input_budget = box6.number_input('Budget $', value=0)
   channel_number = box7.number_input('Channel Number', value=0)
-  search = box8.checkbox('Include Search')
+  search = st.checkbox('Include Search')
   
 
   return selected_objective, selected_target, selected_region, excluded_channel, selected_age, input_budget, channel_number, search
