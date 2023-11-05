@@ -440,7 +440,7 @@ if channel_number == 0:
         selected_format['budget'] = selected_format['budget'].round(0)
         st.dataframe(selected_format)
 
-        budget_channel = selected_format.groupby('channel')['rating'].sum()
+        budget_channel = selected_format.groupby('channel')['budget'].sum()
         st.dataframe(budget_channel)
             
         
