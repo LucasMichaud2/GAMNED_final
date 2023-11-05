@@ -11,7 +11,7 @@ import plotly.graph_objects as go
 
 
 st.set_page_config(layout='wide')
-
+ 
 custom_css = """
 <style>
     body {
