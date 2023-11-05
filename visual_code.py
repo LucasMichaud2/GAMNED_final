@@ -302,7 +302,7 @@ class GAMNED_UAE:
 min_price = {
     'channel': ['youtube', 'instagram', 'display', 'facebook', 'linkedin', 'search', 'snapchat', 'tiktok', 'native ads', 'twitter', 'twitch',
                       'in game advertising', 'amazon', 'audio', 'waze', 'dooh', 'connected tv'],
-    'minimum': ['4000', '3000', '5000', '4000', '3000', '3000', '3000', '3000', '3000', '3000', '3000', '3000', '3000', '3000', '3000',
+    'minimum': ['4000', '3000', '5000', '4000', '4000', '1000', '3000', '4000', '4000', '3000', '3000', '3000', '3000', '3000', '3000',
                  '3000', '3000']
 }
 
@@ -443,6 +443,16 @@ if channel_number == 0:
         budget_channel = selected_format.groupby('channel')['budget'].sum().reset_index()
         budget_channel = budget_channel.sort_values(by='budget', ascending=False)
         st.dataframe(budget_channel)
+
+        total_budget = budget_channel['budget'].sum()
+        if total_budget < min_sum:
+            deficit = min_sum - total_budget
+            insufficient_channels = min_selection[min_selection['minimum'] > budget_channel['budget']]
+            total_insufficient_budget = insufficient_channels['budget'].sum()
+            allocation_ratio = (total_budget + deficit) / total_budget
+            budget_channel.loc[~budget_channel['channel'].isin(insufficient_channels['channel']), 'budget'] *= allocation_ratio
+            budget_channel.loc[budget_channel['channel'].isin(insufficient_channels['channel']), 'budget'] = insufficient_channels['minimum']
+            st.dataframe(budget_channel)
             
         
 
