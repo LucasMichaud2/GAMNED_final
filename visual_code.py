@@ -384,6 +384,7 @@ format_rating = format_rating(df_rating3)
 
 st.dataframe(format_rating) 
 
+
 # Format rating is the component for the heatmap
 
 ############################################## Adding Price Rating ##############################################################
@@ -396,6 +397,8 @@ def price_rating(df_objective, format_rating):
     
     
     format_pricing = format_rating.copy()
+    st.dataframe(df_price)
+    st.dataframe(format_pricing)
     format_pricing = format_pricing.merge(df_price, on='formats', how='inner')
     format_pricing = format_pricing.drop_duplicates()
     
