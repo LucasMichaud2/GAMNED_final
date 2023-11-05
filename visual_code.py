@@ -696,8 +696,6 @@ def agg_channel_rating(df_rating3):
 
 cost_rating, agg_rating4, output_rating = agg_channel_rating(df_rating3)
 
-st.dataframe(agg_rating4)
-
 
 ############################################# Gettign the top Channel ###################################################################
 
@@ -710,9 +708,19 @@ def top_channel(agg_rating4):
 top_channel = top_channel(agg_rating4)
 
 
-##########################################  Dashboard Content #######################################################################
-#with open('styles.css') as f:
-  #st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+##########################################  Bubble graph Data #######################################################################
+
+format1 = df_objective.copy()
+format2 = selected_format.copy()
+format3 = format_rating.copy()
+
+col_drop1 = ['channel', 'branding', 'consideration', 'conversion', 'branding video']
+col_drop3 = ['format', 'norm']
+
+format1 = format1.drop(columns=col_drop1)
+
+st.dataframe(format1)
+
 
 ######################################### heatmap ###################################################################################
 
