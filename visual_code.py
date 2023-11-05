@@ -902,7 +902,7 @@ with col1:
                 }
                 pie_chart_data.append(allowance)
           
-              with mui.Box(sx={"height": 400, "width": 550}):
+              with mui.Box(sx={"height": 400}):
                         nivo.Pie(
                           data=pie_chart_data,
                           innerRadius=0.5,
@@ -935,7 +935,7 @@ with col2:
      xaxis_title='GDP (Trillion USD)',
      yaxis_title='Life Expectancy (years)',
      showlegend=True,
-     width=550,
+     width=525,
      height=450,
      margin=dict(l=25, r=25, t=50, b=25),
      paper_bgcolor='white',
