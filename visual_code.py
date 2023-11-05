@@ -96,6 +96,8 @@ def input_layer():
 
 selected_objective, selected_target, selected_region, excluded_channel, selected_age, input_budget, channel_number, search = input_layer()
 
+st.subheader(' ', divider=grey)
+
 
 ############################## Class Import ##############################################################################################
 
