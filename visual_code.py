@@ -391,7 +391,9 @@ st.dataframe(format_rating)
 
 def price_rating(df_objective, format_rating):
 
-    df_price = df_objective[['formats', 'price']]
+    df_objective['channel'] = df_objective['channel'].replace('in game advertising', 'IGA')
+    df_objective['format'] = df_objective['channel'] + ' - ' + df_objective['formats']
+    df_price = df_objective[['format', 'formats', 'price']]
     df_price['price'] = df_price['price'] * 3
     
     
@@ -399,7 +401,7 @@ def price_rating(df_objective, format_rating):
     format_pricing = format_rating.copy()
     st.dataframe(df_price)
     st.dataframe(format_pricing)
-    format_pricing = format_pricing.merge(df_price, on='formats', how='inner')
+    format_pricing = format_pricing.merge(df_price, on='format', how='inner')
     format_pricing = format_pricing.drop_duplicates()
     
     
