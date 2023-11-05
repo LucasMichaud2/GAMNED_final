@@ -923,6 +923,7 @@ with col2:
                                 text='channel_x',
                                 labels={'budget': 'Bubble Size'},  # Rename the legend label
                                 color_continuous_scale='Viridis',
+                                color_continuous_midpoint=0,
                                )
              
              # Set chart title and axis labels
