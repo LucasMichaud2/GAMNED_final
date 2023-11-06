@@ -887,7 +887,7 @@ df_bubble['channel_x'] = df_bubble['channel_x'].replace('Iga', 'IGA')
 
 
 if input_budget == 0: 
- st.write('Awaiting for budget')
+ st.write('Awaiting for budget...')
 
 else:
 
