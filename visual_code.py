@@ -900,7 +900,7 @@ else:
  
  with col1:
   
-    st.write("&nbsp;&nbsp;&nbsp;&nbsp; Budget Allocation")
+    st.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Budget Allocation")
    
     with elements("pie_chart"):
   
