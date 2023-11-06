@@ -33,16 +33,16 @@ twitter,Video ads with conversation button,6,3,2,5,1
 twitter,Video Ads with polls,6,3,2,5,1
 twitter,Carousel ads website,4,3,2,5,0
 twitter,Carousel ads in app,4,3,2,5,0
-linkedin,Conversation ads,3,5,3,1,0
-linkedin,Message ads,3,5,2,1,0
-linkedin,Video ads,6,4,2,1,1
-linkedin,Spotlight ads,3,3,2,1,0
-linkedin,Follower Ads,3,5,6,1,0
-linkedin,Carousel Ads,4,3,2,1,0
-linkedin,Text ads,5,4,2,1,0
-linkedin,Single Image ads,6,5,2,1,0
-linkedin,Event ads,4,4,3,1,0
-linkedin,Lead Gen Forms,1,4,8,1,0
+linkedin,Conversation ads,3,5,3,5,0
+linkedin,Message ads,3,5,2,5,0
+linkedin,Video ads,6,4,2,5,1
+linkedin,Spotlight ads,3,3,2,5,0
+linkedin,Follower Ads,3,5,6,5,0
+linkedin,Carousel Ads,4,3,2,5,0
+linkedin,Text ads,5,4,2,5,0
+linkedin,Single Image ads,6,5,2,5,0
+linkedin,Event ads,4,4,3,5,0
+linkedin,Lead Gen Forms,1,4,8,5,0
 youtube,Trueview InStream,10,2,1,5,1
 youtube,TrueView In Search,9,2,1,5,1
 youtube,Trueview in Display,9,2,1,5,1
