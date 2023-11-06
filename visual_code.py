@@ -69,6 +69,7 @@ def input_layer():
   
   objective_list = ['branding display', 'branding video', 'consideration', 'conversion']
   objective_df = pd.DataFrame(objective_list)
+  st.dataframe(objective_df)
   
   age_list = ['13-17', '18-24', '25-34', '35-44', '45-54', '55-64', '65+', 'all']
   age_df = pd.DataFrame(age_list)
