@@ -69,7 +69,7 @@ def input_layer():
   
   objective_list = ['branding display', 'branding video', 'consideration', 'conversion']
   objective_df = pd.DataFrame(objective_list)
-  st.dataframe(objective_df)
+  objective_df[0] = objective[0].str.title()
   
   age_list = ['13-17', '18-24', '25-34', '35-44', '45-54', '55-64', '65+', 'all']
   age_df = pd.DataFrame(age_list)
@@ -96,6 +96,8 @@ def input_layer():
   return selected_objective, selected_target, selected_region, excluded_channel, selected_age, input_budget, channel_number, search
 
 selected_objective, selected_target, selected_region, excluded_channel, selected_age, input_budget, channel_number, search = input_layer()
+
+selected_objective = selected_objective.lower()
 
 st.subheader(' ', divider='grey')
 
