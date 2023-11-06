@@ -785,7 +785,7 @@ def formatting_heatmap(format_rating, selected_objective):
 
 top_format = formatting_heatmap(format_rating, selected_objective)
 
-st.dataframe(top_format)
+
 
 
 def heatmap_data(top_format):
