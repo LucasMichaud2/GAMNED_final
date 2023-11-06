@@ -787,6 +787,7 @@ top_format = formatting_heatmap(format_rating, selected_objective)
 def heatmap_data(top_format):
     
     top_format['format'] = top_format['format'].str.title()
+    top_format['format'] = top_format['format'].replace('Twitter - Video Ads With Conversation Button', 'Twitter - Video Ads With Conv. Button')
     labels = top_format['format'].tolist()
     scores = top_format['norm'].to_numpy()
     scores_matrix = scores.reshape(6, 7)
