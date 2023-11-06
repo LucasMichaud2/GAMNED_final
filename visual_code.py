@@ -875,6 +875,7 @@ df_pie_chart = (budget_channel)
 
 df_pie_chart['channel'] = df_pie_chart['channel'].str.title()
 df_pie_chart['channel'] = df_pie_chart['channel'].replace('Iga', 'IGA')
+df_pie_chart['budget'] = df_pie_chart['budget'].apply(lambda x: round(x, -1))
 
 df_allow_table = df_pie_chart.copy()
 
