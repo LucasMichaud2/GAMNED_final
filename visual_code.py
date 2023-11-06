@@ -900,7 +900,7 @@ else:
  
  with col1:
   
-    st.write('Budget Allocation')
+    st.write('       Budget Allocation')
    
     with elements("pie_chart"):
   
@@ -962,7 +962,7 @@ else:
               
               # Set chart title and axis labels
                fig2.update_layout(
-                   title='Rating VS Price VS Budget',
+                   
                    showlegend=False,
                    width=600,
                    height=450,
