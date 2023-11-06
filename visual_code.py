@@ -796,6 +796,7 @@ def heatmap_data(top_format):
     labels = top_format['format'].tolist()
     scores = top_format['norm'].to_numpy()
     scores_matrix = scores.reshape(6, 7)
+    scores_matrix = scores_matrix[::-1]
     return labels, scores_matrix
 
 labels, scores_matrix = heatmap_data(top_format)
