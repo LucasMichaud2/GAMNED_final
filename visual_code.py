@@ -102,7 +102,7 @@ selected_objective, selected_target, selected_region, excluded_channel, selected
 
 selected_objective = selected_objective.lower()
 
-excluded_channel = excluded_channel.lower()
+excluded_channel = [item.lower() for item in excluded_channel]
 
 st.subheader(' ', divider='grey')
 
