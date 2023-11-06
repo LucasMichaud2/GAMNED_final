@@ -900,7 +900,7 @@ else:
  
  with col1:
   
-   
+   st.write('Budget Allocation')
    
     with elements("pie_chart"):
   
@@ -942,8 +942,8 @@ else:
  with col2:
  
   
- 
   
+               st.write('Rating VS Price VS Budget')
  
                fig2 = px.scatter(df_bubble,
                                  x='Rating',
