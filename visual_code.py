@@ -886,87 +886,91 @@ df_bubble['channel_x'] = df_bubble['channel_x'].str.title()
 df_bubble['channel_x'] = df_bubble['channel_x'].replace('Iga', 'IGA')
 
 
+if input_budget == 0: 
+ st.wtrite('Awaiting for budget')
+
+else:
 
 
-col1, col2 = st.columns(2)
-
-
-with col1:
+ col1, col2 = st.columns(2)
  
  
+ with col1:
   
   
-   with elements("pie_chart"):
- 
-       
- 
-          
- 
    
-               pie_chart_data = []
-               
-               for _, row in df_pie_chart.iterrows():
-                 allowance = {
-                   'id': row['channel'],
-                   'Label': row['channel'],
-                   'value': row['budget']
-                 }
-                 pie_chart_data.append(allowance)
+   
+    with elements("pie_chart"):
+  
+        
+  
            
-               with mui.Box(sx={"height": 400}):
-                         nivo.Pie(
-                           data=pie_chart_data,
-                           innerRadius=0.5,
-                           cornerRadius=0,
-                           padAngle=1,  
-                           margin={'top': 30, 'right': 100, 'bottom': 30, 'left': 100},
-                           theme={
-                             
-                             "textColor": "#31333F",
-                             "tooltip": {
-                                 "container": {
-                                     
-                                     "color": "#31333F",
-                                     }
-                                 }
-                             }
-                         )
-
-
-with col2:
-
+  
+    
+                pie_chart_data = []
+                
+                for _, row in df_pie_chart.iterrows():
+                  allowance = {
+                    'id': row['channel'],
+                    'Label': row['channel'],
+                    'value': row['budget']
+                  }
+                  pie_chart_data.append(allowance)
+            
+                with mui.Box(sx={"height": 400}):
+                          nivo.Pie(
+                            data=pie_chart_data,
+                            innerRadius=0.5,
+                            cornerRadius=0,
+                            padAngle=1,  
+                            margin={'top': 30, 'right': 100, 'bottom': 30, 'left': 100},
+                            theme={
+                              
+                              "textColor": "#31333F",
+                              "tooltip": {
+                                  "container": {
+                                      
+                                      "color": "#31333F",
+                                      }
+                                  }
+                              }
+                          )
  
-
  
-
-              fig2 = px.scatter(df_bubble,
-                                x='Rating',
-                                y='Price',
-                                size='budget',
-                                color='channel_x',
-                                size_max=60,  # Increase the maximum bubble size
-                                log_x=True,
-                                text='channel_x',
-                                labels={'budget': 'Bubble Size'},  # Rename the legend label
-                                
-                                
-                               )
-
-              fig2.update_traces(textfont_color='black')
-             
-             # Set chart title and axis labels
-              fig2.update_layout(
-                  title='Rating VS Price VS Budget',
-                  showlegend=False,
-                  width=600,
-                  height=450,
-                  margin=dict(l=25, r=25, t=50, b=25),
-                  
-              )
+ with col2:
+ 
+  
+ 
+  
+ 
+               fig2 = px.scatter(df_bubble,
+                                 x='Rating',
+                                 y='Price',
+                                 size='budget',
+                                 color='channel_x',
+                                 size_max=60,  # Increase the maximum bubble size
+                                 log_x=True,
+                                 text='channel_x',
+                                 labels={'budget': 'Bubble Size'},  # Rename the legend label
+                                 
+                                 
+                                )
+ 
+               fig2.update_traces(textfont_color='black')
               
-              # Display the Plotly figure in Streamlit
-              
-              st.plotly_chart(fig2)
+              # Set chart title and axis labels
+               fig2.update_layout(
+                   title='Rating VS Price VS Budget',
+                   showlegend=False,
+                   width=600,
+                   height=450,
+                   margin=dict(l=25, r=25, t=50, b=25),
+                   
+               )
+               
+               # Display the Plotly figure in Streamlit
+               
+               st.plotly_chart(fig2)
 
      
 
