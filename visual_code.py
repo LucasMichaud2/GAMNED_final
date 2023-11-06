@@ -897,7 +897,7 @@ else:
  
  with col1:
   
-  
+    st.write('Budget Allocation')
    
    
     with elements("pie_chart"):
