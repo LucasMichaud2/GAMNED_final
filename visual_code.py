@@ -80,6 +80,8 @@ def input_layer():
   
   excluded_channel_list = ['youtube', 'instagram', 'display', 'facebook', 'linkedin', 'search', 'snapchat', 'tiktok', 'native ads', 'twitter', 'twitch',
                       'in game advertising', 'amazon', 'audio', 'waze', 'dooh', 'connected tv']
+
+  excluded_channel_list = [' '.join([word.capitalize() for word in item.split()]) for item in excluded_channel_list]
   
   box1, box2, box3, box4, box5, box6, box7 = st.columns(7)
   
@@ -99,6 +101,8 @@ def input_layer():
 selected_objective, selected_target, selected_region, excluded_channel, selected_age, input_budget, channel_number, search = input_layer()
 
 selected_objective = selected_objective.lower()
+
+excluded_channel = excluded_channel.lower()
 
 st.subheader(' ', divider='grey')
 
