@@ -69,8 +69,8 @@ def input_layer():
   
   objective_list = ['branding display', 'branding video', 'consideration', 'conversion']
   objective_df = pd.DataFrame(objective_list)
-  objective_df.columns = ['0']
-  objective_df['0'] = objective['0'].str.title()
+  #objective_df.columns = ['0']
+  objective_df[0] = objective_df[0].str.title()
   
   age_list = ['13-17', '18-24', '25-34', '35-44', '45-54', '55-64', '65+', 'all']
   age_df = pd.DataFrame(age_list)
