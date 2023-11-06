@@ -771,7 +771,7 @@ def formatting_heatmap(format_rating, selected_objective):
     format_rating = format_rating.drop('format', axis=1)
     format_rating['channel'] = format_rating['channel'].str.upper()
     format_rating['formats'] = format_rating['formats'].str.title()
-    format_rating['format'] = format_rating['channel'] + '\n - ' + format_rating['formats']
+    format_rating['format'] = format_rating['channel'] + ' - ' + format_rating['formats']
     top_format = format_rating.head(42)
     min_top_format = top_format['norm'].min()
     max_top_format = top_format['norm'].max()
