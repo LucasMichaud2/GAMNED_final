@@ -863,6 +863,8 @@ st.plotly_chart(fig, use_container_width=True)
   
 df_pie_chart = (budget_channel)
 
+df_pie_chart['channel'] = df_pie_chart['channel'].str().title()
+
 df_allow_table = df_pie_chart.copy()
 
 new_cols = ['Channel', 'Budget']
