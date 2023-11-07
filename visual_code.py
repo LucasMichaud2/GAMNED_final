@@ -917,6 +917,7 @@ with col11:
          name = row['channel']
          format = row['formats']
          score = row['norm'] / 100
+         st.write(score)
          color = get_color(score)
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
