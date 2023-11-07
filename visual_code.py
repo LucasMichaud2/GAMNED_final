@@ -1107,9 +1107,8 @@ with col11:
          st.markdown(
              f"""
              <div class="heatmap-item" style="background-color: {color};">
-                 <div>{name}</div>
-                 <div>{'<br>'}</div>
-                 <div>{format}</div>
+                 {name}<br>
+                 {format}
              </div>
              """,
              unsafe_allow_html=True
