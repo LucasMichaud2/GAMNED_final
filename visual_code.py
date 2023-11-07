@@ -1006,7 +1006,6 @@ if details == True:
  st.dataframe(selected_format)
 
 
-
 import streamlit as st
 
 # Define the data for the heatmap (colors, names, and scores)
@@ -1036,7 +1035,7 @@ def get_color(score):
 num_columns = 3
 
 # Calculate the number of rows based on the number of columns
-num_rows = len(heatmap_data) // num_columns + (len(heatmap_data) % num_columns > 0)
+num_rows = (len(heatmap_data) + num_columns - 1) // num_columns
 
 # Create a Streamlit container
 with st.container():
