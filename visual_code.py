@@ -1108,6 +1108,7 @@ with col11:
              f"""
              <div class="heatmap-item" style="background-color: {color};">
                  <div>{name}</div>
+                 <div>{'<br>'}</div>
                  <div>{format}</div>
              </div>
              """,
