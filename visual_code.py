@@ -872,7 +872,7 @@ fig.update_layout(
     width=750,  # Adjust the width as needed
     height=500,  # Adjust the height for 6 rows
     hovermode='closest',
-    margin=dict(l=0, r=0, t=0, b=0),
+    margin=dict(l=0, r=0, t=0, b=-2),
     paper_bgcolor='darkgray',
     plot_bgcolor='darkgray'
     
