@@ -1029,17 +1029,37 @@ def get_color(score):
         return "green"
 
 # Create a Streamlit container
+import streamlit as st
+
+# Define the data for the heatmap (colors, names, and scores)
+heatmap_data = [
+    {"name": "Item 1", "score": 0.2},
+    {"name": "Item 2", "score": 0.5},
+    {"name": "Item 3", "score": 0.8},
+    {"name": "Item 4", "score": 0.3},
+    {"name": "Item 5", "score": 0.9},
+]
+
+# Define a function to map scores to colors
+def get_color(score):
+    # You can define your own color mapping logic here
+    if score < 0.4:
+        return "red"
+    elif score < 0.7:
+        return "yellow"
+    else:
+        return "green"
+
+# Create a Streamlit container
 with st.container():
     st.markdown(
         """
         <style>
         .heatmap-container {
             display: flex;
-            gap: 10px; /* Adjust spacing between rectangles */
         }
 
         .heatmap-item {
-            background-color: var(--color);
             width: 140px;
             height: 75px;
             margin-right: 10px; /* Adjust spacing between rectangles */
@@ -1049,7 +1069,6 @@ with st.container():
             justify-content: center;
             border-radius: 20px;
             color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a box shadow for 3D effect */
         }
         </style>
         """,
@@ -1064,12 +1083,13 @@ with st.container():
         # Use the 'st.markdown' to create rounded squares with labels
         st.markdown(
             f"""
-            <div class="heatmap-item" style="--color: {color};">
+            <div class="heatmap-item" style="background-color: {color};">
                 {name}
             </div>
             """,
             unsafe_allow_html=True
         )
+
 
 
 
