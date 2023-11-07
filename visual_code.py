@@ -1106,7 +1106,7 @@ with col11:
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-item" style="background-color: {color};">
+             <div class="heatmap-item" style="background-color: {color}; text-align: center;">
                  {name}<br>
                  {format}
              </div>
