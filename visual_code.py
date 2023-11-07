@@ -951,7 +951,7 @@ with col12:
              justify-content: center;
              border-radius: 10px;
              color: black;
-             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
+             box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
          }
          </style>
          """,
@@ -996,7 +996,7 @@ with col13:
              justify-content: center;
              border-radius: 10px;
              color: black;
-             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
+             box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
          }
          </style>
          """,
@@ -1041,7 +1041,7 @@ with col14:
              justify-content: center;
              border-radius: 10px;
              color: black;
-             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
+             box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
          }
          </style>
          """,
@@ -1087,7 +1087,7 @@ with col15:
              justify-content: center;
              border-radius: 10px;
              color: black;
-             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
+             box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
          }
          </style>
          """,
@@ -1132,7 +1132,7 @@ with col16:
              justify-content: center;
              border-radius: 10px;
              color: black;
-             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
+             box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
          }
          </style>
          """,
@@ -1178,7 +1178,7 @@ with col17:
              justify-content: center;
              border-radius: 10px;
              color: black;
-             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
+             box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
          }
          </style>
          """,
