@@ -1030,6 +1030,32 @@ def get_color(score):
 
 # Create a Streamlit container
 with st.container():
+    st.markdown(
+        """
+        <style>
+        .heatmap-container {
+            display: flex;
+            gap: 10px; /* Adjust spacing between rectangles */
+        }
+
+        .heatmap-item {
+            background-color: var(--color);
+            width: 140px;
+            height: 75px;
+            margin-right: 10px; /* Adjust spacing between rectangles */
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a box shadow for 3D effect */
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
     for data in heatmap_data:
         name = data["name"]
         score = data["score"]
@@ -1038,16 +1064,7 @@ with st.container():
         # Use the 'st.markdown' to create rounded squares with labels
         st.markdown(
             f"""
-            <div style='background-color: {color};
-                        width: 140px;
-                        height: 75px;
-                        margin-right: 50px;
-                        font-size: 10px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        border-radius: 20px;
-                        color: white;'>
+            <div class="heatmap-item" style="--color: {color};">
                 {name}
             </div>
             """,
