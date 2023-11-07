@@ -94,6 +94,8 @@ def input_layer():
   input_budget = box6.number_input('Budget $', value=0)
   channel_number = box7.number_input('Channel Number', value=0)
   search = st.checkbox('Include Search')
+  if search == True:
+   channel_number = channel_number - 1
   
 
   return selected_objective, selected_target, selected_region, excluded_channel, selected_age, input_budget, channel_number, search
