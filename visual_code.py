@@ -1016,6 +1016,8 @@ st.dataframe(top_format)
 
 
 
+st.divider(color='grey')
+
 import streamlit as st
 
 # Define the data for the heatmap (colors, names, and scores)
