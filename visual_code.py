@@ -843,8 +843,8 @@ fig.add_trace(go.Heatmap(
     hoverongaps=False,
     showscale=False,  # Hide the color scale
     hovertemplate='%{z:.2f}<extra></extra>',
-    xgap=2,
-    ygap=2# Customize hover tooltip
+    xgap=3,
+    ygap=3# Customize hover tooltip
 ))
 
 
@@ -873,8 +873,7 @@ fig.update_layout(
     height=500,  # Adjust the height for 6 rows
     hovermode='closest',
     margin=dict(l=25, r=25, t=25, b=25),
-    paper_bgcolor='darkgray',
-    plot_bgcolor='darkgray'
+    
     
     
 )
