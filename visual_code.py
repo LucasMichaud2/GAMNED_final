@@ -1143,15 +1143,17 @@ with col12:
      )
  
      for index, row in heatmap2.iterrows():
-         name = row['format']
+         name = row['channel']
+         format = row['formats']
          score = row['norm'] / 100
          color = get_color(score)
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-item" style="background-color: {color};">
-                 {name}
+             <div class="heatmap-item" style="background-color: {color}; text-align: center;">
+                 {name}<br>
+                 {format}
              </div>
              """,
              unsafe_allow_html=True
@@ -1186,15 +1188,17 @@ with col13:
      )
  
      for index, row in heatmap3.iterrows():
-         name = row['format']
+         name = row['channel']
+         format = row['formats']
          score = row['norm'] / 100
          color = get_color(score)
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-item" style="background-color: {color};">
-                 {name}
+             <div class="heatmap-item" style="background-color: {color}; text-align: center;">
+                 {name}<br>
+                 {format}
              </div>
              """,
              unsafe_allow_html=True
@@ -1229,15 +1233,17 @@ with col14:
      )
  
      for index, row in heatmap4.iterrows():
-         name = row['format']
+         name = row['channel']
+         format = row['formats']
          score = row['norm'] / 100
          color = get_color(score)
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-item" style="background-color: {color};">
-                 {name}
+             <div class="heatmap-item" style="background-color: {color}; text-align: center;">
+                 {name}<br>
+                 {format}
              </div>
              """,
              unsafe_allow_html=True
@@ -1273,15 +1279,17 @@ with col15:
      )
  
      for index, row in heatmap5.iterrows():
-         name = row['format']
+         name = row['channel']
+         format = row['formats']
          score = row['norm'] / 100
          color = get_color(score)
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-item" style="background-color: {color};">
-                 {name}
+             <div class="heatmap-item" style="background-color: {color}; text-align: center;">
+                 {name}<br>
+                 {format}
              </div>
              """,
              unsafe_allow_html=True
@@ -1316,15 +1324,17 @@ with col16:
      )
  
      for index, row in heatmap6.iterrows():
-         name = row['format']
+         name = row['channel']
+         format = row['formats']
          score = row['norm'] / 100
          color = get_color(score)
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-item" style="background-color: {color};">
-                 {name}
+             <div class="heatmap-item" style="background-color: {color}; text-align: center;">
+                 {name}<br>
+                 {format}
              </div>
              """,
              unsafe_allow_html=True
@@ -1360,15 +1370,17 @@ with col17:
      )
  
      for index, row in heatmap7.iterrows():
-         name = row['format']
+         name = row['channel']
+         format = row['formats']
          score = row['norm'] / 100
          color = get_color(score)
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-item" style="background-color: {color};">
-                 {name}
+             <div class="heatmap-item" style="background-color: {color}; text-align: center;">
+                 {name}<br>
+                 {format}
              </div>
              """,
              unsafe_allow_html=True
