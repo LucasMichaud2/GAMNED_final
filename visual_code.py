@@ -806,9 +806,6 @@ top_format['formats'] = top_format['formats'].replace('Video Ads With Conversati
 top_format['formats'] = top_format['formats'].replace('Video Ads With Website Button', 'Video Ads With Web. Button')
 top_format['format'] = top_format['channel'] + '<br>' + top_format['formats']
 
-st.dataframe(top_format)
-
-
 index1 = [0, 7, 14, 21, 28, 35]
 index2 = [1, 8, 15, 22, 29, 36]
 index3 = [2, 9, 16, 23, 30, 37]
