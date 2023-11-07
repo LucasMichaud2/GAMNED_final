@@ -1015,10 +1015,6 @@ heatmap_data = [
     {"name": "Item 3", "score": 0.8},
     {"name": "Item 4", "score": 0.3},
     {"name": "Item 5", "score": 0.9},
-    {"name": "Item 6", "score": 0.6},
-    {"name": "Item 7", "score": 0.4},
-    {"name": "Item 8", "score": 0.7},
-    {"name": "Item 9", "score": 0.1},
 ]
 
 # Define a function to map scores to colors
@@ -1031,52 +1027,93 @@ def get_color(score):
     else:
         return "green"
 
-# Define the number of columns
-num_columns = 3
+col11, col12 = st.columns(2)
 
-# Calculate the number of rows based on the number of columns
-num_rows = (len(heatmap_data) + num_columns - 1) // num_columns
+with col11:
 
-# Create a Streamlit container
-with st.container():
-    for row in range(num_rows):
-        st.write("Row", row + 1)  # Display row number
-        row_data = heatmap_data[row * num_columns : (row + 1) * num_columns]
-        st.markdown(
-            """
-            <style>
-            .heatmap-item {
-                width: 140px;
-                height: 75px;
-                margin-right: 20px; /* Adjust spacing between squares horizontally */
-                margin-bottom: 20px; /* Add margin at the bottom of each square */
-                font-size: 10px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 20px;
-                color: white;
-                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
-            }
-            </style>
-            """,
-            unsafe_allow_html=True
-        )
+ with st.container():
+     st.markdown(
+         """
+         <style>
+         .heatmap-container {
+             display: flex;
+             flex-direction: column; /* Arrange squares vertically */
+         }
+ 
+         .heatmap-item {
+             width: 140px;
+             height: 75px;
+             margin-bottom: 20px; /* Add margin at the bottom of each square */
+             font-size: 10px;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             border-radius: 20px;
+             color: white;
+             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
+         }
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+ 
+     for data in heatmap_data:
+         name = data["name"]
+         score = data["score"]
+         color = get_color(score)
+ 
+         # Use the 'st.markdown' to create colored boxes with shadows and labels
+         st.markdown(
+             f"""
+             <div class="heatmap-item" style="background-color: {color};">
+                 {name}
+             </div>
+             """,
+             unsafe_allow_html=True
+         )
 
-        for data in row_data:
-            name = data["name"]
-            score = data["score"]
-            color = get_color(score)
+with col12:
 
-            # Use the 'st.markdown' to create colored boxes with shadows and labels
-            st.markdown(
-                f"""
-                <div class="heatmap-item" style="background-color: {color};">
-                    {name}
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
+ with st.container():
+     st.markdown(
+         """
+         <style>
+         .heatmap-container {
+             display: flex;
+             flex-direction: column; /* Arrange squares vertically */
+         }
+ 
+         .heatmap-item {
+             width: 140px;
+             height: 75px;
+             margin-bottom: 20px; /* Add margin at the bottom of each square */
+             font-size: 10px;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             border-radius: 20px;
+             color: white;
+             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
+         }
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+ 
+     for data in heatmap_data:
+         name = data["name"]
+         score = data["score"]
+         color = get_color(score)
+ 
+         # Use the 'st.markdown' to create colored boxes with shadows and labels
+         st.markdown(
+             f"""
+             <div class="heatmap-item" style="background-color: {color};">
+                 {name}
+             </div>
+             """,
+             unsafe_allow_html=True
+         )
 
 
 
