@@ -766,7 +766,7 @@ df_bubble[selected_objective] = df_bubble[selected_objective].apply(round_up_wit
 
 
 ######################################### heatmap ###################################################################################
-st.dataframe(format_rating)
+
 
 def formatting_heatmap(format_rating, selected_objective):
 
@@ -803,7 +803,7 @@ top_format = top_format.sort_values(by='norm', ascending=False)
 top_format['formats'] = top_format['formats'].replace('Video Ads With Conversation Button', 'Video Ads With Conv. Button')
 top_format['formats'] = top_format['formats'].replace('Video Ads With Website Button', 'Video Ads With Web. Button')
 top_format['format'] = top_format['channel'] + '<br>' + top_format['formats']
-st.dataframe(top_format)
+
 
 index1 = [0, 7, 14, 21, 28, 35]
 index2 = [1, 8, 15, 22, 29, 36]
@@ -1187,79 +1187,7 @@ with col17:
 #scores_matrix = scores.reshape(6, 8)
 
 # Define a custom color scale with more shades of red and yellow
-custom_color_scale = [
-    [0.00, 'rgb(255, 255, 102)'],    # Light yellow
-    [0.05, 'rgb(255, 255, 0)'],      # Yellow
-    [0.10, 'rgb(255, 220, 0)'],      # Yellow with a hint of orange
-    [0.15, 'rgb(255, 200, 0)'],      # Another shade of yellow-orange
-    [0.20, 'rgb(255, 190, 0)'],      # Darker yellow
-    [0.25, 'rgb(255, 175, 0)'],      # Another shade of orange
-    [0.30, 'rgb(255, 160, 0)'],      # Another shade of orange
-    [0.35, 'rgb(255, 145, 0)'],      # Another shade of orange
-    [0.40, 'rgb(255, 130, 0)'],      # Another shade of orange
-    [0.45, 'rgb(255, 115, 0)'],      # Another shade of orange
-    [0.50, 'rgb(255, 100, 0)'],      # Another shade of red-orange
-    [0.55, 'rgb(255, 85, 0)'],       # Red-orange
-    [0.60, 'rgb(255, 70, 0)'],       # Another shade of red-orange
-    [0.65, 'rgb(255, 55, 0)'],       # Another shade of red-orange
-    [0.70, 'rgb(255, 40, 0)'],       # Another shade of red-orange
-    [0.75, 'rgb(255, 25, 0)'],       # Another shade of red-orange
-    [0.80, 'rgb(255, 10, 0)'],       # Another shade of red-orange
-    [0.85, 'rgb(204, 0, 0)'],        # Dark red
-    [0.90, 'rgb(180, 0, 0)'],        # Another shade of dark red
-    [0.95, 'rgb(160, 0, 0)'],        # Another shade of dark red
-    [1.00, 'rgb(140, 0, 0)'],        # Another shade of dark red
-]
 
-# Create a custom heatmap using Plotly with 8 columns and 6 rows
-fig = go.Figure()
-
-# Add the heatmap trace with the custom color scale
-fig.add_trace(go.Heatmap(
-    z=scores_matrix,
-    colorscale=custom_color_scale,  # Use the custom color scale
-    hoverongaps=False,
-    showscale=False,  # Hide the color scale
-    hovertemplate='%{z:.2f}<extra></extra>',
-    xgap=3,
-    ygap=3# Customize hover tooltip
-))
-
-
-# Add labels as annotations in the heatmap squares
-for i, label in enumerate(labels):
-    row = i // 7
-    col = i % 7
-    
-    fig.add_annotation(
-        text=label,
-        x=col,
-        y=row,
-        xref='x',
-        yref='y',
-        showarrow=False,
-        font=dict(size=10, color='black'),
-        align='center'
-    )
-
-# Remove the axis labels and lines
-fig.update_xaxes(showline=False, showticklabels=False)
-fig.update_yaxes(showline=False, showticklabels=False)
-
-fig.update_layout(
-    width=750,  # Adjust the width as needed
-    height=500,  # Adjust the height for 6 rows
-    hovermode='closest',
-    margin=dict(l=25, r=25, t=25, b=25),
-    
-    
-    
-)
-
-
-
-# Display the Plotly figure in Streamlit with full width
-st.plotly_chart(fig, use_container_width=True)
 
 
 
