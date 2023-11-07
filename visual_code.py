@@ -1013,10 +1013,7 @@ st.dataframe(top_format)
 
 
 
-
-
-
-st.divider(color='grey')
+st.divider()
 
 import streamlit as st
 
