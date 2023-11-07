@@ -822,11 +822,6 @@ heatmap6 = top_format.iloc[index6]
 heatmap7 = top_format.iloc[index7]
 
 
-
-st.divider()
-
-import streamlit as st
-
 # Define the data for the heatmap (colors, names, and scores)
 heatmap_data = [
     {"name": "Item 1", "score": 0.2},
