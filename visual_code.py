@@ -1009,6 +1009,8 @@ if details == True:
 ########################################################### Formatting data for heatmap ######################################
 
 top_format = top_format.sort_values(by='norm', ascending=False)
+top_format['format'] = top_format['format'].replace('Video Ads With Conversation Button', 'Video Ads With Conv. Button')
+top_format['format'] = top_format['format'].replace('Video Ads With Website Button', 'Video Ads With Web. Button')
 top_format['format'] = top_format['channel'] + '<br>' + top_format['formats']
 st.dataframe(top_format)
 
@@ -1053,9 +1055,9 @@ def get_color(score):
     elif score < 0.2:
         return 'rgb(255, 220, 0)'
     elif score < 0.4:
-        return 'rgb(255, 170, 0)'
-    elif score < 0.6:
         return 'rgb(255, 190, 0)'
+    elif score < 0.6:
+        return 'rgb(255, 170, 0)'
     elif score < 0.7:
         return 'rgb(255, 140, 0)'
     elif score < 0.8:
