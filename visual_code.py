@@ -1041,14 +1041,14 @@ with col11:
          }
  
          .heatmap-item {
-             width: 140px;
+             width: 150px;
              height: 75px;
              margin-bottom: 20px; /* Add margin at the bottom of each square */
              font-size: 10px;
              display: flex;
              align-items: center;
              justify-content: center;
-             border-radius: 20px;
+             border-radius: 10px;
              color: white;
              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
          }
@@ -1084,14 +1084,14 @@ with col12:
          }
  
          .heatmap-item {
-             width: 140px;
+             width: 150px;
              height: 75px;
              margin-bottom: 20px; /* Add margin at the bottom of each square */
              font-size: 10px;
              display: flex;
              align-items: center;
              justify-content: center;
-             border-radius: 20px;
+             border-radius: 10px;
              color: white;
              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
          }
