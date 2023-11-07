@@ -1032,19 +1032,21 @@ def get_color(score):
     else:
         return "green"
 
+# Define the number of columns
+num_columns = 3
+
+# Calculate the number of rows based on the number of columns
+num_rows = len(heatmap_data) // num_columns + (len(heatmap_data) % num_columns > 0)
+
 # Create a Streamlit container
 with st.container():
     st.markdown(
         """
         <style>
         .heatmap-container {
-            display: flex;
-            flex-wrap: wrap; /* Allow boxes to wrap to the next row */
-            gap: 20px; /* Adjust spacing between squares */
-        }
-
-        .heatmap-column {
-            flex: 1; /* Distribute columns evenly */
+            display: grid;
+            grid-template-columns: repeat(num_columns, 1fr); /* Create columns */
+            grid-gap: 20px; /* Adjust spacing between squares */
         }
 
         .heatmap-item {
@@ -1078,6 +1080,7 @@ with st.container():
             """,
             unsafe_allow_html=True
         )
+
 
 
 
