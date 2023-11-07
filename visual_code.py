@@ -1009,8 +1009,8 @@ if details == True:
 ########################################################### Formatting data for heatmap ######################################
 
 top_format = top_format.sort_values(by='norm', ascending=False)
-top_format['format'] = top_format['format'].replace('Video Ads With Conversation Button', 'Video Ads With Conv. Button')
-top_format['format'] = top_format['format'].replace('Video Ads With Website Button', 'Video Ads With Web. Button')
+top_format['formats'] = top_format['formats'].replace('Video Ads With Conversation Button', 'Video Ads With Conv. Button')
+top_format['formats'] = top_format['formats'].replace('Video Ads With Website Button', 'Video Ads With Web. Button')
 top_format['format'] = top_format['channel'] + '<br>' + top_format['formats']
 st.dataframe(top_format)
 
