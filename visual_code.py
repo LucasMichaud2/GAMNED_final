@@ -1008,7 +1008,10 @@ if details == True:
 
 ########################################################### Formatting data for heatmap ######################################
 
+top_format = top_format.sort_values(by='norm', ascending=False)
 st.dataframe(top_format)
+
+
 
 
 
