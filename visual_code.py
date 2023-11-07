@@ -1139,9 +1139,9 @@ with col12:
          unsafe_allow_html=True
      )
  
-     for data in heatmap_data:
-         name = data["name"]
-         score = data["score"]
+     for index, row in heatmap2.iterrows():
+         name = row['format']
+         score = row['norm'] / 100
          color = get_color(score)
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
