@@ -1011,6 +1011,11 @@ if details == True:
 top_format = top_format.sort_values(by='norm', ascending=False)
 st.dataframe(top_format)
 
+index1 = [0, 8, 15, 22, 29, 36]
+
+heatmap1 = top_format.iloc[index1]
+st.dataframe(heatmap1)
+
 
 
 st.divider()
@@ -1028,11 +1033,13 @@ heatmap_data = [
 
 # Define a function to map scores to colors
 def get_color(score):
-    # Define your own gradient color mapping logic here
-    r = int(255 * (1 - score))
-    g = int(255 * score)
-    b = 100
-    return f"linear-gradient(to bottom, rgb({r},{g},{b}), rgb({r},{g},{b}))"
+    # You can define your own color mapping logic here
+    if score < 0.4:
+        return "red"
+    elif score < 0.7:
+        return "yellow"
+    else:
+        return "green"
 
 col11, col12, col13, col14, col15, col16, col17 = st.columns(7)
 
