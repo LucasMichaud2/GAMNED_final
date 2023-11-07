@@ -855,7 +855,7 @@ def get_color(score):
     else:
         return 'rgb(255, 102, 102)'
 
-col10, col11, col12, col13, col14, col15, col16, col17 = st.columns(8)
+col10, col11, col12, col13, col14, col15, col16, col17, col18= st.columns([1, 2, 2, 2, 2, 2, 2, 2, 1])
 
 with col11:
 
