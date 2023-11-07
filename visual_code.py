@@ -868,20 +868,21 @@ def get_color(score):
         return 'rgb(247, 125, 77)'
     elif score < 0.7:
         return 'rgb(247, 114, 77)'
-    elif score < 0.8:
+    elif score < 0.75:  # Fixed threshold (was missing)
         return 'rgb(247, 105, 77)'
-    elif score < 0.85:
+    elif score < 0.8:
         return 'rgb(247, 97, 77)'
-    elif score < 9:
+    elif score < 0.85:
         return 'rgb(247, 94, 77)'
-    elif score < 95:
+    elif score < 0.9:  # Fixed threshold (was missing)
         return 'rgb(163, 20, 20)'
-    elif score < 1:
+    elif score < 0.95:  # Fixed threshold (was missing)
         return 'rgb(209, 27, 27)'
     elif score == 1.0:
         return 'rgb(255, 255, 255)'
     else:
         return 'rgb(163, 20, 20)'
+
 
 col10, col11, col12, col13, col14, col15, col16, col17, col18= st.columns([1, 2, 2, 2, 2, 2, 2, 2, 1])
 
