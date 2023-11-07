@@ -1009,7 +1009,7 @@ if details == True:
 ########################################################### Formatting data for heatmap ######################################
 
 top_format = top_format.sort_values(by='norm', ascending=False)
-top_format['format'] = top_format['channel'] + '\n' + top_format['formats']
+top_format['format'] = top_format['channel'] + '<br>' + top_format['formats']
 st.dataframe(top_format)
 
 index1 = [0, 7, 14, 21, 28, 35]
