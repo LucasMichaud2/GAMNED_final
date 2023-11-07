@@ -799,10 +799,14 @@ def heatmap_data(top_format):
 
 labels, scores_matrix = heatmap_data(top_format)
 
+
+
 top_format = top_format.sort_values(by='norm', ascending=False)
 top_format['formats'] = top_format['formats'].replace('Video Ads With Conversation Button', 'Video Ads With Conv. Button')
 top_format['formats'] = top_format['formats'].replace('Video Ads With Website Button', 'Video Ads With Web. Button')
 top_format['format'] = top_format['channel'] + '<br>' + top_format['formats']
+
+st.dataframe(top_format)
 
 
 index1 = [0, 7, 14, 21, 28, 35]
