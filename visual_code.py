@@ -1107,6 +1107,7 @@ with st.container():
         .heatmap-item {
             width: 140px;
             height: 75px;
+            margin-bottom: 20px;
             font-size: 10px;
             display: flex;
             align-items: center;
