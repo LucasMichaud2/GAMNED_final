@@ -873,13 +873,15 @@ def get_color(score):
     elif score < 0.8:
         return 'rgb(247, 97, 77)'
     elif score < 0.85:
-        return 'rgb(247, 94, 77)'
+        return 'rgb(240, 29, 29)'
     elif score < 0.9:  # Fixed threshold (was missing)
-        return 'rgb(163, 20, 20)'
+        return 'rgb(214, 24, 24)'
     elif score < 0.95:  # Fixed threshold (was missing)
-        return 'rgb(209, 27, 27)'
+        return 'rgb(191, 21, 21)'
+    elif socre < 1:
+        return 'rgb(179, 21, 21)
     elif score == 1.0:
-        return 'rgb(255, 255, 255)'
+        return 'rgb(163, 20, 20)'
     else:
         return 'rgb(163, 20, 20)'
 
@@ -918,7 +920,6 @@ with col11:
          name = row['channel']
          format = row['formats']
          score = row['norm'] / 100
-         st.write(score)
          color = get_color(score)
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
