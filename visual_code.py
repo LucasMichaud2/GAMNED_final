@@ -1016,72 +1016,10 @@ heatmap_data = [
     {"name": "Item 3", "score": 0.8},
     {"name": "Item 4", "score": 0.3},
     {"name": "Item 5", "score": 0.9},
-]
-
-# Define a function to map scores to colors
-def get_color(score):
-    # You can define your own color mapping logic here
-    if score < 0.4:
-        return "red"
-    elif score < 0.7:
-        return "yellow"
-    else:
-        return "green"
-
-# Create a Streamlit container
-import streamlit as st
-
-# Define the data for the heatmap (colors, names, and scores)
-heatmap_data = [
-    {"name": "Item 1", "score": 0.2},
-    {"name": "Item 2", "score": 0.5},
-    {"name": "Item 3", "score": 0.8},
-    {"name": "Item 4", "score": 0.3},
-    {"name": "Item 5", "score": 0.9},
-]
-
-# Define a function to map scores to colors
-def get_color(score):
-    # You can define your own color mapping logic here
-    if score < 0.4:
-        return "red"
-    elif score < 0.7:
-        return "yellow"
-    else:
-        return "green"
-
-# Create a Streamlit container
-import streamlit as st
-
-# Define the data for the heatmap (colors, names, and scores)
-heatmap_data = [
-    {"name": "Item 1", "score": 0.2},
-    {"name": "Item 2", "score": 0.5},
-    {"name": "Item 3", "score": 0.8},
-    {"name": "Item 4", "score": 0.3},
-    {"name": "Item 5", "score": 0.9},
-]
-
-# Define a function to map scores to colors
-def get_color(score):
-    # You can define your own color mapping logic here
-    if score < 0.4:
-        return "red"
-    elif score < 0.7:
-        return "yellow"
-    else:
-        return "green"
-
-# Create a Streamlit container
-import streamlit as st
-
-# Define the data for the heatmap (colors, names, and scores)
-heatmap_data = [
-    {"name": "Item 1", "score": 0.2},
-    {"name": "Item 2", "score": 0.5},
-    {"name": "Item 3", "score": 0.8},
-    {"name": "Item 4", "score": 0.3},
-    {"name": "Item 5", "score": 0.9},
+    {"name": "Item 6", "score": 0.6},
+    {"name": "Item 7", "score": 0.4},
+    {"name": "Item 8", "score": 0.7},
+    {"name": "Item 9", "score": 0.1},
 ]
 
 # Define a function to map scores to colors
@@ -1101,13 +1039,18 @@ with st.container():
         <style>
         .heatmap-container {
             display: flex;
+            flex-wrap: wrap; /* Allow boxes to wrap to the next row */
             gap: 20px; /* Adjust spacing between squares */
+        }
+
+        .heatmap-column {
+            flex: 1; /* Distribute columns evenly */
         }
 
         .heatmap-item {
             width: 140px;
             height: 75px;
-            margin-bottom: 20px;
+            margin-bottom: 20px; /* Add margin at the bottom of each square */
             font-size: 10px;
             display: flex;
             align-items: center;
@@ -1135,6 +1078,7 @@ with st.container():
             """,
             unsafe_allow_html=True
         )
+
 
 
 
