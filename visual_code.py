@@ -1006,6 +1006,13 @@ if details == True:
  st.dataframe(selected_format)
 
 
+########################################################### Formatting data for heatmap ######################################
+
+st.dataframe(top_format)
+
+
+
+
 import streamlit as st
 
 # Define the data for the heatmap (colors, names, and scores)
