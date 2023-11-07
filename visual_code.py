@@ -1041,7 +1041,7 @@ with col11:
          .heatmap-item {
              width: 150px;
              height: 75px;
-             margin-bottom: 20px; /* Add margin at the bottom of each square */
+             margin-bottom: 10px; /* Add margin at the bottom of each square */
              font-size: 10px;
              display: flex;
              align-items: center;
@@ -1084,7 +1084,7 @@ with col12:
          .heatmap-item {
              width: 150px;
              height: 75px;
-             margin-bottom: 20px; /* Add margin at the bottom of each square */
+             margin-bottom: 10px; /* Add margin at the bottom of each square */
              font-size: 10px;
              display: flex;
              align-items: center;
