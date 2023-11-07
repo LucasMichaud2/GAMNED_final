@@ -1027,7 +1027,7 @@ def get_color(score):
     else:
         return "green"
 
-col11, col12 = st.columns(2)
+col11, col12, col13, col14, col15, col16, col17 = st.columns(7)
 
 with col11:
 
