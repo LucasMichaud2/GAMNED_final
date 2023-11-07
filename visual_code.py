@@ -835,25 +835,47 @@ heatmap_data = [
 def get_color(score):
     # You can define your own color mapping logic here
     if score == 0:
-        return 'rgb(255, 255, 102)'
+        return 'rgb(246, 247, 166)'
+    elif score < 0.05:
+        return 'rgb(248, 250, 127)'
     elif score < 0.1:
-        return 'rgb(255, 255, 0)'
+        return 'rgb(245, 247, 77)'
+    elif score < 0.15:
+        return 'rgb(247, 239, 77)'
     elif score < 0.2:
-        return 'rgb(255, 220, 0)'
+        return 'rgb(247, 224, 77)'
+    elif score < 0.25:
+        return 'rgb(247, 210, 77)'
+    elif score < 0.3:
+        return 'rgb(247, 196, 77)'
+    elif score < 0.35:
+        return 'rgb(247, 185, 77)'
     elif score < 0.4:
-        return 'rgb(255, 190, 0)'
+        return 'rgb(247, 173, 77)'
+    elif score < 0.45:
+        return 'rgb(247, 165, 77)'
+    elif score < 0.5:
+        return 'rgb(247, 159, 77)'
+    elif score < 0.55:
+        return 'rgb(247, 148, 77)'
     elif score < 0.6:
-        return 'rgb(255, 170, 0)'
+        return 'rgb(247, 134, 77)'
+    elif score < 0.65:
+        return 'rgb(247, 125, 77)'
     elif score < 0.7:
-        return 'rgb(255, 140, 0)'
+        return 'rgb(247, 114, 77)'
     elif score < 0.8:
-        return 'rgb(255, 85, 0)'
-    elif score < 0.9:
-        return 'rgb(255, 51, 0)'
-    elif score < 1:
-        return 'rgb(204, 0, 0)'
+        return 'rgb(247, 105, 77)'
+    elif score < 0.85:
+        return 'rgb(247, 97, 77)'
+    elif score < 9:
+        return 'rgb(247, 94, 77)'
+    elif score < 95:
+        return 'rgb(247, 77, 77)'
+    elif score < 1
+        return 'rgb(209, 27, 27)'
     else:
-        return 'rgb(255, 102, 102)'
+        return 'rgb(163, 20, 20)'
 
 col10, col11, col12, col13, col14, col15, col16, col17, col18= st.columns([1, 2, 2, 2, 2, 2, 2, 2, 1])
 
