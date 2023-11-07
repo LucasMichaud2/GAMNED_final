@@ -1098,7 +1098,8 @@ with col11:
      )
  
      for index, row in heatmap1.iterrows():
-         name = row['format']
+         name = row['channel']
+         format = row['formats']
          score = row['norm'] / 100
          color = get_color(score)
  
@@ -1106,7 +1107,8 @@ with col11:
          st.markdown(
              f"""
              <div class="heatmap-item" style="background-color: {color};">
-                 {name}
+                 <div>{name}</div>
+                 <div>{format}</div>
              </div>
              """,
              unsafe_allow_html=True
