@@ -879,7 +879,7 @@ def get_color(score):
     elif score < 0.95:  # Fixed threshold (was missing)
         return 'rgb(191, 21, 21)'
     elif socre < 1:
-        return 'rgb(179, 21, 21)
+        return 'rgb(179, 21, 21)'
     elif score == 1.0:
         return 'rgb(163, 20, 20)'
     else:
