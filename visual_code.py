@@ -1045,12 +1045,26 @@ heatmap_data = [
 # Define a function to map scores to colors
 def get_color(score):
     # You can define your own color mapping logic here
-    if score < 0.4:
-        return "red"
+    if score == 0:
+        return 'rgb(255, 255, 102)'
+    elif score < 0.1:
+        return 'rgb(255, 255, 0)'
+    elif score < 0.2:
+        return 'rgb(255, 220, 0)'
+    elif score < 0.4:
+        return 'rgb(255, 170, 0)'
+    elif score < 0.6:
+        return 'rgb(255, 190, 0)'
     elif score < 0.7:
-        return "yellow"
+        return 'rgb(255, 140, 0)'
+    elif score < 0.8:
+        return 'rgb(255, 85, 0)'
+    elif score < 0.9:
+        return 'rgb(255, 51, 0)'
+    elif score < 1:
+        return 'rgb(204, 0, 0)'
     else:
-        return "green"
+        return 'rgb(255, 102, 102)'
 
 col11, col12, col13, col14, col15, col16, col17 = st.columns(7)
 
