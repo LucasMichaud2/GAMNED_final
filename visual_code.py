@@ -1007,6 +1007,56 @@ if details == True:
 
 
 
+import streamlit as st
+
+# Define the data for the heatmap (colors, names, and scores)
+heatmap_data = [
+    {"name": "Item 1", "score": 0.2},
+    {"name": "Item 2", "score": 0.5},
+    {"name": "Item 3", "score": 0.8},
+    {"name": "Item 4", "score": 0.3},
+    {"name": "Item 5", "score": 0.9},
+]
+
+# Define a function to map scores to colors
+def get_color(score):
+    # You can define your own color mapping logic here
+    if score < 0.4:
+        return "red"
+    elif score < 0.7:
+        return "yellow"
+    else:
+        return "green"
+
+# Create a Streamlit container
+with st.container():
+    for data in heatmap_data:
+        name = data["name"]
+        score = data["score"]
+        color = get_color(score)
+
+        # Use the 'st.markdown' to create rounded squares with labels
+        st.markdown(
+            f"""
+            <div style='background-color: {color};
+                        width: 140px;
+                        height: 75px;
+                        margin-right: 50px;
+                        font-size: 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 20px;
+                        color: white;'>
+                {name}
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+
+
+
 
 
 
