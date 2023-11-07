@@ -878,6 +878,8 @@ def get_color(score):
         return 'rgb(247, 77, 77)'
     elif score < 1:
         return 'rgb(209, 27, 27)'
+    elif score == 1:
+        return 'rgb(163, 20, 20)'
     else:
         return 'rgb(163, 20, 20)'
 
