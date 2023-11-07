@@ -1011,10 +1011,21 @@ if details == True:
 top_format = top_format.sort_values(by='norm', ascending=False)
 st.dataframe(top_format)
 
-index1 = [0, 8, 15, 22, 29, 36]
+index1 = [0, 7, 14, 21, 28, 35]
+index2 = [1, 8, 15, 22, 29, 36]
+index3 = [2, 9, 16, 23, 30, 37]
+index4 = [3, 10, 17, 24, 31, 38]
+index5 = [4, 11, 18, 25, 32, 39]
+index6 = [5, 12, 19, 26, 33, 40]
+index7 = [6, 13, 20, 27, 34, 41]
 
 heatmap1 = top_format.iloc[index1]
-st.dataframe(heatmap1)
+heatmap2 = top_format.iloc[index2]
+heatmap3 = top_format.iloc[index3]
+heatmap4 = top_format.iloc[index4]
+heatmap5 = top_format.iloc[index5]
+heatmap6 = top_format.iloc[index6]
+heatmap7 = top_format.iloc[index7]
 
 
 
@@ -1071,9 +1082,9 @@ with col11:
          unsafe_allow_html=True
      )
  
-     for data in heatmap_data:
-         name = data["name"]
-         score = data["score"]
+     for index, row in heatmap1.iterrows():
+         name = row['format']
+         score = row['norm'] / 100
          color = get_color(score)
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
