@@ -799,215 +799,6 @@ def heatmap_data(top_format):
 
 labels, scores_matrix = heatmap_data(top_format)
 
-    
-
-# Sample data
-#labels = [f"Label {i+1}" for i in range(48)]  # 8 columns x 6 rows = 48 labels
-#scores = np.random.randint(0, 101, size=48)  # Generate random scores from 0 to 100
-
-# Reshape scores into a 6x8 grid for the heatmap
-#scores_matrix = scores.reshape(6, 8)
-
-# Define a custom color scale with more shades of red and yellow
-custom_color_scale = [
-    [0.00, 'rgb(255, 255, 102)'],    # Light yellow
-    [0.05, 'rgb(255, 255, 0)'],      # Yellow
-    [0.10, 'rgb(255, 220, 0)'],      # Yellow with a hint of orange
-    [0.15, 'rgb(255, 200, 0)'],      # Another shade of yellow-orange
-    [0.20, 'rgb(255, 190, 0)'],      # Darker yellow
-    [0.25, 'rgb(255, 175, 0)'],      # Another shade of orange
-    [0.30, 'rgb(255, 160, 0)'],      # Another shade of orange
-    [0.35, 'rgb(255, 145, 0)'],      # Another shade of orange
-    [0.40, 'rgb(255, 130, 0)'],      # Another shade of orange
-    [0.45, 'rgb(255, 115, 0)'],      # Another shade of orange
-    [0.50, 'rgb(255, 100, 0)'],      # Another shade of red-orange
-    [0.55, 'rgb(255, 85, 0)'],       # Red-orange
-    [0.60, 'rgb(255, 70, 0)'],       # Another shade of red-orange
-    [0.65, 'rgb(255, 55, 0)'],       # Another shade of red-orange
-    [0.70, 'rgb(255, 40, 0)'],       # Another shade of red-orange
-    [0.75, 'rgb(255, 25, 0)'],       # Another shade of red-orange
-    [0.80, 'rgb(255, 10, 0)'],       # Another shade of red-orange
-    [0.85, 'rgb(204, 0, 0)'],        # Dark red
-    [0.90, 'rgb(180, 0, 0)'],        # Another shade of dark red
-    [0.95, 'rgb(160, 0, 0)'],        # Another shade of dark red
-    [1.00, 'rgb(140, 0, 0)'],        # Another shade of dark red
-]
-
-# Create a custom heatmap using Plotly with 8 columns and 6 rows
-fig = go.Figure()
-
-# Add the heatmap trace with the custom color scale
-fig.add_trace(go.Heatmap(
-    z=scores_matrix,
-    colorscale=custom_color_scale,  # Use the custom color scale
-    hoverongaps=False,
-    showscale=False,  # Hide the color scale
-    hovertemplate='%{z:.2f}<extra></extra>',
-    xgap=3,
-    ygap=3# Customize hover tooltip
-))
-
-
-# Add labels as annotations in the heatmap squares
-for i, label in enumerate(labels):
-    row = i // 7
-    col = i % 7
-    
-    fig.add_annotation(
-        text=label,
-        x=col,
-        y=row,
-        xref='x',
-        yref='y',
-        showarrow=False,
-        font=dict(size=10, color='black'),
-        align='center'
-    )
-
-# Remove the axis labels and lines
-fig.update_xaxes(showline=False, showticklabels=False)
-fig.update_yaxes(showline=False, showticklabels=False)
-
-fig.update_layout(
-    width=750,  # Adjust the width as needed
-    height=500,  # Adjust the height for 6 rows
-    hovermode='closest',
-    margin=dict(l=25, r=25, t=25, b=25),
-    
-    
-    
-)
-
-
-
-# Display the Plotly figure in Streamlit with full width
-st.plotly_chart(fig, use_container_width=True)
-
-
-
-#################################################################################################################################
-
-  
-df_pie_chart = (budget_channel)
-
-df_pie_chart['channel'] = df_pie_chart['channel'].str.title()
-df_pie_chart['channel'] = df_pie_chart['channel'].replace('Iga', 'IGA')
-df_pie_chart['budget'] = df_pie_chart['budget'].apply(lambda x: round(x, -1))
-
-df_allow_table = df_pie_chart.copy()
-
-new_cols = ['Channel', 'Budget']
-
-df_allow_table.columns = new_cols
-
-df_bubble.rename(columns={selected_objective: 'Rating'}, inplace=True)
-df_bubble.rename(columns={'price': 'Price'}, inplace=True)
-df_bubble['channel_x'] = df_bubble['channel_x'].str.title()
-df_bubble['channel_x'] = df_bubble['channel_x'].replace('Iga', 'IGA')
-
-
-if input_budget == 0: 
- st.write('Awaiting for budget...')
-
-else:
-
-
- col1, col2 = st.columns(2)
- 
- 
- with col1:
-  
-    st.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Budget Allocation")
-   
-    with elements("pie_chart"):
-  
-        
-  
-           
-  
-    
-                pie_chart_data = []
-                
-                for _, row in df_pie_chart.iterrows():
-                  allowance = {
-                    'id': row['channel'],
-                    'Label': row['channel'],
-                    'value': row['budget']
-                  }
-                  pie_chart_data.append(allowance)
-            
-                with mui.Box(sx={"height": 400}):
-                          nivo.Pie(
-                            data=pie_chart_data,
-                            innerRadius=0.5,
-                            cornerRadius=0,
-                            padAngle=1,  
-                            margin={'top': 30, 'right': 100, 'bottom': 30, 'left': 100},
-                            theme={
-                              
-                              "textColor": "#31333F",
-                              "tooltip": {
-                                  "container": {
-                                      
-                                      "color": "#31333F",
-                                      }
-                                  }
-                              }
-                          )
- 
- 
- with col2:
- 
-  
-  
-               st.write('Rating VS Price VS Budget')
- 
-               fig2 = px.scatter(df_bubble,
-                                 x='Rating',
-                                 y='Price',
-                                 size='budget',
-                                 color='channel_x',
-                                 size_max=60,  # Increase the maximum bubble size
-                                 log_x=True,
-                                 text='channel_x',
-                                 labels={'budget': 'Bubble Size'},  # Rename the legend label
-                                 
-                                 
-                                )
- 
-               fig2.update_traces(textfont_color='black')
-              
-              # Set chart title and axis labels
-               fig2.update_layout(
-                   
-                   showlegend=False,
-                   width=600,
-                   height=450,
-                   margin=dict(l=25, r=25, t=50, b=25),
-                   
-               )
-               
-               # Display the Plotly figure in Streamlit
-               
-               st.plotly_chart(fig2)
-
-     
-
-################################################################################################################
-
-
-st.subheader(' ', divider='grey')
-
-details = st.checkbox('Show Details')
-
-if details == True:
- selected_format['channel'] = selected_format['channel'].str.title()
- selected_format.columns = selected_format.columns.str.capitalize()
- st.dataframe(selected_format)
-
-
-########################################################### Formatting data for heatmap ######################################
-
 top_format = top_format.sort_values(by='norm', ascending=False)
 top_format['formats'] = top_format['formats'].replace('Video Ads With Conversation Button', 'Video Ads With Conv. Button')
 top_format['formats'] = top_format['formats'].replace('Video Ads With Website Button', 'Video Ads With Web. Button')
@@ -1387,6 +1178,215 @@ with col17:
              """,
              unsafe_allow_html=True
          )
+
+# Sample data
+#labels = [f"Label {i+1}" for i in range(48)]  # 8 columns x 6 rows = 48 labels
+#scores = np.random.randint(0, 101, size=48)  # Generate random scores from 0 to 100
+
+# Reshape scores into a 6x8 grid for the heatmap
+#scores_matrix = scores.reshape(6, 8)
+
+# Define a custom color scale with more shades of red and yellow
+custom_color_scale = [
+    [0.00, 'rgb(255, 255, 102)'],    # Light yellow
+    [0.05, 'rgb(255, 255, 0)'],      # Yellow
+    [0.10, 'rgb(255, 220, 0)'],      # Yellow with a hint of orange
+    [0.15, 'rgb(255, 200, 0)'],      # Another shade of yellow-orange
+    [0.20, 'rgb(255, 190, 0)'],      # Darker yellow
+    [0.25, 'rgb(255, 175, 0)'],      # Another shade of orange
+    [0.30, 'rgb(255, 160, 0)'],      # Another shade of orange
+    [0.35, 'rgb(255, 145, 0)'],      # Another shade of orange
+    [0.40, 'rgb(255, 130, 0)'],      # Another shade of orange
+    [0.45, 'rgb(255, 115, 0)'],      # Another shade of orange
+    [0.50, 'rgb(255, 100, 0)'],      # Another shade of red-orange
+    [0.55, 'rgb(255, 85, 0)'],       # Red-orange
+    [0.60, 'rgb(255, 70, 0)'],       # Another shade of red-orange
+    [0.65, 'rgb(255, 55, 0)'],       # Another shade of red-orange
+    [0.70, 'rgb(255, 40, 0)'],       # Another shade of red-orange
+    [0.75, 'rgb(255, 25, 0)'],       # Another shade of red-orange
+    [0.80, 'rgb(255, 10, 0)'],       # Another shade of red-orange
+    [0.85, 'rgb(204, 0, 0)'],        # Dark red
+    [0.90, 'rgb(180, 0, 0)'],        # Another shade of dark red
+    [0.95, 'rgb(160, 0, 0)'],        # Another shade of dark red
+    [1.00, 'rgb(140, 0, 0)'],        # Another shade of dark red
+]
+
+# Create a custom heatmap using Plotly with 8 columns and 6 rows
+fig = go.Figure()
+
+# Add the heatmap trace with the custom color scale
+fig.add_trace(go.Heatmap(
+    z=scores_matrix,
+    colorscale=custom_color_scale,  # Use the custom color scale
+    hoverongaps=False,
+    showscale=False,  # Hide the color scale
+    hovertemplate='%{z:.2f}<extra></extra>',
+    xgap=3,
+    ygap=3# Customize hover tooltip
+))
+
+
+# Add labels as annotations in the heatmap squares
+for i, label in enumerate(labels):
+    row = i // 7
+    col = i % 7
+    
+    fig.add_annotation(
+        text=label,
+        x=col,
+        y=row,
+        xref='x',
+        yref='y',
+        showarrow=False,
+        font=dict(size=10, color='black'),
+        align='center'
+    )
+
+# Remove the axis labels and lines
+fig.update_xaxes(showline=False, showticklabels=False)
+fig.update_yaxes(showline=False, showticklabels=False)
+
+fig.update_layout(
+    width=750,  # Adjust the width as needed
+    height=500,  # Adjust the height for 6 rows
+    hovermode='closest',
+    margin=dict(l=25, r=25, t=25, b=25),
+    
+    
+    
+)
+
+
+
+# Display the Plotly figure in Streamlit with full width
+st.plotly_chart(fig, use_container_width=True)
+
+
+
+#################################################################################################################################
+
+  
+df_pie_chart = (budget_channel)
+
+df_pie_chart['channel'] = df_pie_chart['channel'].str.title()
+df_pie_chart['channel'] = df_pie_chart['channel'].replace('Iga', 'IGA')
+df_pie_chart['budget'] = df_pie_chart['budget'].apply(lambda x: round(x, -1))
+
+df_allow_table = df_pie_chart.copy()
+
+new_cols = ['Channel', 'Budget']
+
+df_allow_table.columns = new_cols
+
+df_bubble.rename(columns={selected_objective: 'Rating'}, inplace=True)
+df_bubble.rename(columns={'price': 'Price'}, inplace=True)
+df_bubble['channel_x'] = df_bubble['channel_x'].str.title()
+df_bubble['channel_x'] = df_bubble['channel_x'].replace('Iga', 'IGA')
+
+
+if input_budget == 0: 
+ st.write('Awaiting for budget...')
+
+else:
+
+
+ col1, col2 = st.columns(2)
+ 
+ 
+ with col1:
+  
+    st.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Budget Allocation")
+   
+    with elements("pie_chart"):
+  
+        
+  
+           
+  
+    
+                pie_chart_data = []
+                
+                for _, row in df_pie_chart.iterrows():
+                  allowance = {
+                    'id': row['channel'],
+                    'Label': row['channel'],
+                    'value': row['budget']
+                  }
+                  pie_chart_data.append(allowance)
+            
+                with mui.Box(sx={"height": 400}):
+                          nivo.Pie(
+                            data=pie_chart_data,
+                            innerRadius=0.5,
+                            cornerRadius=0,
+                            padAngle=1,  
+                            margin={'top': 30, 'right': 100, 'bottom': 30, 'left': 100},
+                            theme={
+                              
+                              "textColor": "#31333F",
+                              "tooltip": {
+                                  "container": {
+                                      
+                                      "color": "#31333F",
+                                      }
+                                  }
+                              }
+                          )
+ 
+ 
+ with col2:
+ 
+  
+  
+               st.write('Rating VS Price VS Budget')
+ 
+               fig2 = px.scatter(df_bubble,
+                                 x='Rating',
+                                 y='Price',
+                                 size='budget',
+                                 color='channel_x',
+                                 size_max=60,  # Increase the maximum bubble size
+                                 log_x=True,
+                                 text='channel_x',
+                                 labels={'budget': 'Bubble Size'},  # Rename the legend label
+                                 
+                                 
+                                )
+ 
+               fig2.update_traces(textfont_color='black')
+              
+              # Set chart title and axis labels
+               fig2.update_layout(
+                   
+                   showlegend=False,
+                   width=600,
+                   height=450,
+                   margin=dict(l=25, r=25, t=50, b=25),
+                   
+               )
+               
+               # Display the Plotly figure in Streamlit
+               
+               st.plotly_chart(fig2)
+
+     
+
+################################################################################################################
+
+
+st.subheader(' ', divider='grey')
+
+details = st.checkbox('Show Details')
+
+if details == True:
+ selected_format['channel'] = selected_format['channel'].str.title()
+ selected_format.columns = selected_format.columns.str.capitalize()
+ st.dataframe(selected_format)
+
+
+########################################################### Formatting data for heatmap ######################################
+
+
 
 
 
