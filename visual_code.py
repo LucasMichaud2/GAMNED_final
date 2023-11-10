@@ -288,6 +288,10 @@ class GAMNED_UAE:
         df_heatmap = df_heatmap.sort_values(by='branding', ascending=False)
 
     elif input_obj == 'branding video':
+        
+        df_rating['id'] = df_rating['channel'] + '-' + df_rating['formats']
+        st.dataframe(df_rating)
+        #df_rating.loc[df_rating['id'] == 'instagram-story'
         df_rating.loc[df_rating['branding video'] == 1, 'branding'] += 10
         df_rating.loc[df_rating['branding video'] == 0, 'branding'] -= 10
         df_heatmap = df_rating[['channel', 'formats', 'branding']]
