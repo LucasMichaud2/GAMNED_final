@@ -291,7 +291,10 @@ class GAMNED_UAE:
         
         df_rating['id'] = df_rating['channel'] + '-' + df_rating['formats']
         st.dataframe(df_rating)
-        #df_rating.loc[df_rating['id'] == 'instagram-story'
+        df_rating.loc[df_rating['id'] == 'instagram-Story', 'branding video'] = 1
+        df_rating.loc[df_rating['id'] == 'facebook-Story', 'branding video'] = 1
+        df_rating.loc[df_rating['id'] == 'snapchat-Story', 'branding video'] = 1
+        df_rating.loc[df_rating['id'] == 'snapchat-Collection', 'branding video'] = 1
         df_rating.loc[df_rating['branding video'] == 1, 'branding'] += 10
         df_rating.loc[df_rating['branding video'] == 0, 'branding'] -= 10
         df_heatmap = df_rating[['channel', 'formats', 'branding']]
