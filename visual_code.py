@@ -299,6 +299,7 @@ class GAMNED_UAE:
         df_rating.loc[df_rating['branding video'] == 0, 'branding'] -= 10
         df_heatmap = df_rating[['channel', 'formats', 'branding']]
         df_heatmap = df_heatmap.sort_values(by='branding', ascending=False)
+        
 
     else:
         df_heatmap = df_rating[['channel', 'formats', input_obj]]
@@ -777,18 +778,34 @@ df_bubble[selected_objective] = df_bubble[selected_objective].apply(round_up_wit
 
 def formatting_heatmap(format_rating, selected_objective):
 
-    format_rating = format_rating.drop('format', axis=1)
-    format_rating['channel'] = format_rating['channel'].str.upper()
-    format_rating['formats'] = format_rating['formats'].str.title()
-    format_rating['format'] = format_rating['channel'] + ' - ' + format_rating['formats']
-    top_format = format_rating.head(42)
-    min_top_format = top_format['norm'].min()
-    max_top_format = top_format['norm'].max()
-    top_format = top_format.drop(selected_objective, axis=1)
-    top_format['norm'] = (((top_format['norm'] - min_top_format) / (max_top_format - min_top_format)) * 100).round(0)
-    #top_format = top_format.sample(frac=1)
-    top_format = top_format.sort_values(by='norm', ascending=True)
-    return top_format
+    
+    if selected_objective == 'branding video':
+       format_rating = format_rating.drop('format', axis=1)
+       format_rating['channel'] = format_rating['channel'].str.upper()
+       format_rating['formats'] = format_rating['formats'].str.title()
+       format_rating['format'] = format_rating['channel'] + ' - ' + format_rating['formats']
+       top_format = format_rating.head(28)
+       min_top_format = top_format['norm'].min()
+       max_top_format = top_format['norm'].max()
+       top_format = top_format.drop(selected_objective, axis=1)
+       top_format['norm'] = (((top_format['norm'] - min_top_format) / (max_top_format - min_top_format)) * 100).round(0)
+       top_format = top_format.sort_values(by='norm', ascending=True)
+       return top_format
+     
+    else: 
+  
+       format_rating = format_rating.drop('format', axis=1)
+       format_rating['channel'] = format_rating['channel'].str.upper()
+       format_rating['formats'] = format_rating['formats'].str.title()
+       format_rating['format'] = format_rating['channel'] + ' - ' + format_rating['formats']
+       top_format = format_rating.head(42)
+       min_top_format = top_format['norm'].min()
+       max_top_format = top_format['norm'].max()
+       top_format = top_format.drop(selected_objective, axis=1)
+       top_format['norm'] = (((top_format['norm'] - min_top_format) / (max_top_format - min_top_format)) * 100).round(0)
+       #top_format = top_format.sample(frac=1)
+       top_format = top_format.sort_values(by='norm', ascending=True)
+       return top_format
 
 top_format = formatting_heatmap(format_rating, selected_objective)
 
@@ -807,39 +824,13 @@ def heatmap_data(top_format):
 labels, scores_matrix = heatmap_data(top_format)
 
 
+ ############################################# heatmap #######################################################################
 
 top_format = top_format.sort_values(by='norm', ascending=False)
 top_format['formats'] = top_format['formats'].replace('Video Ads With Conversation Button', 'Video Ads With Conv. Button')
 top_format['formats'] = top_format['formats'].replace('Video Ads With Website Button', 'Video Ads With Web. Button')
 top_format['format'] = top_format['channel'] + '<br>' + top_format['formats']
 
-index1 = [0, 7, 14, 21, 28, 35]
-index2 = [1, 8, 15, 22, 29, 36]
-index3 = [2, 9, 16, 23, 30, 37]
-index4 = [3, 10, 17, 24, 31, 38]
-index5 = [4, 11, 18, 25, 32, 39]
-index6 = [5, 12, 19, 26, 33, 40]
-index7 = [6, 13, 20, 27, 34, 41]
-
-heatmap1 = top_format.iloc[index1]
-heatmap2 = top_format.iloc[index2]
-heatmap3 = top_format.iloc[index3]
-heatmap4 = top_format.iloc[index4]
-heatmap5 = top_format.iloc[index5]
-heatmap6 = top_format.iloc[index6]
-heatmap7 = top_format.iloc[index7]
-
-
-# Define the data for the heatmap (colors, names, and scores)
-heatmap_data = [
-    {"name": "Item 1", "score": 0.2},
-    {"name": "Item 2", "score": 0.5},
-    {"name": "Item 3", "score": 0.8},
-    {"name": "Item 4", "score": 0.3},
-    {"name": "Item 5", "score": 0.9},
-]
-
-# Define a function to map scores to colors
 def get_color(score):
     # You can define your own color mapping logic here
     if score == 0:
@@ -888,6 +879,46 @@ def get_color(score):
         return 'rgb(163, 20, 20)'
     else:
         return 'rgb(163, 20, 20)'
+
+if selected_objective == 'branding video':
+
+  index1 = [0, 7, 14, 21]
+  index2 = [1, 8, 15, 22]
+  index3 = [2, 9, 16, 23]
+  index4 = [3, 10, 17, 24]
+  index5 = [4, 11, 18, 25]
+  index6 = [5, 12, 19, 26]
+  index7 = [6, 13, 20, 27]
+
+  heatmap1 = top_format.iloc[index1]
+  heatmap2 = top_format.iloc[index2]
+  heatmap3 = top_format.iloc[index3]
+  heatmap4 = top_format.iloc[index4]
+  heatmap5 = top_format.iloc[index5]
+  heatmap6 = top_format.iloc[index6]
+  heatmap7 = top_format.iloc[index7]
+
+else:
+ 
+  index1 = [0, 7, 14, 21, 28, 35]
+  index2 = [1, 8, 15, 22, 29, 36]
+  index3 = [2, 9, 16, 23, 30, 37]
+  index4 = [3, 10, 17, 24, 31, 38]
+  index5 = [4, 11, 18, 25, 32, 39]
+  index6 = [5, 12, 19, 26, 33, 40]
+  index7 = [6, 13, 20, 27, 34, 41]
+  
+  heatmap1 = top_format.iloc[index1]
+  heatmap2 = top_format.iloc[index2]
+  heatmap3 = top_format.iloc[index3]
+  heatmap4 = top_format.iloc[index4]
+  heatmap5 = top_format.iloc[index5]
+  heatmap6 = top_format.iloc[index6]
+  heatmap7 = top_format.iloc[index7]
+
+
+# Define a function to map scores to colors
+
 
 
 col10, col11, col12, col13, col14, col15, col16, col17, col18= st.columns([1, 2, 2, 2, 2, 2, 2, 2, 1])
