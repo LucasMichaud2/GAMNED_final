@@ -1273,6 +1273,7 @@ df_bubble.rename(columns={selected_objective: 'Rating'}, inplace=True)
 df_bubble.rename(columns={'price': 'Price'}, inplace=True)
 df_bubble['channel_x'] = df_bubble['channel_x'].str.title()
 df_bubble['channel_x'] = df_bubble['channel_x'].replace('Iga', 'IGA')
+df_bubble['format'] = df_bubble['channel_x'] + '\n' + df_bubble['formats_x']
 
 st.dataframe(df_bubble)
 
@@ -1340,7 +1341,7 @@ else:
                                  color='channel_x',
                                  size_max=60,  # Increase the maximum bubble size
                                  log_x=True,
-                                 text='formats_x',
+                                 text='formats',
                                  labels={'budget': 'Bubble Size'},  # Rename the legend label
                                  
                                  
