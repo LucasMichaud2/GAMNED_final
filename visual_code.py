@@ -142,7 +142,7 @@ class GAMNED_UAE:
                    '45-54, 55-64, 65+',
                    '55-64, 65+',
                    '']
-    col1 = ['instagram', 'facebook', 'linkedin', 'snapchat', 'youtube', 'tik tok']
+    col1 = ['instagram', 'facebook', 'linkedin', 'snapchat', 'youtube', 'tiktok']
     col2 = [8, 4.7, 0, 20, 0, 25]
     col3 = [31, 21.5, 21.7, 38.8, 15, 33.8]
     col4 = [30, 34.3, 60, 22.8, 20.7, 22.8]
