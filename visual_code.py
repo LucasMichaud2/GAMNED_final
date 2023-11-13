@@ -830,6 +830,7 @@ def heatmap_data(top_format):
 top_format = top_format.sort_values(by='norm', ascending=False)
 top_format['formats'] = top_format['formats'].replace('Video Ads With Conversation Button', 'Video Ads With Conv. Button')
 top_format['formats'] = top_format['formats'].replace('Video Ads With Website Button', 'Video Ads With Web. Button')
+top_format['formats'] = top_format['formats'].replace('Image Ads With Conversation Button', 'Image Ads With Conv. Button')
 top_format['format'] = top_format['channel'] + '<br>' + top_format['formats'] 
 
 def get_color(score):
@@ -1272,6 +1273,8 @@ df_bubble.rename(columns={selected_objective: 'Rating'}, inplace=True)
 df_bubble.rename(columns={'price': 'Price'}, inplace=True)
 df_bubble['channel_x'] = df_bubble['channel_x'].str.title()
 df_bubble['channel_x'] = df_bubble['channel_x'].replace('Iga', 'IGA')
+
+st.dataframe(df_bubble)
 
 
 if input_budget == 0: 
