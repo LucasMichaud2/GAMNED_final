@@ -102,6 +102,8 @@ selected_objective, selected_target, selected_region, excluded_channel, selected
 
 selected_objective = selected_objective.lower()
 
+decider = selected_objective
+
 excluded_channel = [item.lower() for item in excluded_channel]
 
 st.subheader(' ', divider='grey')
@@ -779,7 +781,7 @@ st.write(selected_objective)
 def formatting_heatmap(format_rating, selected_objective):
 
     
-    if selected_objective == 'Branding Video':
+    if decider == 'Branding Video':
        format_rating = format_rating.drop('format', axis=1)
        format_rating['channel'] = format_rating['channel'].str.upper()
        format_rating['formats'] = format_rating['formats'].str.title()
@@ -882,7 +884,7 @@ def get_color(score):
     else:
         return 'rgb(163, 20, 20)'
 
-if selected_objective == 'branding video':
+if decider == 'Branding Video':
 
   index1 = [0, 7, 14, 21]
   index2 = [1, 8, 15, 22]
