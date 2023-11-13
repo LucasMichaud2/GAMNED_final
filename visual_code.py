@@ -292,13 +292,11 @@ class GAMNED_UAE:
     elif input_obj == 'branding video':
         
         df_rating['id'] = df_rating['channel'] + '-' + df_rating['formats']
-        st.dataframe(df_rating)
         df_rating.loc[df_rating['id'] == 'instagram-Story', 'branding video'] = 1
         df_rating.loc[df_rating['id'] == 'facebook-Story', 'branding video'] = 1
         df_rating.loc[df_rating['id'] == 'snapchat-Story', 'branding video'] = 1
         df_rating.loc[df_rating['id'] == 'snapchat-Collection', 'branding video'] = 1
-        df_rating.loc[df_rating['branding video'] == 1, 'branding'] += 10
-        df_rating.loc[df_rating['branding video'] == 0, 'branding'] -= 10
+        df_rating = df_rating[df_rating['branding video'] == 1]
         df_heatmap = df_rating[['channel', 'formats', 'branding']]
         df_heatmap = df_heatmap.sort_values(by='branding', ascending=False)
         
@@ -776,7 +774,7 @@ df_bubble[selected_objective] = df_bubble[selected_objective].apply(round_up_wit
 
 
 ######################################### heatmap ###################################################################################
-st.write(selected_objective)
+
 
 def formatting_heatmap(format_rating, selected_objective):
 
@@ -811,7 +809,6 @@ def formatting_heatmap(format_rating, selected_objective):
 
 top_format = formatting_heatmap(format_rating, selected_objective)
 
-st.dataframe(top_format)
 
 
 def heatmap_data(top_format):
