@@ -142,14 +142,15 @@ class GAMNED_UAE:
                    '45-54, 55-64, 65+',
                    '55-64, 65+',
                    '']
-    col1 = ['instagram', 'facebook', 'linkedin', 'snapchat', 'youtube']
-    col2 = [8, 4.7, 0, 20, 0]
-    col3 = [31, 21.5, 21.7, 38.8, 15]
-    col4 = [30, 34.3, 60, 22.8, 20.7]
-    col5 = [16, 19.3, 10, 13.8, 16.7]
-    col6 = [8, 11.6, 5.4, 3.8, 11.9]
-    col7 = [4, 7.2, 2.9, 0, 8.8]
-    col8 = [3, 5.6, 0, 0, 9]
+    col1 = ['instagram', 'facebook', 'linkedin', 'snapchat', 'youtube', 'tik tok']
+    col2 = [8, 4.7, 0, 20, 0, 25]
+    col3 = [31, 21.5, 21.7, 38.8, 15, 33.8]
+    col4 = [30, 34.3, 60, 22.8, 20.7, 22.8]
+    col5 = [16, 19.3, 10, 13.8, 16.7, 13.8]
+    col6 = [8, 11.6, 5.4, 3.8, 11.9, 3.8]
+    col7 = [4, 7.2, 2.9, 0, 8.8, 0]
+    col8 = [3, 5.6, 0, 0, 9, 0]
+    
     col9 = [x + y for x, y in zip(col2, col3)]
     col10 = [x + y for x, y in zip(col9, col4)]
     col11 = [x + y for x, y in zip(col10, col5)]
