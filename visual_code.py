@@ -258,7 +258,7 @@ class GAMNED_UAE:
         'conversion': age_column
     }
     age_table = pd.DataFrame(age_dic)
-    age_table.iloc[0:, 1:] =  (age_table.iloc[0:, 1:] ** 2) / 10
+    age_table.iloc[0:, 1:] =  age_table.iloc[0:, 1:] ** 2 / 10
 
     temp1 = pd.concat([df_freq, age_table], axis=0)
     temp1 = pd.concat([temp1, df_rating], axis=0)
@@ -266,6 +266,7 @@ class GAMNED_UAE:
     df_channel_rating = temp1.groupby('channel').sum()
     #df_channel_rating.columns = ['channel', 'branding', 'consideration', 'converison']
     df_channel_rating = df_channel_rating.reset_index()
+    st.dataframe(df_channel_rating)
 
     return df_channel_rating
 
