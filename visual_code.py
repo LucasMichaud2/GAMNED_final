@@ -1340,7 +1340,7 @@ else:
                                  color='channel_x',
                                  size_max=60,  # Increase the maximum bubble size
                                  log_x=True,
-                                 text='channel_x',
+                                 text='formats_x',
                                  labels={'budget': 'Bubble Size'},  # Rename the legend label
                                  
                                  
