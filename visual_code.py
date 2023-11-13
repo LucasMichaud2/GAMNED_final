@@ -774,7 +774,7 @@ df_bubble[selected_objective] = df_bubble[selected_objective].apply(round_up_wit
 
 
 ######################################### heatmap ###################################################################################
-
+st.write(selected_objective)
 
 def formatting_heatmap(format_rating, selected_objective):
 
