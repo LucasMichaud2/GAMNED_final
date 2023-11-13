@@ -825,7 +825,7 @@ def heatmap_data(top_format):
     
     return labels, scores_matrix
 
-labels, scores_matrix = heatmap_data(top_format)
+
 
 
  ############################################# heatmap #######################################################################
