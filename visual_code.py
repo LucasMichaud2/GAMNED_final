@@ -172,7 +172,7 @@ class GAMNED_UAE:
     col27 = [x + y for x, y in zip(col6, col7)]
     col28 = [x + y for x, y in zip(col27, col8)]
     col29 = [x + y for x, y in zip(col7, col8)]
-    col30 = [0, 0, 0, 0, 0]
+    col30 = [0, 0, 0, 0, 0, 0]
     
     
     
