@@ -829,7 +829,7 @@ labels, scores_matrix = heatmap_data(top_format)
 top_format = top_format.sort_values(by='norm', ascending=False)
 top_format['formats'] = top_format['formats'].replace('Video Ads With Conversation Button', 'Video Ads With Conv. Button')
 top_format['formats'] = top_format['formats'].replace('Video Ads With Website Button', 'Video Ads With Web. Button')
-top_format['format'] = top_format['channel'] + '<br>' + top_format['formats']
+top_format['format'] = top_format['channel'] + '<br>' + top_format['formats'] 
 
 def get_color(score):
     # You can define your own color mapping logic here
