@@ -781,7 +781,7 @@ st.write(selected_objective)
 def formatting_heatmap(format_rating, selected_objective):
 
     
-    if decider == 'Branding Video':
+    if decider == 'branding video':
        format_rating = format_rating.drop('format', axis=1)
        format_rating['channel'] = format_rating['channel'].str.upper()
        format_rating['formats'] = format_rating['formats'].str.title()
@@ -884,7 +884,7 @@ def get_color(score):
     else:
         return 'rgb(163, 20, 20)'
 
-if decider == 'Branding Video':
+if decider == 'branding video':
 
   index1 = [0, 7, 14, 21]
   index2 = [1, 8, 15, 22]
