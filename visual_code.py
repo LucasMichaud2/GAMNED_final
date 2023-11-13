@@ -779,7 +779,7 @@ df_bubble[selected_objective] = df_bubble[selected_objective].apply(round_up_wit
 def formatting_heatmap(format_rating, selected_objective):
 
     
-    if selected_objective == 'branding video':
+    if selected_objective == 'Branding Video':
        format_rating = format_rating.drop('format', axis=1)
        format_rating['channel'] = format_rating['channel'].str.upper()
        format_rating['formats'] = format_rating['formats'].str.title()
