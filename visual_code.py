@@ -266,7 +266,6 @@ class GAMNED_UAE:
     df_channel_rating = temp1.groupby('channel').sum()
     #df_channel_rating.columns = ['channel', 'branding', 'consideration', 'converison']
     df_channel_rating = df_channel_rating.reset_index()
-    st.dataframe(df_channel_rating)
 
     return df_channel_rating
 
@@ -833,7 +832,9 @@ top_format = top_format.sort_values(by='norm', ascending=False)
 top_format['formats'] = top_format['formats'].replace('Video Ads With Conversation Button', 'Video Ads With Conv. Button')
 top_format['formats'] = top_format['formats'].replace('Video Ads With Website Button', 'Video Ads With Web. Button')
 top_format['formats'] = top_format['formats'].replace('Image Ads With Conversation Button', 'Image Ads With Conv. Button')
-top_format['format'] = top_format['channel'] + '<br>' + top_format['formats'] 
+top_format['format'] = top_format['channel'] + '<br>' + top_format['formats']
+
+st.dataframe(top_format)
 
 def get_color(score):
     # You can define your own color mapping logic here
