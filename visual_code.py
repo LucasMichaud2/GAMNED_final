@@ -834,7 +834,6 @@ top_format['formats'] = top_format['formats'].replace('Video Ads With Website Bu
 top_format['formats'] = top_format['formats'].replace('Image Ads With Conversation Button', 'Image Ads With Conv. Button')
 top_format['format'] = top_format['channel'] + '<br>' + top_format['formats']
 
-st.dataframe(top_format)
 
 def get_color(score):
     # You can define your own color mapping logic here
@@ -1274,12 +1273,11 @@ df_allow_table.columns = new_cols
 
 df_bubble.rename(columns={selected_objective: 'Rating'}, inplace=True)
 df_bubble.rename(columns={'price': 'Price'}, inplace=True)
-df_bubble['Price'] = df_bubble['Price'] + np.random.rand(len(df_bubble))
+df_bubble['Price'] = df_bubble['Price'] + np.round(np.random.rand(len(df_bubble)), 1)
 df_bubble['channel_x'] = df_bubble['channel_x'].str.title()
 df_bubble['channel_x'] = df_bubble['channel_x'].replace('Iga', 'IGA')
 df_bubble['format'] = df_bubble['channel_x'] + '\n' + df_bubble['formats_x']
 
-st.dataframe(df_bubble)
 
 
 if input_budget == 0: 
