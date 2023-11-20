@@ -504,8 +504,8 @@ if channel_number == 0:
 
     elif input_budget >= 15000:
         
-        if search == True:
-            budget = input_budget - 2000
+        if input_search > 0:
+            budget = input_budget - input_search
             n_format = budget // 4000 + 1
             format_pricing = format_pricing[format_pricing['channel'] != 'search']
             selected_format = format_pricing.head(n_format)
@@ -522,7 +522,7 @@ if channel_number == 0:
             budget_channel = selected_format.groupby('channel')['budget'].sum().reset_index()
             
             search_row = {'channel': 'search', 'budget': 1000}
-            budget_channel.loc[len(budget_channel.index)] = ['search', 2000]
+            budget_channel.loc[len(budget_channel.index)] = ['search', input_search]
             budget_channel = budget_channel.sort_values(by='budget', ascending=False)
 
             
@@ -549,9 +549,9 @@ if channel_number == 0:
 
     else:
 
-        if search == True:
+        if input_search > 0:
             
-            budget = input_budget - 1000
+            budget = input_budget - input_search
             format_pricing = format_pricing[format_pricing['channel'] != 'search']
             n_format = 2
             selected_format = format_pricing.head(n_format)
@@ -566,7 +566,7 @@ if channel_number == 0:
             
     
             budget_channel = selected_format.groupby('channel')['budget'].sum().reset_index()
-            budget_channel.loc[len(budget_channel.index)] = ['search', 1000]
+            budget_channel.loc[len(budget_channel.index)] = ['search', input_search]
             budget_channel = budget_channel.sort_values(by='budget', ascending=False)
     
             
@@ -595,10 +595,10 @@ else:
 
     if input_budget < 15000:
 
-        if search == True:
-            channel_number = channel_number - 1
+        if input_search > 0:
+            #channel_number = channel_number - 1
             format_pricing = format_pricing[format_pricing['channel'] != 'search']
-            budget = input_budget - 1000
+            budget = input_budget - input_search
             uni_channels = set()
             consecutive_rows = []
         
@@ -614,7 +614,7 @@ else:
             selected_format['budget'] = budget * selected_format['rating'] / (selected_format['rating'].sum())
             selected_format['budget'] = selected_format['budget'].round(0)
             budget_channel = selected_format.groupby('channel')['budget'].sum().reset_index()
-            budget_channel.loc[len(budget_channel.index)] = ['search', 1000]
+            budget_channel.loc[len(budget_channel.index)] = ['search', input_search]
             budget_channel = budget_channel.sort_values(by='budget', ascending=False)
         
             
@@ -643,10 +643,10 @@ else:
 
     else:
 
-        if search == True:
+        if input_search > 0:
     
             format_pricing = format_pricing[format_pricing['channel'] != 'search']
-            budget = input_budget - 2000
+            budget = input_budget - input_search
             uni_channels = set()
             consecutive_rows = []
         
@@ -662,7 +662,7 @@ else:
             selected_format['budget'] = budget * selected_format['rating'] / (selected_format['rating'].sum())
             selected_format['budget'] = selected_format['budget'].round(0)
             budget_channel = selected_format.groupby('channel')['budget'].sum().reset_index()
-            budget_channel.loc[len(budget_channel.index)] = ['search', 2000]
+            budget_channel.loc[len(budget_channel.index)] = ['search', input_search]
             budget_channel = budget_channel.sort_values(by='budget', ascending=False)
         
             
