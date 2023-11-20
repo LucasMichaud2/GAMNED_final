@@ -94,7 +94,7 @@ def input_layer():
   input_budget = box6.number_input('Budget $', value=0)
   channel_number = box7.number_input('Channel Number', value=0)
   search = st.checkbox('Include Search')
-  input_search = st.slider('Search Allocation', 0, 3000, 500)
+  input_search = st.slider('Search Allocation', 0, 3000, 0, 500)
   
 
   return selected_objective, selected_target, selected_region, excluded_channel, selected_age, input_budget, channel_number, search, input_search
