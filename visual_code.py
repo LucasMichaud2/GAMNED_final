@@ -1278,7 +1278,7 @@ df_allow_table.columns = new_cols
 df_bubble.rename(columns={selected_objective: 'Rating'}, inplace=True)
 df_bubble.rename(columns={'price': 'Price'}, inplace=True)
 df_bubble['Price'] = df_bubble['Price'] + np.round(np.random.rand(len(df_bubble)), 1)
-df_bubble['price'] = np.log(df_bubble['price'])
+df_bubble['Price'] = np.log(df_bubble['Price'])
 df_bubble['channel_x'] = df_bubble['channel_x'].str.title()
 df_bubble['channel_x'] = df_bubble['channel_x'].replace('Iga', 'IGA')
 df_bubble['format'] = df_bubble['channel_x'] + '\n' + df_bubble['formats_x']
