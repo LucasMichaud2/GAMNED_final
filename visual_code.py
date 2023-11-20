@@ -457,7 +457,7 @@ if channel_number == 0:
     if input_budget >= 10000 and input_budget < 15000:
         
         #if search == True:
-         if input_search > 0:
+        if input_search > 0:
             #budget = input_budget - 1000
             budget = input_budget - input_search
             n_format = budget // 4000 + 1
