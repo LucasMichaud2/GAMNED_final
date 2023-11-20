@@ -94,11 +94,12 @@ def input_layer():
   input_budget = box6.number_input('Budget $', value=0)
   channel_number = box7.number_input('Channel Number', value=0)
   search = st.checkbox('Include Search')
+  input_search = st.slider('Search Allocation', 0, 3000, 500)
   
 
-  return selected_objective, selected_target, selected_region, excluded_channel, selected_age, input_budget, channel_number, search
+  return selected_objective, selected_target, selected_region, excluded_channel, selected_age, input_budget, channel_number, search, input_search
 
-selected_objective, selected_target, selected_region, excluded_channel, selected_age, input_budget, channel_number, search = input_layer()
+selected_objective, selected_target, selected_region, excluded_channel, selected_age, input_budget, channel_number, search, input_search = input_layer()
 
 selected_objective = selected_objective.lower()
 
@@ -455,8 +456,10 @@ if channel_number == 0:
 
     if input_budget >= 10000 and input_budget < 15000:
         
-        if search == True:
-            budget = input_budget - 1000
+        #if search == True:
+         if input_search > 0:
+            #budget = input_budget - 1000
+            budget = input_budget - input_search
             n_format = budget // 4000 + 1
             format_pricing = format_pricing[format_pricing['channel'] != 'search']
             selected_format = format_pricing.head(n_format)
@@ -472,8 +475,8 @@ if channel_number == 0:
     
             budget_channel = selected_format.groupby('channel')['budget'].sum().reset_index()
             
-            search_row = {'channel': 'search', 'budget': 1000}
-            budget_channel.loc[len(budget_channel.index)] = ['search', 1000]
+            search_row = {'channel': 'search', 'budget': input_search}
+            budget_channel.loc[len(budget_channel.index)] = ['search', input_search]
             budget_channel = budget_channel.sort_values(by='budget', ascending=False)
 
             
