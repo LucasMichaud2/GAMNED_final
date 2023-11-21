@@ -142,14 +142,14 @@ class GAMNED_UAE:
                    '45-54, 55-64, 65+',
                    '55-64, 65+',
                    '']
-    col1 = ['instagram', 'facebook', 'linkedin', 'snapchat', 'youtube', 'tiktok', 'twitter', 'twitch']
-    col2 = [8, 4.7, 0, 20, 0, 25, 7.8, 20]
-    col3 = [31, 21.5, 21.7, 38.8, 15, 33.8, 25.2, 21]
-    col4 = [30, 34.3, 60, 22.8, 20.7, 22.8, 26.6, 32]
-    col5 = [16, 19.3, 10, 13.8, 16.7, 13.8, 28.4, 17]
-    col6 = [8, 11.6, 5.4, 3.8, 11.9, 3.8, 8, 7]
-    col7 = [4, 7.2, 2.9, 0, 8.8, 0, 4, 3]
-    col8 = [3, 5.6, 0, 0, 9, 0, 0, 0]
+    col1 = ['instagram', 'facebook', 'linkedin', 'snapchat', 'youtube', 'tiktok', 'twitter', 'twitch', 'display']
+    col2 = [8, 4.7, 0, 20, 0, 25, 7.8, 20, 14]
+    col3 = [31, 21.5, 21.7, 38.8, 15, 33.8, 25.2, 21, 31]
+    col4 = [30, 34.3, 60, 22.8, 20.7, 22.8, 26.6, 32, 27]
+    col5 = [16, 19.3, 10, 13.8, 16.7, 13.8, 28.4, 17, 15]
+    col6 = [8, 11.6, 5.4, 3.8, 11.9, 3.8, 8, 7, 7]
+    col7 = [4, 7.2, 2.9, 0, 8.8, 0, 4, 3, 3]
+    col8 = [3, 5.6, 0, 0, 9, 0, 0, 0, 2]
     
     col9 = [x + y for x, y in zip(col2, col3)]
     col10 = [x + y for x, y in zip(col9, col4)]
@@ -172,7 +172,7 @@ class GAMNED_UAE:
     col27 = [x + y for x, y in zip(col6, col7)]
     col28 = [x + y for x, y in zip(col27, col8)]
     col29 = [x + y for x, y in zip(col7, col8)]
-    col30 = [0, 0, 0, 0, 0, 0, 0, 0]
+    col30 = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     
     
     
