@@ -953,6 +953,15 @@ def get_color(score):
     else:
         return 'rgb(255, 255, 255, 0)'
 
+
+def get_text_color(background_color):
+ r, g, b = background_color
+ luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255
+ if luminance > 0.5:
+  return 'black'
+ else:
+  return 'white'
+
 if decider == 'branding video':
 
   index1 = [0, 7, 14, 21]
@@ -1016,7 +1025,6 @@ with col11:
              align-items: center;
              justify-content: center;
              border-radius: 10px;
-             color: black;
              box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.5); /* Add a box shadow for 3D effect */
              
          }
@@ -1031,13 +1039,14 @@ with col11:
          score = row['norm'] / 100
          if score >= 0:
           color = get_color(score)
+          text_color = get_text_color(color)
          else:
           continue
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px;">
+             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px; color: {text_color};">
                  {name}<br>
                  {format}
              </div>
