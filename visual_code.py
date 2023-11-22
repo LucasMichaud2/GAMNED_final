@@ -92,7 +92,7 @@ def input_layer():
   selected_age = box5.multiselect('Age', age_df)
   selected_age = sorted(selected_age)
   ################################### Sort age issue #####################################
-  if selected_age == ['13-17', '25-34']
+  if selected_age == ['13-17', '25-34']:
    selected_age = ['13-17', '18-24', '25-34']
   st.write(selected_age)
   selected_age = ', '.join(selected_age)
