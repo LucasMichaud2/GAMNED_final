@@ -1029,6 +1029,7 @@ with col11:
              justify-content: center;
              border-radius: 10px;
              color: white;
+             box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.5); /* Add a box shadow for 3D effect */
              
          }
          </style>
