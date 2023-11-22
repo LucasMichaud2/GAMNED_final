@@ -90,6 +90,7 @@ def input_layer():
   selected_region = box3.selectbox('Region', country_df)
   excluded_channel = box4.multiselect('Channel to Exclude', excluded_channel_list)
   selected_age = box5.multiselect('Age', age_df)
+  selected_age = sorted(selected_age)
   selected_age = ', '.join(selected_age)
   input_budget = box6.number_input('Budget $', value=0)
   channel_number = box7.number_input('Channel Number', value=0)
