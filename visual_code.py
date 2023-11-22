@@ -108,6 +108,8 @@ excluded_channel = [item.lower() for item in excluded_channel]
 
 st.subheader(' ', divider='grey')
 
+st.write(selected_age)
+
 
 ############################## Class Import ##############################################################################################
 
