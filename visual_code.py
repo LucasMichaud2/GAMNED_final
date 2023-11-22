@@ -250,7 +250,6 @@ class GAMNED_UAE:
     # and objective
 
     age_column = df_age[input_age].tolist()
-    age_column = sorted(age_column)
     st.write(age_column)
     age_channel = df_age['channel'].tolist()
 
