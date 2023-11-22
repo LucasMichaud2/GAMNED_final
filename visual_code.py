@@ -1115,7 +1115,7 @@ with col12:
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px; color: {text_color};">
+             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 14px; color: {text_color};">
                  {name}<br>
                  {format}
              </div>
@@ -1164,7 +1164,7 @@ with col13:
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px; color: {text_color};">
+             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 14px; color: {text_color};">
                  {name}<br>
                  {format}
              </div>
@@ -1213,7 +1213,7 @@ with col14:
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px; color: {text_color};">
+             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 14px; color: {text_color};">
                  {name}<br>
                  {format}
              </div>
@@ -1263,7 +1263,7 @@ with col15:
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px; color: {text_color};">
+             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 14px; color: {text_color};">
                  {name}<br>
                  {format}
              </div>
@@ -1312,7 +1312,7 @@ with col16:
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px; color: {text_color};">
+             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 14px; color: {text_color};">
                  {name}<br>
                  {format}
              </div>
@@ -1362,7 +1362,7 @@ with col17:
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px; color: {text_color};">
+             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 14px; color: {text_color};">
                  {name}<br>
                  {format}
              </div>
