@@ -1020,9 +1020,10 @@ with col11:
          name = row['channel']
          format = row['formats']
          score = row['norm'] / 100
-         if score is None:
+         if score >= 0:
+          color = get_color(score)
+         else:
           continue
-         color = get_color(score)
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
