@@ -1037,10 +1037,10 @@ with col11:
          .heatmap-item::before {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
             box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); /* Add an inset shadow for 3D effect */
             border-radius: inherit; /* Inherit border radius from parent */
         }
