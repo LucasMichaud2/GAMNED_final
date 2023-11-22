@@ -1028,7 +1028,7 @@ with col11:
              align-items: center;
              justify-content: center;
              border-radius: 10px;
-             box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2); 
+             box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4); 
              transition: box-shadow 0.3s ease-in-out;
              position: relative;
              
@@ -1041,7 +1041,7 @@ with col11:
             left: 5px;
             right: 5px;
             bottom: 5px;
-            box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.5); /* Add an inset shadow for 3D effect */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Add an inset shadow for 3D effect */
             border-radius: inherit; /* Inherit border radius from parent */
         }
          
