@@ -1068,7 +1068,10 @@ with col12:
          name = row['channel']
          format = row['formats']
          score = row['norm'] / 100
-         color = get_color(score)
+         if score >= 0:
+          color = get_color(score)
+         else:
+          continue
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
@@ -1113,7 +1116,10 @@ with col13:
          name = row['channel']
          format = row['formats']
          score = row['norm'] / 100
-         color = get_color(score)
+         if score >= 0:
+          color = get_color(score)
+         else:
+          continue
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
@@ -1158,7 +1164,10 @@ with col14:
          name = row['channel']
          format = row['formats']
          score = row['norm'] / 100
-         color = get_color(score)
+         if score >= 0:
+          color = get_color(score)
+         else:
+          continue
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
@@ -1204,7 +1213,10 @@ with col15:
          name = row['channel']
          format = row['formats']
          score = row['norm'] / 100
-         color = get_color(score)
+         if score >= 0:
+          color = get_color(score)
+         else:
+          continue
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
@@ -1249,7 +1261,10 @@ with col16:
          name = row['channel']
          format = row['formats']
          score = row['norm'] / 100
-         color = get_color(score)
+         if score >= 0:
+          color = get_color(score)
+         else:
+          continue
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
@@ -1295,7 +1310,10 @@ with col17:
          name = row['channel']
          format = row['formats']
          score = row['norm'] / 100
-         color = get_color(score)
+         if score >= 0:
+          color = get_color(score)
+         else:
+          continue
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
