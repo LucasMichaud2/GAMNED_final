@@ -1014,31 +1014,6 @@ with col11:
          """,
          unsafe_allow_html=True
      )
-     st.markdown(
-         """
-         <style>
-         .heatmap-container {
-             display: flex;
-             flex-direction: column; /* Arrange squares vertically */
-         }
- 
-         .heatmap-empty {
-             width: 150px;
-             height: 75px;
-             margin-bottom: 10px; /* Add margin at the bottom of each square */
-             font-size: 10px;
-             display: flex;
-             align-items: center;
-             justify-content: center;
-             border-radius: 10px;
-             color: white;
-             box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.5); /* Add a box shadow for 3D effect */
-             
-         }
-         </style>
-         """,
-         unsafe_allow_html=True
-     )
  
      for index, row in heatmap1.iterrows():
          name = row['channel']
@@ -1049,7 +1024,7 @@ with col11:
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-empty" style="background-color: {color}; text-align: center; font-size: 12px;">
+             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px;">
                  {name}<br>
                  {format}
              </div>
