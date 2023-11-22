@@ -1077,7 +1077,7 @@ with col12:
              align-items: center;
              justify-content: center;
              border-radius: 10px;
-             color: black;
+             
              box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
          }
          </style>
@@ -1091,13 +1091,14 @@ with col12:
          score = row['norm'] / 100
          if score >= 0:
           color = get_color(score)
+          text_color = get_text_color(color)
          else:
           continue
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px;">
+             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px; color: {text_color};">
                  {name}<br>
                  {format}
              </div>
@@ -1125,7 +1126,7 @@ with col13:
              align-items: center;
              justify-content: center;
              border-radius: 10px;
-             color: black;
+             
              box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
          }
          </style>
@@ -1139,13 +1140,14 @@ with col13:
          score = row['norm'] / 100
          if score >= 0:
           color = get_color(score)
+          text_color = get_text_color(color)
          else:
           continue
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px;">
+             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px; color: {text_color};">
                  {name}<br>
                  {format}
              </div>
@@ -1173,7 +1175,7 @@ with col14:
              align-items: center;
              justify-content: center;
              border-radius: 10px;
-             color: black;
+             
              box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
          }
          </style>
@@ -1187,13 +1189,14 @@ with col14:
          score = row['norm'] / 100
          if score >= 0:
           color = get_color(score)
+          text_color = get_text_color(color)
          else:
           continue
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px;">
+             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px; color: {text_color};">
                  {name}<br>
                  {format}
              </div>
@@ -1222,7 +1225,7 @@ with col15:
              align-items: center;
              justify-content: center;
              border-radius: 10px;
-             color: black;
+             
              box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
          }
          </style>
@@ -1236,13 +1239,14 @@ with col15:
          score = row['norm'] / 100
          if score >= 0:
           color = get_color(score)
+          text_color = get_text_color(color)
          else:
           continue
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px;">
+             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px; color: {text_color};">
                  {name}<br>
                  {format}
              </div>
@@ -1270,7 +1274,7 @@ with col16:
              align-items: center;
              justify-content: center;
              border-radius: 10px;
-             color: black;
+             
              box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
          }
          </style>
@@ -1284,13 +1288,14 @@ with col16:
          score = row['norm'] / 100
          if score >= 0:
           color = get_color(score)
+          text_color = get_text_color(color)
          else:
           continue
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px;">
+             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px; color: {text_color};">
                  {name}<br>
                  {format}
              </div>
@@ -1319,7 +1324,7 @@ with col17:
              align-items: center;
              justify-content: center;
              border-radius: 10px;
-             color: black;
+             
              box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2); /* Add a box shadow for 3D effect */
          }
          </style>
@@ -1333,13 +1338,14 @@ with col17:
          score = row['norm'] / 100
          if score >= 0:
           color = get_color(score)
+          text_color = get_text_color(color)
          else:
           continue
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
              f"""
-             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px;">
+             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 12px; color: {text_color};">
                  {name}<br>
                  {format}
              </div>
