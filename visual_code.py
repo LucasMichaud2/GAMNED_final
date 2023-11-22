@@ -1029,9 +1029,22 @@ with col11:
              justify-content: center;
              border-radius: 10px;
              box-shadow: 0 0 100px rgba(0, 0, 0, 0.5) inset;
-             transition: box-shadow 0.3s ease-in-out; 
+             transition: box-shadow 0.3s ease-in-out;
+             position: relative;
              
          }
+
+         .heatmap-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add an inset shadow for 3D effect */
+            border-radius: inherit; /* Inherit border radius from parent */
+        }
+         
          .heatmap-item:hover {
              box-shadow: 0 32px 64px rgba(0, 0, 0, 0.2);
          }
