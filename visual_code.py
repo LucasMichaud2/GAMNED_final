@@ -1023,7 +1023,7 @@ with col11:
              width: 150px;
              height: 75px;
              margin-bottom: 10px; /* Add margin at the bottom of each square */
-             font-size: 10px;
+             font-size: 12px;
              display: flex;
              align-items: center;
              justify-content: center;
@@ -1041,7 +1041,7 @@ with col11:
             left: 0px;
             right: 0px;
             bottom: 0px;
-            box-shadow: 0 0 1px rgba(0, 0, 0, 0.7) inset, 0 0 5px rgba(0, 0, 0, 0.4) inset; /* Add an inset shadow for 3D effect */
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0.7) inset, 0 0 8px rgba(0, 0, 0, 0.4) inset; /* Add an inset shadow for 3D effect */
             border-radius: inherit; /* Inherit border radius from parent */
         }
          
