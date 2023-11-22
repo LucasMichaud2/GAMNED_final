@@ -1028,7 +1028,7 @@ with col11:
              align-items: center;
              justify-content: center;
              border-radius: 10px;
-             box-shadow: 0 0 5px rgba(0, 0, 0, 0.5) inset;
+             box-shadow: 0 0 100px rgba(0, 0, 0, 0.5) inset;
              transition: box-shadow 0.3s ease-in-out; 
              
          }
