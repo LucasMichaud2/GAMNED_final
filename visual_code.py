@@ -955,7 +955,10 @@ def get_color(score):
 
 
 def get_text_color(background_color):
- r, g, b = background_color
+
+ rgb_values = background_color.strip('rgb()').split(',')
+ 
+ r, g, b = map(int, rgb_values)
  luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255
  if luminance > 0.5:
   return 'black'
