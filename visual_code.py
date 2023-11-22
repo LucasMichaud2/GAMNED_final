@@ -91,6 +91,9 @@ def input_layer():
   excluded_channel = box4.multiselect('Channel to Exclude', excluded_channel_list)
   selected_age = box5.multiselect('Age', age_df)
   selected_age = sorted(selected_age)
+  ################################### Sort age issue #####################################
+  if selected_age == ['13-17', '25-34']
+   selected_age = ['13-17', '18-24', '25-34']
   st.write(selected_age)
   selected_age = ', '.join(selected_age)
   input_budget = box6.number_input('Budget $', value=0)
