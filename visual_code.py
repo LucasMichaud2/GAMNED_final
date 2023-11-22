@@ -1014,7 +1014,7 @@ with col11:
      st.markdown(
          """
          <style>
-         .heatmap-container {
+         .heatmap-cont {
              display: flex;
              flex-direction: column; /* Arrange squares vertically */
          }
