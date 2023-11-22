@@ -1041,7 +1041,7 @@ with col11:
             left: 5px;
             right: 5px;
             bottom: 5px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Add an inset shadow for 3D effect */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.4); /* Add an inset shadow for 3D effect */
             border-radius: inherit; /* Inherit border radius from parent */
         }
          
