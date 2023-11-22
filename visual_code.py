@@ -1008,6 +1008,7 @@ with col11:
              justify-content: center;
              border-radius: 10px;
              color: black;
+             box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.5); /* Add a box shadow for 3D effect */
              
          }
          </style>
@@ -1019,6 +1020,8 @@ with col11:
          name = row['channel']
          format = row['formats']
          score = row['norm'] / 100
+         if score is None:
+          continue
          color = get_color(score)
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
