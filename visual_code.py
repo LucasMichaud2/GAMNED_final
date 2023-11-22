@@ -897,7 +897,7 @@ def get_color(score):
     if score == 0:
         return 'rgb(246, 247, 166)'
     elif score == np.nan:
-        return 'rgb(255, 255, 255')'
+        return 'rgb(255, 255, 255)'
     elif score < 0.05:
         return 'rgb(248, 250, 127)'
     elif score < 0.1:
