@@ -896,6 +896,8 @@ def get_color(score):
     # You can define your own color mapping logic here
     if score == 0:
         return 'rgb(246, 247, 166)'
+    elif score == np.nan:
+        return 'rgb(255, 255, 255')'
     elif score < 0.05:
         return 'rgb(248, 250, 127)'
     elif score < 0.1:
@@ -1014,7 +1016,7 @@ with col11:
      st.markdown(
          """
          <style>
-         .heatmap-cont {
+         .heatmap-container {
              display: flex;
              flex-direction: column; /* Arrange squares vertically */
          }
