@@ -942,7 +942,7 @@ def get_color(score):
     elif score == 1.0:
         return 'rgb(163, 20, 20)'
     else:
-        return 'rgb(163, 20, 20)'
+        return 'rgb(255, 255, 255)'
 
 if decider == 'branding video':
 
