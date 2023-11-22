@@ -122,8 +122,6 @@ def input_layer():
    selected_age = ['35-44', '45-54', '55-64', '65+']
   elif selected_age == ['45-54', '65+']:
     selected_age = ['45-54', '55-64', '65+']
-   
-  st.write(selected_age)
   selected_age = ', '.join(selected_age)
   input_budget = box6.number_input('Budget $', value=0)
   channel_number = box7.number_input('Channel Number', value=0)
