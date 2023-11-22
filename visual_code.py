@@ -847,7 +847,7 @@ def formatting_heatmap(format_rating, selected_objective):
        else:
         default_value = 'na'
         rows_to_add = 42 - len(format_rating)
-        default_data = {'
+        #default_data = {'
        min_top_format = top_format['norm'].min()
        max_top_format = top_format['norm'].max()
        top_format = top_format.drop(selected_objective, axis=1)
