@@ -814,7 +814,6 @@ drop_col = ['unique']
 df_bubble = df_bubble.drop(columns=drop_col)
 df_bubble[selected_objective] = df_bubble[selected_objective].apply(round_up_with_infinity)
 
-st.dataframe(format_rating)
 
 
 ######################################### heatmap ###################################################################################
@@ -877,8 +876,6 @@ def formatting_heatmap(format_rating, selected_objective):
 
 top_format = formatting_heatmap(format_rating, selected_objective)
 
-st.dataframe(top_format)
-
 
 
 def heatmap_data(top_format):
@@ -903,7 +900,7 @@ top_format['formats'] = top_format['formats'].replace('Video Ads With Website Bu
 top_format['formats'] = top_format['formats'].replace('Image Ads With Conversation Button', 'Image Ads With Conv. Button')
 top_format['format'] = top_format['channel'] + '<br>' + top_format['formats']
 
-st.dataframe(top_format)
+
 
 def get_color(score):
     # You can define your own color mapping logic here
