@@ -1029,7 +1029,11 @@ with col11:
              justify-content: center;
              border-radius: 10px;
              box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.5); /* Add a box shadow for 3D effect */
+             transition: box-shadow 0.3s ease-in-out; 
              
+         }
+         .heatmap-item:hover {
+             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
          }
          </style>
          """,
