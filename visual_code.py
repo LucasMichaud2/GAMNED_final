@@ -814,6 +814,8 @@ drop_col = ['unique']
 df_bubble = df_bubble.drop(columns=drop_col)
 df_bubble[selected_objective] = df_bubble[selected_objective].apply(round_up_with_infinity)
 
+st.dataframe(format_rating)
+
 
 ######################################### heatmap ###################################################################################
 
@@ -840,7 +842,12 @@ def formatting_heatmap(format_rating, selected_objective):
        format_rating['channel'] = format_rating['channel'].str.upper()
        format_rating['formats'] = format_rating['formats'].str.title()
        format_rating['format'] = format_rating['channel'] + ' - ' + format_rating['formats']
-       top_format = format_rating.head(42)
+       if len(format_rating) >= 42:
+        top_format = format_rating.head(42)
+       else:
+        default_value = 'na'
+        rows_to_add = 42 - len(format_rating)
+        default_data = {'
        min_top_format = top_format['norm'].min()
        max_top_format = top_format['norm'].max()
        top_format = top_format.drop(selected_objective, axis=1)
