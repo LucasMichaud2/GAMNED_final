@@ -94,6 +94,35 @@ def input_layer():
   ################################### Sort age issue #####################################
   if selected_age == ['13-17', '25-34']:
    selected_age = ['13-17', '18-24', '25-34']
+  elif selected_age == ['13-17', '35-44']:
+   selected_age = ['13-17', '18-24', '25-34', '35-44']
+  elif selected_age == ['13-17', '45-54']:
+   selected_age = ['13-17', '18-24', '25-34', '35-44', '45-54']
+  elif selected_age == ['13-17', '55-64']:
+   selected_age = ['13-17', '18-24', '25-34', '35-44', '45-54', '55-64']
+  elif selected_age == ['13-17', '65+']:
+   selected_age = ['13-17', '18-24', '25-34', '35-44', '45-54', '55-64', '65+']
+  elif selected_age == ['18-24', '35-44']:
+   selected_age = ['18-24', '25-34', '35-44']
+  elif selected_age == ['18-24', '45-54']:
+   selected_age = ['18-24', '25-34', '35-44', '45-54']
+  elif selected_age == ['18-24', '55-64']:
+   selected_age = ['18-24', '25-34', '35-44', '45-54', '55-64']
+  elif selected_age == ['18-24', '65+']:
+   selected_age = ['18-24', '25-34', '35-44', '45-54', '55-64', '65+']
+  elif selected_age == ['25-34', '45-54']:
+   selected_age = ['25-34', '35-44', '45-54']
+  elif selected_age == ['25-34', '55-64']:
+   selected_age = ['25-34', '35-44', '45-54', '55-64']
+  elif selected_age == ['25-34', '65+']:
+   selected_age = ['25-34', '35-44', '45-54', '55-64', '65+']
+  elif selected_age == ['35-44', '55-64']:
+   selected_age = ['35-44', '45-54', '55-64']
+  elif selected_age == ['35-44', '65+']:
+   selected_age = ['35-44', '45-54', '55-64', '65+']
+  elif selected_age == ['45-54', '65+']:
+    selected_age = ['45-54', '55-64', '65+']
+   
   st.write(selected_age)
   selected_age = ', '.join(selected_age)
   input_budget = box6.number_input('Budget $', value=0)
