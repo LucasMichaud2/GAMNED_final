@@ -828,7 +828,19 @@ def formatting_heatmap(format_rating, selected_objective):
        format_rating['channel'] = format_rating['channel'].str.upper()
        format_rating['formats'] = format_rating['formats'].str.title()
        format_rating['format'] = format_rating['channel'] + ' - ' + format_rating['formats']
-       top_format = format_rating.head(28)
+       if len(format_rating) >= 28:
+        top_format = format_rating.head(28)
+       else:
+        default_value = np.nan 
+        rows_to_add = 28 - len(format_rating)
+        default_data = {'channel': [default_value] * rows_to_add,
+                        'formats': [default_value] * rows_to_add,
+                        'format': [default_value] * rows_to_add,
+                        selected_objective: [default_value] * rows_to_add,
+                        'norm': [default_value] * rows_to_add
+                       }
+        default_df = pd.DataFrame(default_data)
+        top_format = pd.concat([format_rating, default_df], ignore_index=True)
        min_top_format = top_format['norm'].min()
        max_top_format = top_format['norm'].max()
        top_format = top_format.drop(selected_objective, axis=1)
