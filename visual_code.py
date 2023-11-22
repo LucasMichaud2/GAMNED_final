@@ -845,7 +845,7 @@ def formatting_heatmap(format_rating, selected_objective):
        if len(format_rating) >= 42:
         top_format = format_rating.head(42)
        else:
-        default_value = 'na'
+        default_value = np.nan 
         rows_to_add = 42 - len(format_rating)
         default_data = {'channel': [default_value] * rows_to_add,
                         'formats': [default_value] * rows_to_add,
@@ -854,7 +854,7 @@ def formatting_heatmap(format_rating, selected_objective):
                         'norm': [default_value] * rows_to_add
                        }
         default_df = pd.DataFrame(default_data)
-        top_format = pd.concat([format_rating, default_rating], ignore_index=True)
+        top_format = pd.concat([format_rating, default_df], ignore_index=True)
        min_top_format = top_format['norm'].min()
        max_top_format = top_format['norm'].max()
        top_format = top_format.drop(selected_objective, axis=1)
