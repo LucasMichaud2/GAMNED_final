@@ -1520,7 +1520,7 @@ selected_age_groups = st.multiselect("Select Age Groups", age_groups)
 if selected_age_groups:
     st.write("Total Sum for Each Combination:")
 
-    for r in range(1, len(selected_age_groups) + 1):
+    for r in range(2, len(selected_age_groups) + 1):  # Only consider combinations with 2 or more age groups
         for combo in combinations(selected_age_groups, r):
             total_sum = [0] * len(col2)  # Initialize a list to store the sum of values for each column
 
@@ -1547,3 +1547,4 @@ else:
 st.write("Final Combinations:")
 for combo in final_combinations:
     st.write(f"Combination: {combo['Combination']}, Total Sum: {combo['Total Sum']}")
+
