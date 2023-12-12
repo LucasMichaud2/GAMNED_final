@@ -1463,7 +1463,6 @@ if details == True:
 ########################################################### Formatting data for heatmap ######################################
 
 
-
 import streamlit as st
 from itertools import combinations
 
@@ -1490,20 +1489,20 @@ age_group_indices = {
     "65+": 6,
 }
 
-# Initialize a list to store the final combinations
-final_combinations = []
-
 # Streamlit app
 st.title("Age Group Data Calculator")
 
 # Allow the user to select age groups from a multi-select dropdown menu
 selected_age_groups = st.multiselect("Select Age Groups", age_groups)
 
+# Initialize a list to store the final combinations
+final_combinations = []
+
 # Calculate the sum of values for all possible combinations of selected age groups
 if selected_age_groups:
     st.write("Total Sum for Each Combination:")
 
-    for r in range(2, len(selected_age_groups) + 1):  # Only consider combinations with 2 or more age groups
+    for r in range(1, len(selected_age_groups) + 1):
         for combo in combinations(selected_age_groups, r):
             total_sum = [0] * len(col2)  # Initialize a list to store the sum of values for each column
 
@@ -1523,14 +1522,8 @@ if selected_age_groups:
             st.write(f"Combination: {combo}")
             for i, total in enumerate(total_sum):
                 st.write(f"col{i + 2}: {total}")
-else:
-    st.warning("Please select one or more age groups.")
 
 # Display the final combinations list
 st.write("Final Combinations:")
 for combo in final_combinations:
     st.write(f"Combination: {combo['Combination']}, Total Sum: {combo['Total Sum']}")
-    age_list = combo['Total Sum']
-
-st.write(age_list)
-
