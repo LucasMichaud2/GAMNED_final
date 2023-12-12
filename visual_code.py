@@ -1510,25 +1510,30 @@ age_group_indices = {
 # Streamlit app
 st.title("Age Group Data Calculator")
 
-# Allow the user to select multiple age groups from a dropdown menu
+# Allow the user to select age groups from a multi-select dropdown menu
 selected_age_groups = st.multiselect("Select Age Groups", age_groups)
 
-# Calculate the sum of values for the selected age groups
+# Calculate the sum of values for all possible combinations of selected age groups
 if selected_age_groups:
-    total_sum = [0] * len(col2)  # Initialize a list to store the sum of values for each column
+    st.write("Total Sum for Each Combination:")
 
-    for age_group in selected_age_groups:
-        idx = age_group_indices.get(age_group)
-        if idx is not None:
-            # Add values from the corresponding list to the total sum
-            total_sum = [x + y for x, y in zip(total_sum, eval(f"col{idx + 2}"))]
+    for r in range(1, len(selected_age_groups) + 1):
+        for combo in combinations(selected_age_groups, r):
+            total_sum = [0] * len(col2)  # Initialize a list to store the sum of values for each column
 
-    # Display the total sum for each column
-    st.write("Total Sum for Each Column:")
-    for i, total in enumerate(total_sum):
-        st.write(f"col{i + 2}: {total}")
+            for age_group in combo:
+                idx = age_group_indices.get(age_group)
+                if idx is not None:
+                    # Add values from the corresponding list to the total sum
+                    total_sum = [x + y for x, y in zip(total_sum, eval(f"col{idx + 2}"))]
+
+            # Display the combination and the total sum for each column
+            st.write(f"Combination: {combo}")
+            for i, total in enumerate(total_sum):
+                st.write(f"col{i + 2}: {total}")
 else:
     st.warning("Please select one or more age groups.")
+
 
 
 
