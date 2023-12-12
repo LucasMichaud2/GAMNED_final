@@ -1547,4 +1547,7 @@ else:
 st.write("Final Combinations:")
 for combo in final_combinations:
     st.write(f"Combination: {combo['Combination']}, Total Sum: {combo['Total Sum']}")
+    age_list = combo['Total Sum']
+
+st.write(age_list)
 
