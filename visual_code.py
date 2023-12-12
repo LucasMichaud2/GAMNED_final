@@ -92,37 +92,6 @@ def input_layer():
   excluded_channel = box4.multiselect('Channel to Exclude', excluded_channel_list)
   selected_age = box5.multiselect('Age', age_df)
   selected_age = sorted(selected_age)
-  ################################### Sort age issue #####################################
-  if selected_age == ['13-17', '25-34']:
-   selected_age = ['13-17', '18-24', '25-34']
-  elif selected_age == ['13-17', '35-44']:
-   selected_age = ['13-17', '18-24', '25-34', '35-44']
-  elif selected_age == ['13-17', '45-54']:
-   selected_age = ['13-17', '18-24', '25-34', '35-44', '45-54']
-  elif selected_age == ['13-17', '55-64']:
-   selected_age = ['13-17', '18-24', '25-34', '35-44', '45-54', '55-64']
-  elif selected_age == ['13-17', '65+']:
-   selected_age = ['13-17', '18-24', '25-34', '35-44', '45-54', '55-64', '65+']
-  elif selected_age == ['18-24', '35-44']:
-   selected_age = ['18-24', '25-34', '35-44']
-  elif selected_age == ['18-24', '45-54']:
-   selected_age = ['18-24', '25-34', '35-44', '45-54']
-  elif selected_age == ['18-24', '55-64']:
-   selected_age = ['18-24', '25-34', '35-44', '45-54', '55-64']
-  elif selected_age == ['18-24', '65+']:
-   selected_age = ['18-24', '25-34', '35-44', '45-54', '55-64', '65+']
-  elif selected_age == ['25-34', '45-54']:
-   selected_age = ['25-34', '35-44', '45-54']
-  elif selected_age == ['25-34', '55-64']:
-   selected_age = ['25-34', '35-44', '45-54', '55-64']
-  elif selected_age == ['25-34', '65+']:
-   selected_age = ['25-34', '35-44', '45-54', '55-64', '65+']
-  elif selected_age == ['35-44', '55-64']:
-   selected_age = ['35-44', '45-54', '55-64']
-  elif selected_age == ['35-44', '65+']:
-   selected_age = ['35-44', '45-54', '55-64', '65+']
-  elif selected_age == ['45-54', '65+']:
-    selected_age = ['45-54', '55-64', '65+']
   selected_age = ', '.join(selected_age)
   input_budget = box6.number_input('Budget $', value=0)
   channel_number = box7.number_input('Channel Number', value=0)
@@ -1512,6 +1481,54 @@ if details == True:
 
 
 
+import streamlit as st
+from itertools import combinations
+
+# Your age groups
+age_groups = ["13-17", "18-24", "25-34", "35-44", "45-54", "55-64", "65+"]
+
+# Your data lists
+col2 = [8, 4.7, 0, 20, 0, 25, 7.8, 20, 14, 25, 5, 5, 0]
+col3 = [31, 21.5, 21.7, 38.8, 15, 33.8, 25.2, 21, 31, 30, 10, 10, 5]
+col4 = [30, 34.3, 40, 22.8, 20.7, 22.8, 26.6, 32, 27, 15, 15, 15, 10]
+col5 = [16, 19.3, 10, 13.8, 16.7, 13.8, 28.4, 17, 15, 5, 20, 30, 10]
+col6 = [8, 11.6, 20, 3.8, 11.9, 3.8, 8, 7, 7, 0, 30, 30, 10]
+col7 = [4, 4, 2.9, 0, 8.8, -5, 4, 3, 3, 0, 25, 20, 10]
+col8 = [-5, 2, 0, 0, 9, -5, 0, 0, 2, -10, 40, 30, 15]
+
+# Create a dictionary to map age groups to list indices
+age_group_indices = {
+    "13-17": 0,
+    "18-24": 1,
+    "25-34": 2,
+    "35-44": 3,
+    "45-54": 4,
+    "55-64": 5,
+    "65+": 6,
+}
+
+# Streamlit app
+st.title("Age Group Data Calculator")
+
+# Allow the user to select multiple age groups from a dropdown menu
+selected_age_groups = st.multiselect("Select Age Groups", age_groups)
+
+# Calculate the sum of values for the selected age groups
+if selected_age_groups:
+    total_sum = [0] * len(col2)  # Initialize a list to store the sum of values for each column
+
+    for age_group in selected_age_groups:
+        idx = age_group_indices.get(age_group)
+        if idx is not None:
+            # Add values from the corresponding list to the total sum
+            total_sum = [x + y for x, y in zip(total_sum, eval(f"col{idx + 2}"))]
+
+    # Display the total sum for each column
+    st.write("Total Sum for Each Column:")
+    for i, total in enumerate(total_sum):
+        st.write(f"col{i + 2}: {total}")
+else:
+    st.warning("Please select one or more age groups.")
 
 
 
