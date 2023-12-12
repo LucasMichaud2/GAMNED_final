@@ -91,8 +91,8 @@ def input_layer():
   selected_region = box3.selectbox('Region', country_df)
   excluded_channel = box4.multiselect('Channel to Exclude', excluded_channel_list)
   selected_age = box5.multiselect('Age', age_df)
-  selected_age = sorted(selected_age)
-  selected_age = ', '.join(selected_age)
+  #selected_age = sorted(selected_age)
+  #selected_age = ', '.join(selected_age)
   input_budget = box6.number_input('Budget $', value=0)
   channel_number = box7.number_input('Channel Number', value=0)
   input_search = st.slider('Search Allocation', 0, 3000, 0, 500)
@@ -121,31 +121,11 @@ class GAMNED_UAE:
     self.df_rating = rating
     self.obj_list = ['branding', 'consideration', 'conversion']
 
-  def get_age_data(self):
-    column_names = ['channel', '13-17', '18-24', '25-34', '35-44', '45-54', '55-64', '65+', '13-17, 18-24', '13-17, 18-24, 25-34',
-                   '13-17, 18-24, 25-34, 35-44',
-                   '13-17, 18-24, 25-34, 35-44, 45-54', 
-                   '13-17, 18-24, 25-34, 35-44, 45-54, 55-64', 
-                   '13-17, 18-24, 25-34, 35-44, 45-54, 55-64, 65+', 
-                   'all',
-                   '18-24, 25-34', 
-                   '18-24, 25-34, 35-44', 
-                   '18-24, 25-34, 35-44, 45-54', 
-                   '18-24, 25-34, 35-44, 45-54, 55-64',
-                   '18-24, 25-34, 35-44, 45-54, 55-64, 65+',
-                   '25-34, 35-44',
-                   '25-34, 35-44, 45-54',
-                   '25-34, 35-44, 45-54, 55-64', 
-                   '25-34, 35-44, 45-54, 55-64, 65+',
-                   '35-44, 45-54', 
-                   '35-44, 45-54, 55-64', 
-                   '35-44, 45-54, 55-64, 65+', 
-                   '45-54, 55-64', 
-                   '45-54, 55-64, 65+',
-                   '55-64, 65+',
-                   '']
-    col1 = ['instagram', 'facebook', 'linkedin', 'snapchat', 'youtube', 'tiktok', 'twitter', 'twitch', 'display', 'in game advertising',
-           'connected tv', 'amazon', 'dooh']
+  def get_age_data(self, selected_age):
+
+    age_groups = ["13-17", "18-24", "25-34", "35-44", "45-54", "55-64", "65+"]
+
+    # Your data lists
     col2 = [8, 4.7, 0, 20, 0, 25, 7.8, 20, 14, 25, 5, 5, 0]
     col3 = [31, 21.5, 21.7, 38.8, 15, 33.8, 25.2, 21, 31, 30, 10, 10, 5]
     col4 = [30, 34.3, 40, 22.8, 20.7, 22.8, 26.6, 32, 27, 15, 15, 15, 10]
@@ -154,63 +134,66 @@ class GAMNED_UAE:
     col7 = [4, 4, 2.9, 0, 8.8, -5, 4, 3, 3, 0, 25, 20, 10]
     col8 = [-5, 2, 0, 0, 9, -5, 0, 0, 2, -10, 40, 30, 15]
     
-    col9 = [x + y for x, y in zip(col2, col3)]
-    col10 = [x + y for x, y in zip(col9, col4)]
-    col11 = [x + y for x, y in zip(col10, col5)]
-    col12 = [x + y for x, y in zip(col11, col6)]
-    col13 = [x + y for x, y in zip(col12, col7)]
-    col14 = [x + y for x, y in zip(col13, col8)]
-    col15 = [x + y for x, y in zip(col3, col4)]
-    col16 = [x + y for x, y in zip(col15, col5)]
-    col17 = [x + y for x, y in zip(col6, col6)]
-    col18 = [x + y for x, y in zip(col17, col7)]
-    col19 = [x + y for x, y in zip(col18, col8)]
-    col20 = [x + y for x, y in zip(col4, col5)]
-    col21 = [x + y for x, y in zip(col20, col6)]
-    col22 = [x + y for x, y in zip(col21, col7)]
-    col23 = [x + y for x, y in zip(col22, col8)]
-    col24 = [x + y for x, y in zip(col5, col6)]
-    col25 = [x + y for x, y in zip(col24, col7)]
-    col26 = [x + y for x, y in zip(col25, col8)]
-    col27 = [x + y for x, y in zip(col6, col7)]
-    col28 = [x + y for x, y in zip(col27, col8)]
-    col29 = [x + y for x, y in zip(col7, col8)]
+    # Create a dictionary to map age groups to list indices
+    age_group_indices = {
+        "13-17": 0,
+        "18-24": 1,
+        "25-34": 2,
+        "35-44": 3,
+        "45-54": 4,
+        "55-64": 5,
+        "65+": 6,
+    }
+    
+    # Initialize a list to store the final combinations
+    final_combinations = []
+    
+    # Streamlit app
+    
+    
+    # Allow the user to select age groups from a multi-select dropdown menu
+    
+    
+    # Calculate the sum of values for all possible combinations of selected age groups
+    if selected_age:
+        
+    
+        for r in range(2, len(selected_age) + 1):  # Only consider combinations with 2 or more age groups
+            for combo in combinations(selected_age, r):
+                total_sum = [0] * len(col2)  # Initialize a list to store the sum of values for each column
+    
+                for age_group in combo:
+                    idx = age_group_indices.get(age_group)
+                    if idx is not None:
+                        # Add values from the corresponding list to the total sum
+                        total_sum = [x + y for x, y in zip(total_sum, eval(f"col{idx + 2}"))]
+    
+                # Round the total sum values to 2 decimal places
+                total_sum = [round(x, 2) for x in total_sum]
+    
+                # Store the combination and the total sum in the final_combinations list
+                final_combinations.append({"Combination": combo, "Total Sum": total_sum})
+    
+                # Display the combination and the total sum for each column
+    else:
+        st.warning("Please select one or more age groups.")
+    
+    # Display the final combinations list
+    
+    for combo in final_combinations:
+        age_list = combo['Total Sum']
+    
+    st.write(age_list)
+    
+    col1 = ['instagram', 'facebook', 'linkedin', 'snapchat', 'youtube', 'tiktok', 'twitter', 'twitch', 'display', 'in game advertising',
+           'connected tv', 'amazon', 'dooh']
     col30 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     
     
     
 
     df_age = pd.DataFrame(col1, columns = ['channel'])
-    df_age['13-17'] = col2
-    df_age['18-24'] = col3
-    df_age['25-34'] = col4
-    df_age['35-44'] = col5
-    df_age['45-54'] = col6
-    df_age['55-64'] = col7
-    df_age['65+'] = col8
-    df_age['13-17, 18-24'] = col9
-    df_age['13-17, 18-24, 25-34'] = col10
-    df_age['13-17, 18-24, 25-34, 35-44'] = col11
-    df_age['13-17, 18-24, 25-34, 35-44, 45-54'] = col12
-    df_age['13-17, 18-24, 25-34, 35-44, 45-54, 55-64'] = col13
-    df_age['13-17, 18-24, 25-34, 35-44, 45-54, 55-64, 65+'] = col14
-    df_age['all'] = col14
-    df_age['18-24, 25-34'] = col15
-    df_age['18-24, 25-34, 35-44'] = col16
-    df_age['18-24, 25-34, 35-44, 45-54'] = col17
-    df_age['18-24, 25-34, 35-44, 45-54, 55-64'] = col18
-    df_age['18-24, 25-34, 35-44, 45-54, 55-64, 65+'] = col19
-    df_age['25-34, 35-44'] = col20
-    df_age['25-34, 35-44, 45-54'] = col21
-    df_age['25-34, 35-44, 45-54, 55-64'] = col22
-    df_age['25-34, 35-44, 45-54, 55-64, 65+'] = col23
-    df_age['35-44, 45-54'] = col24
-    df_age['35-44, 45-54, 55-64'] = col25
-    df_age['35-44, 45-54, 55-64, 65+'] = col26
-    df_age['45-54, 55-64'] = col27
-    df_age['45-54, 55-64, 65+'] = col28
-    df_age['55-64, 65+'] = col29
-    df_age[''] = col30
+    df_age['score'] = age_list
     
     return df_age
 
@@ -247,11 +230,11 @@ class GAMNED_UAE:
     df_freq.rename(columns={'index': 'channel'}, inplace=True)
     return df_freq
 
-  def get_channel_rating(self, input_age, df_age, df_freq, df_rating):
+  def get_channel_rating(self, df_age, df_freq, df_rating):
     # Get the final rating of channel and formats depending on age group
     # and objective
 
-    age_column = df_age[input_age].tolist()
+    age_column = df_age['score'].tolist()
     age_channel = df_age['channel'].tolist()
 
     age_dic = {
@@ -350,10 +333,10 @@ gamned_class = GAMNED_UAE(df_data, df_objective)
 
 def apply_class():
   
-  df_age = gamned_class.get_age_data()
+  df_age = gamned_class.get_age_data(selected_age)
   df_freq = gamned_class.get_data_freq()
   df_rating = gamned_class.get_mean_rating()
-  df_rating1 = gamned_class.get_channel_rating(selected_age, df_age, df_freq, df_rating)
+  df_rating1 = gamned_class.get_channel_rating(df_age, df_freq, df_rating)
   if selected_target == 'b2b':
     df_b2b = gamned_class.get_target()
     df_rating1 = gamned_class.add_target(df_b2b, df_rating1)
