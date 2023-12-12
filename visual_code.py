@@ -151,6 +151,22 @@ class GAMNED_UAE:
 
     if selected_age == []:
      age_list = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+    elif selected_age == ['13-17']:
+     age_list = col2
+    elif selected_age == ['18-24']:
+     age_list = col3
+    elif selected_age == ['25-34']:
+     age_list = col4
+    elif selected_age == ['35-44']:
+     age_list = col5
+    elif selected_age == ['45-54']:
+     age_list = col6
+    elif selected_age == ['55-64']:
+     age_list = col7
+    elif selected_age == ['65+']:
+     age_list = col8
+   
     
     elif len(selected_age) > 1:
         
