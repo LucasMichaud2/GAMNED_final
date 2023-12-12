@@ -1527,23 +1527,12 @@ if selected_age_groups:
                     # Add values from the corresponding list to the total sum
                     total_sum = [x + y for x, y in zip(total_sum, eval(f"col{idx + 2}"))]
 
+            # Round the total sum values to 2 decimal places
+            total_sum = [round(x, 2) for x in total_sum]
+
             # Display the combination and the total sum for each column
             st.write(f"Combination: {combo}")
             for i, total in enumerate(total_sum):
                 st.write(f"col{i + 2}: {total}")
 else:
     st.warning("Please select one or more age groups.")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
