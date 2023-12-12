@@ -148,8 +148,11 @@ class GAMNED_UAE:
     
     # Initialize a list to store the final combinations
     final_combinations = []
+
+    if selected_age == []:
+     age_list = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     
-    if selected_age:
+    elif len(selected_age) > 1:
         
     
         for r in range(2, len(selected_age) + 1):  # Only consider combinations with 2 or more age groups
