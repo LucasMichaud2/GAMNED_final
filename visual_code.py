@@ -1507,6 +1507,9 @@ age_group_indices = {
     "65+": 6,
 }
 
+# Initialize a list to store the final combinations
+final_combinations = []
+
 # Streamlit app
 st.title("Age Group Data Calculator")
 
@@ -1530,9 +1533,17 @@ if selected_age_groups:
             # Round the total sum values to 2 decimal places
             total_sum = [round(x, 2) for x in total_sum]
 
+            # Store the combination and the total sum in the final_combinations list
+            final_combinations.append({"Combination": combo, "Total Sum": total_sum})
+
             # Display the combination and the total sum for each column
             st.write(f"Combination: {combo}")
             for i, total in enumerate(total_sum):
                 st.write(f"col{i + 2}: {total}")
 else:
     st.warning("Please select one or more age groups.")
+
+# Display the final combinations list
+st.write("Final Combinations:")
+for combo in final_combinations:
+    st.write(f"Combination: {combo['Combination']}, Total Sum: {combo['Total Sum']}")
