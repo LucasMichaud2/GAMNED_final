@@ -148,13 +148,6 @@ class GAMNED_UAE:
     # Initialize a list to store the final combinations
     final_combinations = []
     
-    # Streamlit app
-    
-    
-    # Allow the user to select age groups from a multi-select dropdown menu
-    
-    
-    # Calculate the sum of values for all possible combinations of selected age groups
     if selected_age:
         
     
@@ -183,7 +176,6 @@ class GAMNED_UAE:
     for combo in final_combinations:
         age_list = combo['Total Sum']
     
-    st.write(age_list)
     
     col1 = ['instagram', 'facebook', 'linkedin', 'snapchat', 'youtube', 'tiktok', 'twitter', 'twitch', 'display', 'in game advertising',
            'connected tv', 'amazon', 'dooh']
