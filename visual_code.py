@@ -1485,13 +1485,7 @@ heatmap_screen = st.checkbox('Heatmap Sumuary')
 if heatmap_screen == True:
 
  st.subheader('Parameters')
- formatted_text = f"**Objective:** {selected_objective2}  \n" \
-                 f"**Target:** {selected_target}  \n" \
-                 f"**Region:** {selected_region}  \n" \
-                 f"**Age Group:** {selected_age}  \n" \
-                 f"**Excluded Channel:** {excluded_channel}"
-
-# Display the formatted text
-st.markdown(formatted_text)
+ hd1, hd2, hd3, hd4, hd5, hd6, hd7 = st.columns(7)
+ hd1.write(f'<span style="font-weight:bold; margin-right: 10px;">Objective:</span> {selected_objective2}')
 
 
