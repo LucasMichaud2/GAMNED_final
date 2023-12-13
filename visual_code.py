@@ -1485,19 +1485,19 @@ heat_expander = st.expander('heatmap Sumuary')
 
 with heat_expander:
 
- selected_age = sorted(selected_age)
- st.subheader('Parameters')
- hd1, hd2, hd3, hd4 = st.columns(4)
- hd1.write(f'<span style="font-weight:bold; margin-right: 10px;">Objective:</span> {selected_objective2}', unsafe_allow_html=True)
- hd2.write(f'<span style="font-weight:bold; margin-left: 50px; margin-right: 10px;">Target: </span> {selected_target}', unsafe_allow_html=True)
- hd3.write(f'<span style="font-weight:bold; margin-left: 50px; margin-right: 10px;">Region:</span> {selected_region}', unsafe_allow_html=True)
- hd4.write(f'<span style="font-weight:bold; margin-left: 50px; margin-right: 10px;">Age Group:</span> {selected_age}', unsafe_allow_html=True)
- 
- dh1, dh2, dh3, dh4 = st.columns(4)
- dh1.write(f'<span style="font-weight:bold; margin-right: 10px;">Excluded Channel:</span> {excluded_channel}', unsafe_allow_html=True)
- dh2.write(f'<span style="font-weight:bold; margin-left: 50px; margin-right: 10px;">Budget:</span> {input_budget}', unsafe_allow_html=True)
- dh3.write(f'<span style="font-weight:bold; margin-left:50px; margin-right: 10px;">Search Budget:</span> {input_search}', unsafe_allow_html=True)
- dh4.write(f'<span style="font-weight:bold; margin-left:50px; margin-right: 10px;">Number of Channels:</span> {channel_number}', unsafe_allow_html=True)
+  selected_age = sorted(selected_age)
+  st.subheader('Parameters')
+  hd1, hd2, hd3, hd4 = st.columns(4)
+  hd1.write(f'<span style="font-weight:bold; margin-right: 10px;">Objective:</span> {selected_objective2}', unsafe_allow_html=True)
+  hd2.write(f'<span style="font-weight:bold; margin-left: 50px; margin-right: 10px;">Target: </span> {selected_target}', unsafe_allow_html=True)
+  hd3.write(f'<span style="font-weight:bold; margin-left: 50px; margin-right: 10px;">Region:</span> {selected_region}', unsafe_allow_html=True)
+  hd4.write(f'<span style="font-weight:bold; margin-left: 50px; margin-right: 10px;">Age Group:</span> {selected_age}', unsafe_allow_html=True)
+  
+  dh1, dh2, dh3, dh4 = st.columns(4)
+  dh1.write(f'<span style="font-weight:bold; margin-right: 10px;">Excluded Channel:</span> {excluded_channel}', unsafe_allow_html=True)
+  dh2.write(f'<span style="font-weight:bold; margin-left: 50px; margin-right: 10px;">Budget:</span> {input_budget}', unsafe_allow_html=True)
+  dh3.write(f'<span style="font-weight:bold; margin-left:50px; margin-right: 10px;">Search Budget:</span> {input_search}', unsafe_allow_html=True)
+  dh4.write(f'<span style="font-weight:bold; margin-left:50px; margin-right: 10px;">Number of Channels:</span> {channel_number}', unsafe_allow_html=True)
  
  
 
