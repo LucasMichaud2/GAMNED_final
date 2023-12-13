@@ -1485,6 +1485,6 @@ heatmap_screen = st.checkbox('Heatmap Sumuary')
 if heatmap_screen == True:
 
  st.subheader('Parameters')
- st.write(f'<span style="font-weight:bold">Objective: </span> {selected_objective2} <span style="font-weight:bold; margin-left: 10px;">Target: </span> {selected_target}', unsafe_allow_html=True)
+ st.write(f'<span style="font-weight:bold">Objective: </span> {selected_objective2} <span style="font-weight:bold; margin-left: 50px;">Target: </span> {selected_target}', unsafe_allow_html=True)
 
 
