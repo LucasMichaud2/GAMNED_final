@@ -1870,7 +1870,7 @@ with heat_expander:
   with tab2:
    st.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Budget Allocation")
    
-    with elements("pie_chart"):
+   with elements("pie_chart"):
   
         
   
