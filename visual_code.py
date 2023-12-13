@@ -1485,14 +1485,13 @@ heatmap_screen = st.checkbox('Heatmap Sumuary')
 if heatmap_screen == True:
 
  st.subheader('Parameters')
- formatted_text = (
-    f'<span style="font-weight:bold; margin-right: 10px;">Objective:</span> {selected_objective2}'
-    f'<span style="font-weight:bold; margin-left: 50px; margin-right: 10px;">Target:</span> {selected_target}'
-    f'<span style="font-weight:bold; margin-left: 50px; margin-right: 10px;">Region:</span> {selected_region}'
-    f'<span style="font-weight:bold; margin-left: 50px; margin-right: 10px;">Age Group:</span> {selected_age}'
-    f'<span style="font-weight:bold; margin-left: 50px; margin-right: 10px;">Excluded Channel:</span> {excluded_channel}'
-)
+ formatted_text = f"**Objective:** {selected_objective2}  \n" \
+                 f"**Target:** {selected_target}  \n" \
+                 f"**Region:** {selected_region}  \n" \
+                 f"**Age Group:** {selected_age}  \n" \
+                 f"**Excluded Channel:** {excluded_channel}"
 
-st.write(formatted_text, unsafe_allow_html=True
+# Display the formatted text
+st.markdown(formatted_text)
 
 
