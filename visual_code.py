@@ -1929,8 +1929,8 @@ with heat_expander:
     fig2.update_layout(
        
        showlegend=False,
-       width=1000,
-       height=750,
+       width=1200,
+       height=550,
        margin=dict(l=25, r=25, t=50, b=25),
        
     )
