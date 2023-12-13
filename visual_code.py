@@ -1484,7 +1484,7 @@ heatmap_screen = st.checkbox('Heatmap Sumuary')
 
 if heatmap_screen == True:
 
- selected_age2 = sorted(selected_age2)
+ selected_age = sorted(selected_age)
  st.subheader('Parameters')
  hd1, hd2, hd3, hd4 = st.columns(4)
  hd1.write(f'<span style="font-weight:bold; margin-right: 10px;">Objective:</span> {selected_objective2}', unsafe_allow_html=True)
