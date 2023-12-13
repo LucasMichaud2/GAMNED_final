@@ -1868,7 +1868,7 @@ with heat_expander:
              )
 
   with tab2:
-   st.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Budget Allocation")
+   
    
    with elements("pie_chart2"):
   
@@ -1908,7 +1908,7 @@ with heat_expander:
 
 
   with tab3:
-    st.write('Rating VS Price VS Budget')
+    
  
     fig2 = px.scatter(df_bubble,
                      x='Rating',
