@@ -1482,7 +1482,7 @@ st.subheader(' ', divider='grey')
 
 heatmap_screen = st.checkbox('Heatmap Sumuary')
 
-if heatmap_screen == True:
+with st.expander('HeatMap Sumuary'):
 
  selected_age = sorted(selected_age)
  st.subheader('Parameters')
