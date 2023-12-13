@@ -1486,7 +1486,7 @@ heat_expander = st.expander('Summmary')
 with heat_expander:
 
   selected_age = sorted(selected_age)
-  
+  excluded_channel = [word.capitalize() for word in excluded_channel]
   excluded_channel = ', '.join(excluded_channel)
   st.subheader('Parameters', divider='grey')
   hd1, hd2, hd3, hd4 = st.columns(4)
