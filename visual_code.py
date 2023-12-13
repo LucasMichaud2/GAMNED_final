@@ -105,6 +105,8 @@ def input_layer():
 
 selected_objective, selected_target, selected_region, excluded_channel, selected_age, input_budget, channel_number, input_search = input_layer()
 
+selected_objective2 = selected_objective
+
 selected_objective = selected_objective.lower()
 
 decider = selected_objective
@@ -1483,6 +1485,6 @@ heatmap_screen = st.checkbox('Heatmap Sumuary')
 if heatmap_screen == True:
 
  st.subheader('Parameters')
- st.write('Objective: ', selected_objective)
+ st.write('Objective: ', selected_objective2)
 
 
