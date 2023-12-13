@@ -1480,9 +1480,7 @@ with heat_expander:
   excluded_channel = [word.capitalize() for word in excluded_channel]
   excluded_channel = ', '.join(excluded_channel)
   
-  st.subheader('Parameters')
-  
-  st.divider()
+  st.subheader('Parameters', divider='grey')
   hd1, hd2, hd3, hd4 = st.columns(4)
   hd1.write(f'<span style="font-weight:bold; margin-right: 10px;">Objective:</span> {selected_objective2}', unsafe_allow_html=True)
   hd2.write(f'<span style="font-weight:bold; margin-left: 50px; margin-right: 10px;">Target: </span> {selected_target}', unsafe_allow_html=True)
