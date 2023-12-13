@@ -1474,7 +1474,15 @@ if details == True:
  st.dataframe(selected_format)
 
 
-########################################################### Formatting data for heatmap ######################################
+########################################################### screenshot heatmap ######################################
 
+st.subheader(' ', divider='grey')
+
+heatmap_screen = st.checkbox('Heatmap Sumuary')
+
+if heatmap_screen == True:
+
+ st.subheader('Parameters')
+ st.write('Objective: ', selected_objective)
 
 
