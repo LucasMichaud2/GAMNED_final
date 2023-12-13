@@ -1501,7 +1501,7 @@ with heat_expander:
   dh3.write(f'<span style="font-weight:bold; margin-left:50px; margin-right: 10px;">Search Budget:</span> {input_search}', unsafe_allow_html=True)
   dh4.write(f'<span style="font-weight:bold; margin-left:50px; margin-right: 10px;">Number of Channels:</span> {channel_number}', unsafe_allow_html=True)
 
-  tab1, tab2, tab3 = st.tabs(['Heatmap', 'Pie Chart', 'Bubble Chart'])
+  tab1, tab2, tab3, tab4 = st.tabs(['Heatmap', 'Pie Chart', 'Bubble Chart', 'Table'])
 
   with tab1:
 
@@ -1940,3 +1940,11 @@ with heat_expander:
     # Display the Plotly figure in Streamlit
     
     st.plotly_chart(fig2)
+
+  with tab4:
+   qw1 ,qw2, qw3 = st.columns(3)
+   selected_format['channel'] = selected_format['channel'].str.title()
+   selected_format.columns = selected_format.columns.str.capitalize()
+   
+
+   qw2.dataframe(selected_format)
