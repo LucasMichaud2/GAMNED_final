@@ -84,18 +84,20 @@ def input_layer():
 
   excluded_channel_list = [' '.join([word.capitalize() for word in item.split()]) for item in excluded_channel_list]
   
-  box1, box2, box3, box4, box5, box6, box7 = st.columns(7)
+  box1, box2, box3, box4, box5 = st.columns(5)
   
   selected_objective = box1.selectbox('Objective', objective_df)
   selected_target = box2.selectbox('Target', target_df)
   selected_region = box3.selectbox('Region', country_df)
-  excluded_channel = box4.multiselect('Channel to Exclude', excluded_channel_list)
-  selected_age = box5.multiselect('Age', age_df)
-  st.write(selected_age)
   #selected_age = sorted(selected_age)
   #selected_age = ', '.join(selected_age)
-  input_budget = box6.number_input('Budget $', value=0)
-  channel_number = box7.number_input('Channel Number', value=0)
+  input_budget = box4.number_input('Budget $', value=0)
+  channel_number = box5.number_input('Channel Number', value=0)
+
+  box11, box12 = st.columns(2)
+
+  selected_age = box11.multiselect('Age Group', age_df)
+  excluded_channel = box12.multiselect('Channel to Exclude', excluded_channel_list)
   input_search = st.slider('Search Allocation', 0, 3000, 0, 500)
   
 
@@ -1475,67 +1477,4 @@ if details == True:
 ########################################################### Formatting data for heatmap ######################################
 
 
-import streamlit as st
-from itertools import combinations
 
-# Your age groups
-age_groups = ["13-17", "18-24", "25-34", "35-44", "45-54", "55-64", "65+"]
-
-# Your data lists
-col2 = [8, 4.7, 0, 20, 0, 25, 7.8, 20, 14, 25, 5, 5, 0]
-col3 = [31, 21.5, 21.7, 38.8, 15, 33.8, 25.2, 21, 31, 30, 10, 10, 5]
-col4 = [30, 34.3, 40, 22.8, 20.7, 22.8, 26.6, 32, 27, 15, 15, 15, 10]
-col5 = [16, 19.3, 10, 13.8, 16.7, 13.8, 28.4, 17, 15, 5, 20, 30, 10]
-col6 = [8, 11.6, 20, 3.8, 11.9, 3.8, 8, 7, 7, 0, 30, 30, 10]
-col7 = [4, 4, 2.9, 0, 8.8, -5, 4, 3, 3, 0, 25, 20, 10]
-col8 = [-5, 2, 0, 0, 9, -5, 0, 0, 2, -10, 40, 30, 15]
-
-# Create a dictionary to map age groups to list indices
-age_group_indices = {
-    "13-17": 0,
-    "18-24": 1,
-    "25-34": 2,
-    "35-44": 3,
-    "45-54": 4,
-    "55-64": 5,
-    "65+": 6,
-}
-
-# Streamlit app
-st.title("Age Group Data Calculator")
-
-# Allow the user to select age groups from a multi-select dropdown menu
-selected_age_groups = st.multiselect("Select Age Groups", age_groups)
-
-# Initialize a list to store the final combinations
-final_combinations = []
-
-# Calculate the sum of values for all possible combinations of selected age groups
-if selected_age_groups:
-    st.write("Total Sum for Each Combination:")
-
-    for r in range(1, len(selected_age_groups) + 1):
-        for combo in combinations(selected_age_groups, r):
-            total_sum = [0] * len(col2)  # Initialize a list to store the sum of values for each column
-
-            for age_group in combo:
-                idx = age_group_indices.get(age_group)
-                if idx is not None:
-                    # Add values from the corresponding list to the total sum
-                    total_sum = [x + y for x, y in zip(total_sum, eval(f"col{idx + 2}"))]
-
-            # Round the total sum values to 2 decimal places
-            total_sum = [round(x, 2) for x in total_sum]
-
-            # Store the combination and the total sum in the final_combinations list
-            final_combinations.append({"Combination": combo, "Total Sum": total_sum})
-
-            # Display the combination and the total sum for each column
-            st.write(f"Combination: {combo}")
-            for i, total in enumerate(total_sum):
-                st.write(f"col{i + 2}: {total}")
-
-# Display the final combinations list
-st.write("Final Combinations:")
-for combo in final_combinations:
-    st.write(f"Combination: {combo['Combination']}, Total Sum: {combo['Total Sum']}")
