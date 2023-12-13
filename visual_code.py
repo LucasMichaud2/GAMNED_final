@@ -1466,15 +1466,6 @@ else:
 ################################################################################################################
 
 
-st.subheader(' ', divider='grey')
-
-details = st.checkbox('Show Details')
-
-if details == True:
- selected_format['channel'] = selected_format['channel'].str.title()
- selected_format.columns = selected_format.columns.str.capitalize()
- st.dataframe(selected_format)
-
 
 ########################################################### screenshot heatmap ######################################
 
