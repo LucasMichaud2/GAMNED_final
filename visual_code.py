@@ -1481,8 +1481,9 @@ if details == True:
 st.subheader(' ', divider='grey')
 
 heatmap_screen = st.checkbox('Heatmap Sumuary')
+heat_expander = st.expander('heatmap Sumuary')
 
-with st.expander('HeatMap Sumuary'):
+with heat_expander:
 
  selected_age = sorted(selected_age)
  st.subheader('Parameters')
