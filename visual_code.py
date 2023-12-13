@@ -1479,10 +1479,10 @@ with heat_expander:
   selected_age = sorted(selected_age)
   excluded_channel = [word.capitalize() for word in excluded_channel]
   excluded_channel = ', '.join(excluded_channel)
-  aa1, aa2, aa3, aa4, aa5, aa6, aa7 = st.columns(7)
+  aa1, aa2, aa3, aa4, aa5, aa6, aa7, aa8 = st.columns(8)
   
   aa1.subheader('Parameters')
-  aa7.image(gamned_logo_url, use_column_width=True)
+  aa8.image(gamned_logo_url, use_column_width=True)
   st.divider()
   hd1, hd2, hd3, hd4 = st.columns(4)
   hd1.write(f'<span style="font-weight:bold; margin-right: 10px;">Objective:</span> {selected_objective2}', unsafe_allow_html=True)
