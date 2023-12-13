@@ -1910,34 +1910,34 @@ with heat_expander:
   with tab3:
    st.write('Rating VS Price VS Budget')
  
-               fig2 = px.scatter(df_bubble,
-                                 x='Rating',
-                                 y='Price',
-                                 size='budget',
-                                 color='channel_x',
-                                 size_max=60,  # Increase the maximum bubble size
-                                 log_x=True,
-                                 text='format',
-                                 labels={'budget': 'Bubble Size'},  # Rename the legend label
-                                 
-                                 
-                                )
- 
-               fig2.update_traces(textfont_color='black')
-              
-              # Set chart title and axis labels
-               fig2.update_layout(
-                   
-                   showlegend=False,
-                   width=600,
-                   height=450,
-                   margin=dict(l=25, r=25, t=50, b=25),
-                   
-               )
-               
-               # Display the Plotly figure in Streamlit
-               
-               st.plotly_chart(fig2)
+   fig2 = px.scatter(df_bubble,
+																					x='Rating',
+																					y='Price',
+																					size='budget',
+																					color='channel_x',
+																					size_max=60,  # Increase the maximum bubble size
+																					log_x=True,
+																					text='format',
+																					labels={'budget': 'Bubble Size'},  # Rename the legend label
+																					
+																					
+																				)
+
+			fig2.update_traces(textfont_color='black')
+		
+		# Set chart title and axis labels
+			fig2.update_layout(
+							
+							showlegend=False,
+							width=600,
+							height=450,
+							margin=dict(l=25, r=25, t=50, b=25),
+							
+			)
+			
+			# Display the Plotly figure in Streamlit
+			
+			st.plotly_chart(fig2)
 
    
  
