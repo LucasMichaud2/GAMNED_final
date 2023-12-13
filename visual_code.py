@@ -1481,11 +1481,12 @@ if details == True:
 st.subheader(' ', divider='grey')
 
 
-heat_expander = st.expander('Heatmap Sumuary')
+heat_expander = st.expander('Summmary')
 
 with heat_expander:
 
   selected_age = sorted(selected_age)
+  excluded_channel = ', '.join(exluded_channel)
   st.subheader('Parameters', divider='grey')
   hd1, hd2, hd3, hd4 = st.columns(4)
   hd1.write(f'<span style="font-weight:bold; margin-right: 10px;">Objective:</span> {selected_objective2}', unsafe_allow_html=True)
