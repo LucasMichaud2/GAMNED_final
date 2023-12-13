@@ -1485,7 +1485,11 @@ heatmap_screen = st.checkbox('Heatmap Sumuary')
 if heatmap_screen == True:
 
  st.subheader('Parameters')
- hd1, hd2, hd3, hd4, hd5, hd6, hd7 = st.columns(7)
+ hd1, hd2, hd3, hd4 = st.columns(4)
  hd1.write(f'<span style="font-weight:bold; margin-right: 10px;">Objective:</span> {selected_objective2}', unsafe_allow_html=True)
+ hd2.write(f'<span style="font-weight:bold; margin-left: 50px; margin-right: 10px;">Target: </span> {selected_target}', unsafe_allow_html=True)
+ hd3.write(f'<span style="font-weight:bold; margin-left: 50px; margin-right: 10px;">Region:</span> {selected_region}', unsafe_allow_html=True)
+ hd4.write(f'<span style="font-weight:bold; margin-left: 50px; margin-right: 10px;">Age Group:</span> {selected_age}', unsafe_allow_html=True)
+ 
 
 
