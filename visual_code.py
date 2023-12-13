@@ -1486,6 +1486,6 @@ if heatmap_screen == True:
 
  st.subheader('Parameters')
  hd1, hd2, hd3, hd4, hd5, hd6, hd7 = st.columns(7)
- hd1.write(f'<span style="font-weight:bold; margin-right: 10px;">Objective:</span> {selected_objective2}', unsafe_allow_htmal=True)
+ hd1.write(f'<span style="font-weight:bold; margin-right: 10px;">Objective:</span> {selected_objective2}', unsafe_allow_html=True)
 
 
