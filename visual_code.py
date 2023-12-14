@@ -171,7 +171,7 @@ class GAMNED_UAE:
     elif selected_age == ['65+']:
      age_list = col8
     elif selected_age == ['all']:
-     age_list = col2 + col3 + col4 + col5 + col6 + col7 + col8
+     age_list = [sum(x) for x in zip(col2, col3, col4, col5, col6, col7, col8)]
    
     
     elif len(selected_age) > 1:
