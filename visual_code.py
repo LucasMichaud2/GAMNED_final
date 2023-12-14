@@ -73,7 +73,7 @@ def input_layer():
   #objective_df.columns = ['0']
   objective_df[0] = objective_df[0].str.title()
   
-  age_list = ['13-17', '18-24', '25-34', '35-44', '45-54', '55-64', '65+', 'all']
+  age_list = ['13-17', '18-24', '25-34', '35-44', '45-54', '55-64', '65+']
   age_df = pd.DataFrame(age_list)
   
   country_list = ['None', 'GCC', 'KSA', 'UAE', 'KUWAIT', 'BAHRAIN', 'QATAR', 'OMAN']
@@ -170,8 +170,7 @@ class GAMNED_UAE:
      age_list = col7
     elif selected_age == ['65+']:
      age_list = col8
-    elif selected_age == ['all']:
-     age_list = [sum(x) for x in zip(col2, col3, col4, col5, col6, col7, col8)]
+    
    
     
     elif len(selected_age) > 1:
