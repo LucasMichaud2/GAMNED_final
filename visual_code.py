@@ -1060,8 +1060,8 @@ for _, row in top_format.iterrows():
     square_html_list.append(square_html)
 
 # Combine the list of squares into the HTML code
-squares_html = "\n".join(square_html_list)
-final_html_code = html_code.format(squares_html)
+final_html_code = html_code.replace('{}', '\n'.join(square_html_list), 1)
+
 
 # Display the HTML content in the Streamlit app
 st.components.v1.html(final_html_code)
