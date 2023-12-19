@@ -870,6 +870,8 @@ top_format['formats'] = top_format['formats'].replace('Video Ads With Website Bu
 top_format['formats'] = top_format['formats'].replace('Image Ads With Conversation Button', 'Image Ads With Conv. Button')
 top_format['format'] = top_format['channel'] + '<br>' + top_format['formats']
 
+st.dataframe(top_format)
+
 
 
 def get_color(score):
