@@ -1,4 +1,4 @@
-import streamlit as st
+ import streamlit as st
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -978,8 +978,6 @@ else:
 
 
 
-import streamlit as st
-
 html_code = """
 <!DOCTYPE html>
 <html lang="en">
@@ -1034,17 +1032,37 @@ html_code = """
 </head>
 <body>
     <div class="heatmap-container">
-        <!-- Create your squares here -->
-        <div class="heatmap-item">Square 1</div>
-        <div class="heatmap-item">Square 2</div>
-        <div class="heatmap-item">Square 3</div>
-        <!-- Add more squares as needed -->
+        <!-- Create your squares dynamically based on heatmap_data -->
+        {}
     </div>
 </body>
 </html>
 """
 
-st.components.v1.html(html_code)
+# Create a list of HTML for each square based on heatmap_data
+square_html_list = []
+for _, row in heatmap_data.iterrows():
+    name = row['channel']
+    format = row['formats']
+    score = row['norm'] / 100
+    color = get_color(score)
+    text_color = get_text_color(color)
+
+    # Create HTML for each square and append to the list
+    square_html = f"""
+    <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 14px; color: {text_color};">
+        {name}<br>
+        {format}
+    </div>
+    """
+    square_html_list.append(square_html)
+
+# Combine the list of squares into the HTML code
+squares_html = "\n".join(square_html_list)
+final_html_code = html_code.format(squares_html)
+
+# Display the HTML content in the Streamlit app
+st.components.v1.html(final_html_code)
 
 
 
