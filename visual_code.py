@@ -1078,8 +1078,12 @@ st.components.v1.html(final_html_code)
 
 # Define a custom color scale with more shades of red and yellow
 
-
-
+st.write(' ')
+st.write(' ')
+st.write(' ')
+st.write(' ')
+st.write(' ')
+st.write(' ')
 #################################################################################################################################
 
 st.divider()
