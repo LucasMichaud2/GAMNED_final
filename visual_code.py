@@ -1040,7 +1040,8 @@ html_code = """
 </body>
 </html>
 """
-
+num_rows = 6
+empty_space = st.empty()
 # Create a list of HTML for each square based on heatmap_data
 square_html_list = []
 for _, row in top_format.iterrows():
@@ -1062,24 +1063,10 @@ for _, row in top_format.iterrows():
 # Combine the list of squares into the HTML code
 final_html_code = html_code.replace('{}', '\n'.join(square_html_list), 1)
 
-container_heatmap = st.container(border=True)
 
-with container_heatmap:
- st.write(' ')
- st.write(' ')
- st.write(' ')
- st.write(' ')
- 
 # Display the HTML content in the Streamlit app
- st.components.v1.html(final_html_code)
- st.write(' ')
- st.write(' ')
- st.write(' ')
- st.write(' ')
- st.write(' ')
- st.write(' ')
- st.write(' ')
- 
+empty_space.components.v1.html(final_html_code, height=num_rows * 100)
+
 
 
 
