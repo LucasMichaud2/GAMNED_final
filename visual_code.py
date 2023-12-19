@@ -1039,7 +1039,7 @@ html_code = """
 
 # Create a list of HTML for each square based on heatmap_data
 square_html_list = []
-for _, row in heatmap_data.iterrows():
+for _, row in top_format.iterrows():
     name = row['channel']
     format = row['formats']
     score = row['norm'] / 100
