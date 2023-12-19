@@ -989,12 +989,12 @@ html_code = """
     <style>
         .heatmap-container {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: wrap; /* Allow squares to wrap to the next row */
             justify-content: flex-start;
         }
 
         .heatmap-item {
-            width: 150px;
+            width: 100px; /* Adjust the width to fit within the available space */
             height: 75px;
             margin: 10px; /* Add margin around each square */
             font-size: 12px;
@@ -1060,8 +1060,8 @@ for _, row in top_format.iterrows():
     square_html_list.append(square_html)
 
 # Combine the list of squares into the HTML code
-final_html_code = html_code.replace('{}', '\n'.join(square_html_list), 1)
-
+squares_html = "\n".join(square_html_list)
+final_html_code = html_code.replace('{}', squares_html, 1)
 
 # Display the HTML content in the Streamlit app
 st.components.v1.html(final_html_code)
