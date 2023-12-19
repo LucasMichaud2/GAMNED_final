@@ -975,73 +975,6 @@ else:
 
 
 #Define a function to map scores to colors
-
-
-
-
-
-html_code = """
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        .heatmap-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-        }
-
-        .heatmap-item {
-            width: 150px;
-            height: 75px;
-            margin: 10px; /* Add margin around each square */
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
-            transition: box-shadow 0.3s ease-in-out;
-            position: relative;
-        }
-
-        .heatmap-item::before {
-            content: "";
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            right: 0px;
-            bottom: 0px;
-            box-shadow: 0 0 1px rgba(0, 0, 0, 0.7) inset, 0 0 8px rgba(0, 0, 0, 0.4) inset;
-            border-radius: inherit;
-        }
-
-        .heatmap-item:hover {
-            box-shadow: 0 32px 64px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Define different background colors for your squares */
-        .heatmap-item:nth-child(odd) {
-            background-color: lightblue;
-        }
-
-        .heatmap-item:nth-child(even) {
-            background-color: lightgreen;
-        }
-    </style>
-</head>
-<body>
-    <div class="heatmap-container">
-        <!-- Create your squares dynamically based on heatmap_data -->
-        {}
-    </div>
-</body>
-</html>
-"""
-num_rows = 6
-
 # Create a list of HTML for each square based on heatmap_data
 square_html_list = []
 for _, row in top_format.iterrows():
@@ -1060,14 +993,63 @@ for _, row in top_format.iterrows():
     """
     square_html_list.append(square_html)
 
-# Combine the list of squares into the HTML code
-final_html_code = html_code.replace('{}', '\n'.join(square_html_list), 1)
+num_rows = 6  # Adjust the number of rows as needed
+containers = [st.container() for _ in range(num_rows)]
 
-empty_space = st.empty()
-# Display the HTML content in the Streamlit app
-with empty_space:
- 
- st.components.v1.html(final_html_code)
+# Create HTML code for each row
+html_code_list = []
+for i in range(0, len(squares_html_list), num_rows):
+    html_code = f"""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .heatmap-container {{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }}
+            .heatmap-item {{
+                width: 100px; /* Adjust the width to fit within the available space */
+                margin: 5px; /* Add margin around each square */
+                font-size: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 10px;
+                box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+                transition: box-shadow 0.3s ease-in-out;
+                position: relative;
+            }}
+            .heatmap-item::before {{
+                content: "";
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                box-shadow: 0 0 1px rgba(0, 0, 0, 0.7) inset, 0 0 8px rgba(0, 0, 0, 0.4) inset;
+                border-radius: inherit;
+            }}
+            .heatmap-item:hover {{
+                box-shadow: 0 32px 64px rgba(0, 0, 0, 0.2);
+            }}
+        </style>
+    </head>
+    <body>
+        <div class="heatmap-container">
+            {"".join(squares_html_list[i:i+num_rows])}
+        </div>
+    </body>
+    </html>
+    """
+    html_code_list.append(html_code)
+
+# Display HTML content for each row in its respective container
+for i in range(num_rows):
+    containers[i].components.v1.html(html_code_list[i])
 
 
 
