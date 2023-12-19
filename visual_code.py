@@ -1065,7 +1065,7 @@ final_html_code = html_code.replace('{}', '\n'.join(square_html_list), 1)
 
 
 # Display the HTML content in the Streamlit app
-empty_space.components.v1.html(final_html_code, height=num_rows * 100)
+empty_space.components.v1.html(final_html_code)
 
 
 
