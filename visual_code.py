@@ -986,14 +986,17 @@ def create_heatmap(container, heatmap_data):
             """
             <style>
             .heatmap-container {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust the width as needed */
-                grid-gap: 10px; /* Add margin between squares */
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                align-content: flex-start;
             }
 
             .heatmap-item {
-                width: 100%;
+                width: 150px;
                 height: 75px;
+                margin: 10px; /* Add margin around each square */
                 font-size: 12px;
                 display: flex;
                 align-items: center;
@@ -1050,13 +1053,14 @@ col10, col11, col12, col13, col14, col15, col16, col17, col18 = st.columns([1, 2
 # Define your heatmap data (heatmap1, heatmap2, heatmap3, etc.)
 
 # Create heatmaps with consistent spacing
-create_heatmap(col11, heatmap1)
-create_heatmap(col12, heatmap2)
-create_heatmap(col13, heatmap3)
-create_heatmap(col14, heatmap4)
-create_heatmap(col15, heatmap5)
-create_heatmap(col16, heatmap6)
-create_heatmap(col17, heatmap7)
+create_heatmap(col11.container(), heatmap1)
+create_heatmap(col12.container(), heatmap2)
+create_heatmap(col13.container(), heatmap3)
+create_heatmap(col14.container(), heatmap4)
+create_heatmap(col15.container(), heatmap5)
+create_heatmap(col16.container(), heatmap6)
+create_heatmap(col17.container(), heatmap7)
+
 
 
 
