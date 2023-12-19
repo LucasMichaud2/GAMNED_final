@@ -8,6 +8,7 @@ from streamlit_elements import elements, mui, html, nivo, dashboard
 import plotly.graph_objects as go
 import plotly.express as px
 from itertools import combinations
+import base64
 
 ############################### Design Elements ###########################################################################################
 
