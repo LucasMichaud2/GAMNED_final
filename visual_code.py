@@ -978,23 +978,22 @@ else:
 
 
 
+import streamlit as st
+
 def create_heatmap(container, heatmap_data):
     with container:
         st.markdown(
             """
             <style>
             .heatmap-container {
-                display: flex;
-                flex-direction: column; /* Arrange squares vertically */
-                justify-content: flex-start; /* Start from the top */
-                align-items: flex-start; /* Align to the left */
-                flex-wrap: wrap; /* Wrap to the next row when no space */
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust the width as needed */
+                grid-gap: 10px; /* Add margin between squares */
             }
 
             .heatmap-item {
-                width: calc(33.33% - 20px); /* Adjust the width as needed */
+                width: 100%;
                 height: 75px;
-                margin: 10px; /* Add margin around each square */
                 font-size: 12px;
                 display: flex;
                 align-items: center;
@@ -1058,6 +1057,7 @@ create_heatmap(col14, heatmap4)
 create_heatmap(col15, heatmap5)
 create_heatmap(col16, heatmap6)
 create_heatmap(col17, heatmap7)
+
 
 
 # Sample data
