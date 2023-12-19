@@ -1065,8 +1065,21 @@ final_html_code = html_code.replace('{}', '\n'.join(square_html_list), 1)
 container_heatmap = st.container(border=True)
 
 with container_heatmap:
+ st.write(' ')
+ st.write(' ')
+ st.write(' ')
+ st.write(' ')
+ 
 # Display the HTML content in the Streamlit app
  st.components.v1.html(final_html_code)
+ st.write(' ')
+ st.write(' ')
+ st.write(' ')
+ st.write(' ')
+ st.write(' ')
+ st.write(' ')
+ st.write(' ')
+ 
 
 
 
