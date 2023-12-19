@@ -972,7 +972,7 @@ else:
   heatmap7 = top_format.iloc[index7]
 
 
-##Define a function to map scores to colors
+#Define a function to map scores to colors
 
 
 
@@ -980,86 +980,71 @@ else:
 
 import streamlit as st
 
-def create_heatmap(container, heatmap_data):
-    with container:
-        st.markdown(
-            """
-            <style>
-            .heatmap-container {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: flex-start;
-                align-content: flex-start;
-            }
+html_code = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .heatmap-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
 
-            .heatmap-item {
-                width: 150px;
-                height: 75px;
-                margin: 10px; /* Add margin around each square */
-                font-size: 12px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 10px;
-                box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
-                transition: box-shadow 0.3s ease-in-out;
-                position: relative;
-            }
+        .heatmap-item {
+            width: 150px;
+            height: 75px;
+            margin: 10px; /* Add margin around each square */
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease-in-out;
+            position: relative;
+        }
 
-            .heatmap-item::before {
-                content: "";
-                position: absolute;
-                top: 0px;
-                left: 0px;
-                right: 0px;
-                bottom: 0px;
-                box-shadow: 0 0 1px rgba(0, 0, 0, 0.7) inset, 0 0 8px rgba(0, 0, 0, 0.4) inset;
-                border-radius: inherit;
-            }
+        .heatmap-item::before {
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0.7) inset, 0 0 8px rgba(0, 0, 0, 0.4) inset;
+            border-radius: inherit;
+        }
 
-            .heatmap-item:hover {
-                box-shadow: 0 32px 64px rgba(0, 0, 0, 0.2);
-            }
-            </style>
-            """,
-            unsafe_allow_html=True
-        )
+        .heatmap-item:hover {
+            box-shadow: 0 32px 64px rgba(0, 0, 0, 0.2);
+        }
 
-        for index, row in heatmap_data.iterrows():
-            name = row['channel']
-            format = row['formats']
-            score = row['norm'] / 100
-            if score >= 0:
-                color = get_color(score)
-                text_color = get_text_color(color)
-            else:
-                continue
+        /* Define different background colors for your squares */
+        .heatmap-item:nth-child(odd) {
+            background-color: lightblue;
+        }
 
-            # Use the 'st.markdown' to create colored boxes with shadows and labels
-            st.markdown(
-                f"""
-                <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 14px; color: {text_color};">
-                    {name}<br>
-                    {format}
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
+        .heatmap-item:nth-child(even) {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="heatmap-container">
+        <!-- Create your squares here -->
+        <div class="heatmap-item">Square 1</div>
+        <div class="heatmap-item">Square 2</div>
+        <div class="heatmap-item">Square 3</div>
+        <!-- Add more squares as needed -->
+    </div>
+</body>
+</html>
+"""
 
-# Create your columns
-col10, col11, col12, col13, col14, col15, col16, col17, col18 = st.columns([1, 2, 2, 2, 2, 2, 2, 2, 1])
-
-# Define your heatmap data (heatmap1, heatmap2, heatmap3, etc.)
-
-# Create heatmaps with consistent spacing
-create_heatmap(col11.container(), heatmap1)
-create_heatmap(col12.container(), heatmap2)
-create_heatmap(col13.container(), heatmap3)
-create_heatmap(col14.container(), heatmap4)
-create_heatmap(col15.container(), heatmap5)
-create_heatmap(col16.container(), heatmap6)
-create_heatmap(col17.container(), heatmap7)
+st.components.v1.html(html_code)
 
 
 
