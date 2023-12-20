@@ -976,92 +976,95 @@ else:
 
 try_format = top_format.head(6)
 
-
+with st.container():
 #Define a function to map scores to colors
 # Create a list of HTML for each square based on heatmap_data
-with st.container():
- st.markdown(
-
-  """
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <style>
-          .heatmap-container {
-              display: flex;
-              flex-wrap: wrap;
-              justify-content: flex-start;
-          }
-  
-          .heatmap-item {
-              width: 150px;
-              height: 75px;
-              margin: 10px; /* Add margin around each square */
-              font-size: 12px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              border-radius: 10px;
-              box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
-              transition: box-shadow 0.3s ease-in-out;
-              position: relative;
-          }
-  
-          .heatmap-item::before {
-              content: "";
-              position: absolute;
-              top: 0px;
-              left: 0px;
-              right: 0px;
-              bottom: 0px;
-              box-shadow: 0 0 1px rgba(0, 0, 0, 0.7) inset, 0 0 8px rgba(0, 0, 0, 0.4) inset;
-              border-radius: inherit;
-          }
-  
-          .heatmap-item:hover {
-              box-shadow: 0 32px 64px rgba(0, 0, 0, 0.2);
-          }
-  
-          /* Define different background colors for your squares */
-          .heatmap-item:nth-child(odd) {
-              background-color: lightblue;
-          }
-  
-          .heatmap-item:nth-child(even) {
-              background-color: lightgreen;
-          }
-      </style>
-  </head>
-  </html>
-  """,
-  unsafe_allow_html=True
- )
-
-# Create a list of HTML for each square based on heatmap_data
-
-for _, row in try_format.iterrows():
-    name = row['channel']
-    format = row['formats']
-    score = row['norm'] / 100
-    if score >= 0:
+ html_code = """
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+         .heatmap-container {
+             display: flex;
+             flex-wrap: wrap;
+             justify-content: flex-start;
+         }
+ 
+         .heatmap-item {
+             width: 150px;
+             height: 75px;
+             margin: 10px; /* Add margin around each square */
+             font-size: 12px;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             border-radius: 10px;
+             box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+             transition: box-shadow 0.3s ease-in-out;
+             position: relative;
+         }
+ 
+         .heatmap-item::before {
+             content: "";
+             position: absolute;
+             top: 0px;
+             left: 0px;
+             right: 0px;
+             bottom: 0px;
+             box-shadow: 0 0 1px rgba(0, 0, 0, 0.7) inset, 0 0 8px rgba(0, 0, 0, 0.4) inset;
+             border-radius: inherit;
+         }
+ 
+         .heatmap-item:hover {
+             box-shadow: 0 32px 64px rgba(0, 0, 0, 0.2);
+         }
+ 
+         /* Define different background colors for your squares */
+         .heatmap-item:nth-child(odd) {
+             background-color: lightblue;
+         }
+ 
+         .heatmap-item:nth-child(even) {
+             background-color: lightgreen;
+         }
+     </style>
+ </head>
+ <body>
+     <div class="heatmap-container">
+         <!-- Create your squares dynamically based on heatmap_data -->
+         {}
+     </div>
+ </body>
+ </html>
+ """
+ 
+ # Create a list of HTML for each square based on heatmap_data
+ square_html_list = []
+ for _, row in try_format.iterrows():
+     name = row['channel']
+     format = row['formats']
+     score = row['norm'] / 100
      color = get_color(score)
      text_color = get_text_color(color)
-    else:
-     continue
-
-    st.markdown(
-
-    # Create HTML for each square and append to the list
-     f"""
+ 
+     # Create HTML for each square and append to the list
+     square_html = f"""
      <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 14px; color: {text_color};">
          {name}<br>
          {format}
      </div>
-     """,
-     unsafe_allow_html=True
-    )
+     """
+     square_html_list.append(square_html)
+ 
+ # Combine the list of squares into the HTML code
+ 
+ final_html_code = html_code.replace('{}', '\n'.join(square_html_list), 1)
+ 
+ 
+ # Display the HTML content in the Streamlit app
+ st.components.v1.html(final_html_code)
     
 
 # Combine the list of squares into the HTML code
