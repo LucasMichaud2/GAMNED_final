@@ -975,11 +975,9 @@ else:
   heatmap7 = top_format.iloc[index7]
 
 try_format = top_format.head(6)
+try_format2 = top_format.iloc[6:12]
 
-with st.container():
-#Define a function to map scores to colors
-# Create a list of HTML for each square based on heatmap_data
- html_code = """
+html_code = """
  <!DOCTYPE html>
  <html lang="en">
  <head>
@@ -1039,6 +1037,11 @@ with st.container():
  </body>
  </html>
  """
+
+with st.container():
+#Define a function to map scores to colors
+# Create a list of HTML for each square based on heatmap_data
+ 
  
  # Create a list of HTML for each square based on heatmap_data
  square_html_list = []
@@ -1067,7 +1070,31 @@ with st.container():
  st.components.v1.html(final_html_code)
     
 
-# Combine the list of squares into the HTML code
+with st.container():
+ square_html_list = []
+ for _, row in try_format2.iterrows():
+     name = row['channel']
+     format = row['formats']
+     score = row['norm'] / 100
+     color = get_color(score)
+     text_color = get_text_color(color)
+ 
+     # Create HTML for each square and append to the list
+     square_html = f"""
+     <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 14px; color: {text_color};">
+         {name}<br>
+         {format}
+     </div>
+     """
+     square_html_list.append(square_html)
+ 
+ # Combine the list of squares into the HTML code
+ 
+ final_html_code = html_code.replace('{}', '\n'.join(square_html_list), 1)
+ 
+ 
+ # Display the HTML content in the Streamlit app
+ st.components.v1.html(final_html_code)
 
 
 
