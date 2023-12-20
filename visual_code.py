@@ -1053,6 +1053,10 @@ def create_square_html_list(data):
             {name}<br>
             {format}
         </div>
+        <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 14px; color: {text_color};">
+            {name}<br>
+            {format}
+        </div>
         """
         square_html_list.append(square_html)
     
