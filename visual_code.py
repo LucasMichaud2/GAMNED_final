@@ -1113,6 +1113,75 @@ with st.container():
 
 
 
+###############################
+
+with st.container():
+     st.markdown(
+         """
+         <style>
+         .heatmap-container {
+             display: flex;
+             flex-direction: column; /* Arrange squares vertically */
+         }
+ 
+         .heatmap-item {
+             width: 150px;
+             height: 75px;
+             margin-bottom: 10px; /* Add margin at the bottom of each square */
+             font-size: 12px;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             border-radius: 10px;
+             box-shadow: 5 0 10px rgba(0, 0, 0, 1.5), -5px -5px 15px 10px rgba(255, 255, 255, 0.8); 
+             transition: box-shadow 0.3s ease-in-out;
+             position: relative;
+             
+         }
+
+         .heatmap-item::before {
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0.7) inset, 0 0 8px rgba(0, 0, 0, 0.4) inset; /* Add an inset shadow for 3D effect */
+            border-radius: inherit; /* Inherit border radius from parent */
+        }
+         
+         .heatmap-item:hover {
+             box-shadow: 0 32px 64px rgba(0, 0, 0, 0.2);
+         }
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+ 
+     for index, row in heatmap1.iterrows():
+         name = row['channel']
+         format = row['formats']
+         score = row['norm'] / 100
+         if score >= 0:
+          color = get_color(score)
+          text_color = get_text_color(color)
+         else:
+          continue
+ 
+         # Use the 'st.markdown' to create colored boxes with shadows and labels
+         st.markdown(
+             f"""
+             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 14px; color: {text_color};">
+                 {name}<br>
+                 {format}
+             </div>
+             """,
+             unsafe_allow_html=True
+         )
+
+
+
+
 
 
 
