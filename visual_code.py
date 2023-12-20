@@ -1115,19 +1115,22 @@ with st.container():
 
 ###############################
 
+
+
 with st.container():
      st.markdown(
          """
          <style>
          .heatmap-container {
              display: flex;
-             flex-direction: column; /* Arrange squares vertically */
+             flex-direction: row; /* Arrange squares horizontally */
+             flex-wrap: wrap; /* Allow items to wrap to the next row if needed */
+             gap: 10px; /* Add gap between items */
          }
  
          .heatmap-item {
              width: 150px;
              height: 75px;
-             margin-bottom: 10px; /* Add margin at the bottom of each square */
              font-size: 12px;
              display: flex;
              align-items: center;
@@ -1136,7 +1139,6 @@ with st.container():
              box-shadow: 5 0 10px rgba(0, 0, 0, 1.5), -5px -5px 15px 10px rgba(255, 255, 255, 0.8); 
              transition: box-shadow 0.3s ease-in-out;
              position: relative;
-             
          }
 
          .heatmap-item::before {
@@ -1157,16 +1159,18 @@ with st.container():
          """,
          unsafe_allow_html=True
      )
+
+     st.markdown('<div class="heatmap-container">', unsafe_allow_html=True)
  
      for index, row in heatmap1.iterrows():
          name = row['channel']
          format = row['formats']
          score = row['norm'] / 100
          if score >= 0:
-          color = get_color(score)
-          text_color = get_text_color(color)
+             color = get_color(score)
+             text_color = get_text_color(color)
          else:
-          continue
+             continue
  
          # Use the 'st.markdown' to create colored boxes with shadows and labels
          st.markdown(
@@ -1175,13 +1179,12 @@ with st.container():
                  {name}<br>
                  {format}
              </div>
-             <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 14px; color: {text_color};">
-                 {name}<br>
-                 {format}
-             </div>
              """,
              unsafe_allow_html=True
          )
+    
+     st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 
