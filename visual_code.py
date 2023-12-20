@@ -993,7 +993,7 @@ html_code = """
          .heatmap-item {
              width: 150px;
              height: 75px;
-             margin: 0px -10px; /* Add margin around each square */
+             margin: -20px 10px; /* Add margin around each square */
              font-size: 12px;
              display: flex;
              align-items: center;
