@@ -1038,36 +1038,47 @@ html_code = """
  </html>
  """
 
-with st.container(border=True, height=300):
-#Define a function to map scores to colors
-# Create a list of HTML for each square based on heatmap_data
- 
- 
- # Create a list of HTML for each square based on heatmap_data
- square_html_list = []
- for _, row in try_format.iterrows():
-     name = row['channel']
-     format = row['formats']
-     score = row['norm'] / 100
-     color = get_color(score)
-     text_color = get_text_color(color)
- 
-     # Create HTML for each square and append to the list
-     square_html = f"""
-     <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 14px; color: {text_color};">
-         {name}<br>
-         {format}
-     </div>
-     """
-     square_html_list.append(square_html)
- 
- # Combine the list of squares into the HTML code
- 
- final_html_code = html_code.replace('{}', '\n'.join(square_html_list), 1)
- 
- 
- # Display the HTML content in the Streamlit app
- st.components.v1.html(final_html_code)
+def create_square_html_list(data):
+    square_html_list = []
+    for _, row in data.iterrows():
+        name = row['channel']
+        format = row['formats']
+        score = row['norm'] / 100
+        color = get_color(score)
+        text_color = get_text_color(color)
+    
+        # Create HTML for each square and append to the list
+        square_html = f"""
+        <div class="heatmap-item" style="background-color: {color}; text-align: center; font-size: 14px; color: {text_color};">
+            {name}<br>
+            {format}
+        </div>
+        """
+        square_html_list.append(square_html)
+    
+    return square_html_list
+
+
+# Create container for each dataframe with custom height and margins
+num_rows = max(len(try_format), len(try_format2))
+container_height = 100  # Adjust the container height as needed
+margin_between_containers = 10  # Adjust the margin between containers as needed
+
+for i in range(num_rows):
+    with st.container():
+        # Create HTML code for each row based on the corresponding dataframe
+        if i < len(try_format):
+            square_html_list = create_square_html_list(try_format.iloc[i:i+1])
+        else:
+            square_html_list = create_square_html_list(try_format2.iloc[i-len(try_format):i+1-len(try_format)])
+        
+        final_html_code = html_code.replace('{}', '\n'.join(square_html_list), 1)
+        
+        # Apply custom styles to the container
+        st.markdown(f'<style>.stContainer {{height: {container_height}px; margin-bottom: {margin_between_containers}px;}}</style>', unsafe_allow_html=True)
+        
+        # Display the HTML content in the Streamlit app
+        st.components.v1.html(final_html_code)
     
 
 with st.container():
