@@ -1061,8 +1061,8 @@ def create_square_html_list(data):
 
 # Create container for each dataframe with custom height and margins
 num_rows = max(len(try_format), len(try_format2))
-container_height = 100  # Adjust the container height as needed
-margin_between_containers = 10  # Adjust the margin between containers as needed
+container_height = 75  # Adjust the container height as needed
+margin_between_containers = 0  # Adjust the margin between containers as needed
 
 for i in range(num_rows):
     with st.container():
