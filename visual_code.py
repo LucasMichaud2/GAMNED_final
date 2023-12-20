@@ -1038,7 +1038,7 @@ html_code = """
  </html>
  """
 
-with st.container(border=True):
+with st.container(border=True, height=300):
 #Define a function to map scores to colors
 # Create a list of HTML for each square based on heatmap_data
  
