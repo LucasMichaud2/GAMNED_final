@@ -1016,7 +1016,7 @@ html_code = """
          }
  
          .heatmap-item:hover {
-             box-shadow: 0 32px 64px rgba(0, 0, 0, 0.2);
+             box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
          }
  
          /* Define different background colors for your squares */
