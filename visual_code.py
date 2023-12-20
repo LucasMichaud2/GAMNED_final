@@ -993,7 +993,7 @@ html_code = """
          .heatmap-item {
              width: 150px;
              height: 75px;
-             margin: -20px 10px; /* Add margin around each square */
+             margin: 0px 10px; /* Add margin around each square */
              font-size: 12px;
              display: flex;
              align-items: center;
@@ -1038,7 +1038,7 @@ html_code = """
  </html>
  """
 
-with st.container():
+with st.container(border=True):
 #Define a function to map scores to colors
 # Create a list of HTML for each square based on heatmap_data
  
